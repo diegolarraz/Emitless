@@ -1,0 +1,56 @@
+name,sub_category,category
+Chicken Breast,poultry,meat
+chicken thigh,poultry,meat
+chicken whole,poultry,meat
+pork sausages,pork,meat
+pork loin steak,pork,meat
+pork ribs,pork,meat
+lamb shank,red meat,meat
+ribeye steak,red meat,meat
+burgers,red meat,meat
+squid,mollusc,seafood
+mussels,mollusc,seafood
+octopus,mollusc,seafood
+prawns,Crustacean,seafood
+shrimp,Crustacean,seafood
+crab,Crustacean,seafood
+salmon,Fish,seafood
+trout,Fish,seafood
+plaice,Fish,seafood
+apple red,apples & pears,fruit
+"apple green,",apples & pears,fruit
+apple green,apples & pears,fruit
+pear,citrus,fruit
+lemon,citrus,fruit
+lime,citrus,fruit
+orange,stone,fruit
+peach,stone,fruit
+nectarine,stone,fruit
+apricot,berries,fruit
+strawberry,berries,fruit
+raspberries,berries,fruit
+blueberry,leaves,vegetable
+lettuce,leaves,vegetable
+spinach,leaves,vegetable
+rocket,cruciferous,vegetable
+cabbage,cruciferous,vegetable
+broccoli,cruciferous,vegetable
+cauliflower,root,vegetable
+potato,root,vegetable
+sweet potato,root,vegetable
+parsnip,allium,vegetable
+onion,allium,vegetable
+garlic,allium,vegetable
+shallot,rice,dried goods
+brown rice,rice,dried goods
+white rice,rice,dried goods
+risotto rice,pasta,dried goods
+spaghetti,pasta,dried goods
+rigatoni,pasta,dried goods
+macaroni,pulses,dried goods
+lentils,pulses,dried goods
+quinoa,pulses,dried goods
+chickpeas,baking,dried goods
+sugar,baking,dried goods
+flour,baking,dried goods
+salt,baking,dried goods
