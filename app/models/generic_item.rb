@@ -1,0 +1,2 @@
+class GenericItem < ApplicationRecord
+end
