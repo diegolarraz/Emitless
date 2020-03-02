@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
   get '/profile', to: 'pages#profile'
-  get '/profile/:exchange', to: 'pages#confirm?', as: 'confirm'
   devise_for :users
 
   resources :generic_items, only: [:show, :index]
