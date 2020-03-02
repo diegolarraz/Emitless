@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   resources :generic_items, only: [:show, :index]
   resources :items, only: [:show, :index]
-  resources :orders, only: [:edit, :update, :create, :new, :show]
+  resources :orders, only: [:edit, :update, :create, :new, :show, :index]
 
 end
