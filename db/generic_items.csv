@@ -1,56 +1,51 @@
-name,sub_category,category,image
-Chicken Breast,poultry,meat,https://www.pexels.com/photo/barbecue-bbq-beef-chicken-262945/
-chicken thigh,poultry,meat,https://www.pexels.com/photo/plate-of-rice-and-cooked-meat-1624487/
-chicken whole,poultry,meat,https://www.pexels.com/photo/calories-chicken-chopping-board-cooked-616353/
-pork sausages,pork,meat,https://www.pexels.com/photo/cooked-sausage-929137/
-pork loin steak,pork,meat,https://www.pexels.com/photo/asparagus-barbecue-cuisine-delicious-361184/
-pork ribs,pork,meat,https://unsplash.com/photos/kctt4tL1dkE
-lamb shank,red meat,meat,https://www.pexels.com/photo/close-up-of-meal-served-in-plate-323682/
-ribeye steak,red meat,meat,https://unsplash.com/photos/utTJUcvNXXo
-burgers,red meat,meat,https://www.pexels.com/photo/shallow-focus-photo-of-patties-on-grill-776314/
-squid,mollusc,seafood,https://unsplash.com/photos/4mNO6-oMBEA
-mussels,mollusc,seafood,https://unsplash.com/photos/AJCN8dyd_7w
-octopus,mollusc,seafood,https://unsplash.com/photos/eu-6lA-jqFk
-prawns,Crustacean,seafood,https://www.pexels.com/photo/three-cooked-shrimps-on-can-725992/
-shrimp,Crustacean,seafood,https://unsplash.com/photos/3cjbDO3QJJo
-crab,Crustacean,seafood,https://unsplash.com/photos/rXDCb-Bmgdg
-salmon,Fish,seafood,https://unsplash.com/photos/kC9KUtSiflw
-trout,Fish,seafood,https://unsplash.com/photos/QGIJUqnEpCY
-plaice,Fish,seafood,https://unsplash.com/photos/14HKCEgadoU
-apple red,apples & pears,fruit,https://www.pexels.com/photo/shallow-focus-photography-of-red-apple-on-gray-pavement-206959/
-"apple green,",apples & pears,fruit,https://www.pexels.com/photo/wet-green-apple-38068/
-apple green,apples & pears,fruit,https://unsplash.com/photos/GxSg5E7RKhE
-pear,citrus,fruit,https://unsplash.com/photos/y_spQMQTFjs
-lemon,citrus,fruit,https://unsplash.com/photos/huUI0y0ERMM
-lime,citrus,fruit,https://unsplash.com/photos/nibgG33H0F8
-orange,stone,fruit,https://unsplash.com/photos/oEaGiyEjQyY
-peach,stone,fruit,https://unsplash.com/photos/RYqO8DhPg68
-nectarine,stone,fruit,https://unsplash.com/photos/P_n9OZOcGrw
-apricot,berries,fruit,https://unsplash.com/photos/IeEFsajuORc
-strawberry,berries,fruit,https://unsplash.com/photos/t0A2NCMhXRQ
-raspberries,berries,fruit,https://unsplash.com/photos/eVQBXxeCre4
-blueberry,leaves,vegetable,https://unsplash.com/photos/mJHF7dlPeIo
-lettuce,leaves,vegetable,https://unsplash.com/photos/6AAptb2kBak
-spinach,leaves,vegetable,https://unsplash.com/photos/HKt2rnylHGI
-rocket,cruciferous,vegetable,https://unsplash.com/photos/_sOjQAx0bzI
-cabbage,cruciferous,vegetable,https://unsplash.com/photos/FZJO5-NFVzI
-broccoli,cruciferous,vegetable,https://unsplash.com/photos/zNsSGYXaeP8
-cauliflower,root,vegetable,https://unsplash.com/photos/B0s3Xndk6tw
-potato,root,vegetable,https://www.pexels.com/photo/sliced-orange-vegetable-on-white-paper-3233282/
-sweet potato,root,vegetable,https://unsplash.com/photos/Bt-T8tSfBkM
-parsnip,allium,vegetable,https://unsplash.com/photos/GrHWJVA1KTA
-onion,allium,vegetable,https://unsplash.com/photos/vIiye0QDryo
-garlic,allium,vegetable,https://unsplash.com/photos/TrpbyLfOG14
-shallot,rice,dried goods,https://unsplash.com/photos/zXNC_lBBVGE
-brown rice,rice,dried goods,https://unsplash.com/photos/qIPRTMulc-g
-white rice,rice,dried goods,https://unsplash.com/photos/qnrJoo2_4EQ
-risotto rice,pasta,dried goods,https://unsplash.com/photos/ycnyotoyk8o
-spaghetti,pasta,dried goods,https://unsplash.com/photos/7ld9_oZDdQs
-rigatoni,pasta,dried goods,https://unsplash.com/photos/H5_7HnbDftE
-macaroni,pulses,dried goods,https://unsplash.com/photos/mV_fzXhwiOg
-lentils,pulses,dried goods,https://unsplash.com/photos/3qjblmWiW98
-quinoa,pulses,dried goods,https://unsplash.com/photos/oKay0q7Pa30
-chickpeas,baking,dried goods,https://unsplash.com/photos/fGpO3NSFqtg
-sugar,baking,dried goods,https://unsplash.com/photos/4OfaTz6SdYs
-flour,baking,dried goods,
-salt,baking,dried goods,
+name,sub_category,category,image,quantity,unit
+Chicken Breast,poultry,meat,https://www.pexels.com/photo/barbecue-bbq-beef-chicken-262945/,250,g
+chicken thigh,poultry,meat,https://www.pexels.com/photo/plate-of-rice-and-cooked-meat-1624487/,250,g
+chicken whole,poultry,meat,https://www.pexels.com/photo/calories-chicken-chopping-board-cooked-616353/,1,each
+pork sausages,pork,meat,https://www.pexels.com/photo/cooked-sausage-929137/,450,g
+pork loin steak,pork,meat,https://www.pexels.com/photo/asparagus-barbecue-cuisine-delicious-361184/,200,g
+pork ribs,pork,meat,https://unsplash.com/photos/kctt4tL1dkE,150,g
+lamb chops,red meat,meat,https://www.pexels.com/photo/close-up-of-meal-served-in-plate-323682/,200,g
+ribeye steak,red meat,meat,https://unsplash.com/photos/utTJUcvNXXo,200,g
+burgers,red meat,meat,https://www.pexels.com/photo/shallow-focus-photo-of-patties-on-grill-776314/,4,each
+squid,mollusc,seafood,https://unsplash.com/photos/4mNO6-oMBEA,300,g
+mussels,mollusc,seafood,https://unsplash.com/photos/AJCN8dyd_7w,150,g
+prawns,Crustacean,seafood,https://www.pexels.com/photo/three-cooked-shrimps-on-can-725992/,200,g
+crab,Crustacean,seafood,https://unsplash.com/photos/rXDCb-Bmgdg,100,g
+salmon,Fish,seafood,https://unsplash.com/photos/kC9KUtSiflw,130,g
+trout,Fish,seafood,https://unsplash.com/photos/QGIJUqnEpCY,130,g
+plaice,Fish,seafood,https://unsplash.com/photos/14HKCEgadoU,140,g
+apple red,apples & pears,fruit,https://www.pexels.com/photo/shallow-focus-photography-of-red-apple-on-gray-pavement-206959/,1,each
+apple green,apples & pears,fruit,https://www.pexels.com/photo/wet-green-apple-38068/,1,each
+pear,apples & pears,fruit,https://unsplash.com/photos/GxSg5E7RKhE,1,each
+lemon,citrus,fruit,https://unsplash.com/photos/y_spQMQTFjs,1,each
+lime,citrus,fruit,https://unsplash.com/photos/huUI0y0ERMM,1,each
+orange,citrus,fruit,https://unsplash.com/photos/nibgG33H0F8,1,each
+peach,stone,fruit,https://unsplash.com/photos/oEaGiyEjQyY,4,each
+nectarine,stone,fruit,https://unsplash.com/photos/RYqO8DhPg68,4,each
+strawberry,berries,fruit,https://unsplash.com/photos/IeEFsajuORc,200,g
+rasperries,berries,fruit,https://unsplash.com/photos/t0A2NCMhXRQ,150,g
+blueberry,berries,fruit,https://unsplash.com/photos/eVQBXxeCre4,150,g
+lettuce,leaves,vegetable,https://unsplash.com/photos/mJHF7dlPeIo,1,each
+spinach,leaves,vegetable,https://unsplash.com/photos/6AAptb2kBak,125,g
+rocket,leaves,vegetable,https://unsplash.com/photos/HKt2rnylHGI,60,g
+cabbage,cruciferous,vegetable,https://unsplash.com/photos/_sOjQAx0bzI,1,each
+broccoli,cruciferous,vegetable,https://unsplash.com/photos/FZJO5-NFVzI,200,g
+cauliflower,cruciferous,vegetable,https://unsplash.com/photos/zNsSGYXaeP8,1,each
+potato,root,vegetable,https://unsplash.com/photos/B0s3Xndk6tw,500,g
+sweet potato,root,vegetable,https://www.pexels.com/photo/sliced-orange-vegetable-on-white-paper-3233282/,1,each
+parsnip,root,vegetable,https://unsplash.com/photos/Bt-T8tSfBkM,250,g
+onion,allium,vegetable,https://unsplash.com/photos/GrHWJVA1KTA,1,each
+garlic,allium,vegetable,https://unsplash.com/photos/vIiye0QDryo,1,each
+shallot,allium,vegetable,https://unsplash.com/photos/TrpbyLfOG14,300,g
+white rice,rice,dried goods,https://unsplash.com/photos/zXNC_lBBVGE,500,g
+risotto rice,rice,dried goods,https://unsplash.com/photos/qIPRTMulc-g,500,g
+spaghetti,pasta,dried goods,https://unsplash.com/photos/qnrJoo2_4EQ,500,g
+penne,pasta,dried goods,https://unsplash.com/photos/ycnyotoyk8o,500,g
+macaroni,pasta,dried goods,https://unsplash.com/photos/7ld9_oZDdQs,500,g
+lentils,pulses,dried goods,https://unsplash.com/photos/H5_7HnbDftE,500,g
+quinoa,pulses,dried goods,https://unsplash.com/photos/mV_fzXhwiOg,300,g
+chickpeas,pulses,dried goods,https://unsplash.com/photos/3qjblmWiW98,500,g
+sugar,baking,dried goods,https://unsplash.com/photos/oKay0q7Pa30,500,g
+flour,baking,dried goods,https://unsplash.com/photos/fGpO3NSFqtg,500,g
+salt,baking,dried goods,https://unsplash.com/photos/4OfaTz6SdYs,100,g
