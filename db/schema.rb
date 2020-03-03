@@ -10,49 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_161038) do
+ActiveRecord::Schema.define(version: 2020_03_03_163227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "generic_items", force: :cascade do |t|
-    t.string "name"
-    t.string "image"
-    t.boolean "in_season", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "category"
-    t.string "sub_category"
-    t.string "unit"
-    t.integer "quantity"
-  end
-
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.bigint "generic_item_id", null: false
     t.float "price"
     t.float "emission"
     t.string "quantity"
     t.string "retailer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["generic_item_id"], name: "index_items_on_generic_item_id"
-  end
-
-  create_table "order_items", force: :cascade do |t|
-    t.bigint "item_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "order_id"
-    t.index ["item_id"], name: "index_order_items_on_item_id"
-    t.index ["order_id"], name: "index_order_items_on_order_id"
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_orders_on_user_id"
+    t.string "generic_name"
+    t.integer "generic_quantity"
+    t.string "generic_unit"
+    t.string "category"
+    t.string "sub_category"
+    t.boolean "seasonal", default: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,11 +42,21 @@ ActiveRecord::Schema.define(version: 2020_03_02_161038) do
     t.string "first_name"
     t.string "last_name"
     t.string "location"
+    t.integer "total_emissions", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "items", "generic_items"
-  add_foreign_key "order_items", "items"
-  add_foreign_key "orders", "users"
+  create_table "wish_list_items", force: :cascade do |t|
+    t.integer "amount"
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_wish_list_items_on_item_id"
+    t.index ["user_id"], name: "index_wish_list_items_on_user_id"
+  end
+
+  add_foreign_key "wish_list_items", "items"
+  add_foreign_key "wish_list_items", "users"
 end
