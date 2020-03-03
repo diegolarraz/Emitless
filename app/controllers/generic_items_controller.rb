@@ -6,6 +6,7 @@ class GenericItemsController < ApplicationController
   end
 
   def index
+    @order = Order.new
     if params[:query].present?
       @generic_items = GenericItem.where(name: params[:query])
       @generic_items = category_sorter(@generic_items) if params[:category].present?

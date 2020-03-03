@@ -7,10 +7,6 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
-  def new
-    @oder = Order.new
-  end
-
   def create
     @order = Order.new(order_params)
     if @order.save
@@ -37,6 +33,5 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-
   end
 end
