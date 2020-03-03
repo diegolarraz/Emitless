@@ -1,11 +1,11 @@
 
 <div class="col-3 mb-4">
   <div class="card">
-    <img src="https://images.pexels.com/photos/262945/pexels-photo-262945.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" class="card-img-top" alt="...">
+    <img src=<%= item.image %> class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title"><%= item.name %></h5>
         <form action="/order_item">
-          <input type="submit" class="btn btn-success btn-sm" value="Add to order">
+          <input type="submit" class="btn btn-primary btn-sm" value="Add to order">
           <select name="" id="">
             <option value="200g">200g</option>
           </select>
