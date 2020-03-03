@@ -1,1 +1,11 @@
-Page for cards
+<div class="container">
+  <div class="row">
+    <% @generic_items.each do |item| %>
+      <%= render 'shared/components/cards', item: item %>
+    <% end %>
+
+  </div>
+</div>
+
+
+
