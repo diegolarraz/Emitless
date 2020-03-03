@@ -7,7 +7,8 @@
 #green-div {
   // background: linear-gradient(113deg, rgba(0,180,149,1) 0%, rgba(27,197,179,1) 70%);
   color: white;
-  text-align: center;
+  text-align: left;
+  padding-left: 80px;
   width: 50vw;
   height: 60vh;
   display: table;
@@ -24,7 +25,7 @@
   font-family: $headers-font;
   font-size: 16px;
   margin: 0 auto;
-  padding: 18px 0;
+  padding: 12px 0;
 }
 
 .image-div {
