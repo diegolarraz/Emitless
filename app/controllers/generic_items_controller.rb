@@ -1,9 +1,13 @@
 class GenericItemsController < ApplicationController
+
+  skip_before_action :authenticate_user!, only: [:show, :index]
+
   def category_sorter(array)
     array.select do |item|
       item.category.downcase == params[:category].downcase
     end
   end
+
 
   def index
     @order = Order.new
