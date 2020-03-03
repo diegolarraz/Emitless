@@ -1,6 +1,10 @@
 class GenericItemsController < ApplicationController
   def index
-    @generic_items = GenericItem.all
+    if params[:query].present?
+      @generic_items = GenericItem.where(name: params[:query])
+    else
+      @generic_items = GenericItem.all
+    end
   end
 
   def show

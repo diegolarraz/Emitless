@@ -1,1 +1,17 @@
-Page for cards
+<h1>This ma Index sir</h1>
+<br>
+<%= form_tag generic_items_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find an item"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+<br>
+<ul>
+  <% @generic_items.each do |item| %>
+    <li><%= item.name %></li>
+  <% end %>
+</ul>
+
