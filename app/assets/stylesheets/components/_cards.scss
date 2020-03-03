@@ -2,22 +2,64 @@
 
 .card-title {
   color: black;
-  padding: 16px 16px 4px 16px;
-  display: flex;
-  justify-content: space-between;
+  padding: 7px 0;
   align-items: flex-end;
   position: relative;
   text-align: center;
-
+  display: flex;
+  justify-content: center;
 }
 
-.btn {
-  margin-bottom: 25px;
+.add-to-order {
   display: block;
   margin: 0 auto;
+  margin-bottom: 10px;
 
 }
 
+.card-img-top {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+.dropdown-styling {
+  display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.category {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: 0.4s;
+  line-height: 20px;
+  margin: 30px 50px 30px 50px;
+
+
+
+}
+
+.category:hover {
+    background-color: #04AD8A;
+}
+
+.form-control {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  height: calc(1.5em + 0.75rem + 2px);
+  line-height: 1.5;
+  box-sizing: border-box;
+
+}
+
+.full-search-bar {
+  display:flex;
+}
 
 
 // .card-index > img {

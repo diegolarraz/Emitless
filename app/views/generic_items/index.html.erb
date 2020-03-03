@@ -1,4 +1,4 @@
-<%= form_tag generic_items_path, method: :get do %>
+<%= form_tag generic_items_path, method: :get, class:"full-search-bar" do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
@@ -6,14 +6,15 @@
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
-<%= link_to "All", generic_items_path(category: ""), method: :get, class: "btn btn-primary" %>
-<%= link_to "Meat", generic_items_path(category: "meat"), method: :get, class: "btn btn-primary" %>
-<%= link_to "Seafood", generic_items_path(category: "seafood"), method: :get, class: "btn btn-primary" %>
-<%= link_to "Fruits", generic_items_path(category: "fruit"), method: :get, class: "btn btn-primary" %>
-<%= link_to "Vegetables", generic_items_path(category: "vegetable"), method: :get, class: "btn btn-primary" %>
-<%= link_to "Dried Goods", generic_items_path(category: "dried goods"), method: :get, class: "btn btn-primary" %>
+<div class="container">
+<%= link_to "All", generic_items_path(category: ""), method: :get, class: "category btn-primary" %>
+<%= link_to "Meat", generic_items_path(category: "meat"), method: :get, class: "category btn-primary" %>
+<%= link_to "Seafood", generic_items_path(category: "seafood"), method: :get, class: "category btn-primary" %>
+<%= link_to "Fruits", generic_items_path(category: "fruit"), method: :get, class: "category btn-primary" %>
+<%= link_to "Vegetables", generic_items_path(category: "vegetable"), method: :get, class: "category btn-primary" %>
+<%= link_to "Dried Goods", generic_items_path(category: "dried goods"), method: :get, class: "category btn-primary" %>
 
-
+</div>
 <div class="container">
   <div class="row">
     <% @generic_items.each do |item| %>
@@ -22,6 +23,7 @@
 
   </div>
 </div>
+
 
 <ul>
   <% @generic_items.each do |item| %>
@@ -34,3 +36,4 @@
     </li>
   <% end %>
 </ul>
+
