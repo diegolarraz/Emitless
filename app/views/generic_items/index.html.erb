@@ -13,6 +13,7 @@
 <%= link_to "Vegetables", generic_items_path(category: "vegetable"), method: :get, class: "btn btn-primary" %>
 <%= link_to "Dried Goods", generic_items_path(category: "dried goods"), method: :get, class: "btn btn-primary" %>
 
+
 <div class="container">
   <div class="row">
     <% @generic_items.each do |item| %>
@@ -22,5 +23,14 @@
   </div>
 </div>
 
-
-
+<ul>
+  <% @generic_items.each do |item| %>
+    <li>
+      <%= item.name %>
+      <%= simple_form_for [@order_item, item] do |f| %>
+        <%= f.input :quantity, collection: [item.quantity, item.quantity * 2, item.quantity * 3] %>
+        <%= f.submit "Add To Basket", class: "btn btn-primary", render: '/index' %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
