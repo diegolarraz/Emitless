@@ -1,2 +1,22 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home-container">
+
+  <div id="green-div" style="background-image: url(<%= image_path('greenbg.png') %>);">
+    <div class="green-div-content">
+      <p id="catch-sentence">Lowering emissions, one purchase at a time.</p>
+      <%= form_tag generic_items_path, method: :get ,class: "search-bar" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          id: "home-search-field",
+          placeholder: "enter your postcode"
+        %>
+        <%= submit_tag "Begin", id: "home-begin-btn" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="image-div">
+
+
+  </div>
+</div>
+
