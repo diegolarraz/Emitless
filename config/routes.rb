@@ -3,8 +3,5 @@ Rails.application.routes.draw do
   get '/profile', to: 'pages#profile'
   devise_for :users
 
-  resources :generic_items, only: [:show, :index]
-  resources :items, only: [:show, :index]
-  resources :orders, only: [:edit, :update, :create, :new, :show, :index]
-
+  resources :items, only: [:index]
 end

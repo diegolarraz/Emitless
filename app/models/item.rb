@@ -3,8 +3,7 @@ class Item < ApplicationRecord
 
   RETAILERS = %w[Tesco Asda Ocado]
 
-  validates :name, presence: true, uniqueness: true
-  validates :price, presence: true
+  validates :name, uniqueness: true
   validates :generic_name, presence: true
   validates :retailer, inclusion: { in: RETAILERS }
 end
