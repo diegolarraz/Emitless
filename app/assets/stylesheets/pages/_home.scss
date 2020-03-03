@@ -1,1 +1,68 @@
 // Specific CSS for your home-page
+.home-container {
+  display: flex;
+  background-color: #f8f8f9;
+}
+
+#green-div {
+  // background: linear-gradient(113deg, rgba(0,180,149,1) 0%, rgba(27,197,179,1) 70%);
+  color: white;
+  text-align: left;
+  padding-left: 80px;
+  width: 50vw;
+  height: 60vh;
+  display: table;
+  background-size: cover;
+  background-position: bottom right;
+}
+
+.green-div-content {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#catch-sentence {
+  font-family: $headers-font;
+  font-size: 16px;
+  margin: 0 auto;
+  padding: 12px 0;
+}
+
+.image-div {
+  background-image: url('home-img.jpeg');
+  background-size: cover;
+  background-color: #f6f6f8;
+  background-repeat: no-repeat;
+  background-position: top 10px right;
+  height: 100vh;
+  width: 50vw;
+}
+
+.search-bar {
+  margin: 0 auto;
+  padding: 18px 0;
+}
+
+#home-search-field {
+  background: rgba(0, 180, 149, 0.8);
+  border: 1.1px solid white;
+  border-radius: 6px;  color: white;
+  padding: 2px 6px;
+  text-align: center;
+  &::placeholder {
+    color: white;
+    font-family: $headers-font;
+    font-size: 15px;
+  }
+}
+
+#home-begin-btn {
+  background: none;
+  border-radius: 5px;
+  background-color: white;
+  opacity: 95%;
+  padding: 2px 6px;
+  color: $main-green;
+  font-family: $headers-font;
+  font-weight: bold;
+}
