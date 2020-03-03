@@ -1,0 +1,38 @@
+<%= form_tag items_path, method: :get, class:"full-search-bar" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find an item"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+<div class="container">
+<%= link_to "All", items_path(category: ""), method: :get, class: "category btn-primary" %>
+<%= link_to "Meat", items_path(category: "meat"), method: :get, class: "category btn-primary" %>
+<%= link_to "Seafood", items_path(category: "seafood"), method: :get, class: "category btn-primary" %>
+<%= link_to "Fruits", items_path(category: "fruit"), method: :get, class: "category btn-primary" %>
+<%= link_to "Vegetables", items_path(category: "vegetable"), method: :get, class: "category btn-primary" %>
+<%= link_to "Dried Goods", items_path(category: "dried goods"), method: :get, class: "category btn-primary" %>
+
+</div>
+<div class="container">
+  <div class="row">
+    <% @items.each do |item| %>
+      <%= render 'shared/components/cards', item: item %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<ul>
+  <% @items.each do |item| %>
+    <li>
+      <%= item.name %>
+      <%= simple_form_for [item] do |f| %>
+        <%= f.input :quantity, collection: [item.quantity, item.quantity * 2, item.quantity * 3] %>
+        <%= f.submit "Add To Basket", class: "btn btn-primary", render: '/index' %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
