@@ -17,12 +17,17 @@
 
 }
 
-.card-img-top {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
+.card img {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
+.card-img-top {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+
+}
 
 .dropdown-styling {
   display: flex;
@@ -30,17 +35,25 @@
     margin: auto;
 }
 
-.category {
-  display: inline-block;
-  padding: 7px 20px;
-  border-radius: 25px;
-  text-decoration: none;
-  transition: 0.4s;
-  line-height: 20px;
-  margin: 30px 50px 30px 50px;
+.card {
+  border-radius: 8px;
+  box-shadow: 4px 4px 4px 0.6px rgba(0,0,1,0.04);
+  border: none;
 
+  .add-btn i {
+    color: rgba(255,255,255,0)
 
+  }
 
+}
+.card:hover {
+
+    transform: scale(1.05);
+    transition: 0.2s;
+
+    .add-btn i {
+      color: #F3D84B;
+    }
 }
 
 .category:hover {
@@ -61,63 +74,21 @@
   display:flex;
 }
 
-.search-bar {
- margin: 0 auto;
+button {
+  background-color: Transparent !important;
+  background-repeat:no-repeat !important;
+  border: none !important;
+  overflow: hidden;
+    position: absolute;
+    right: 14px;
+    bottom: 15px;
+
 }
 
-// .card-index > img {
-//   height: 200px;
-//   width: 100%;
-//   object-fit: cover;
-// }
-
-// .card-holder :hover {
-//   img {
-//     transform: scale(1.05);
-//     transition: 0.2s;
-//   }
-//   h2 {
-//     opacity: 1;
-//   }
-//   p {
-//     opacity: 1;
-//   }
-// }
-
-// .card-index h2 {
-//   font-size: 16px;
-//   font-weight: bold;
-//   margin: 0;
-//   opacity: .7;
-// }
-
-// .card-index p {
-//   font-size: 12px;
-//   opacity: .7;
-//   margin: 0;
-// }
-
-// .card-index-user {
-//   padding-left: 8px;
-// }
-
-// .card-index-info-top {
-//   color: black;
-//   padding: 16px 16px 4px 16px;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: flex-end;
-//   position: relative;
-// }
-
-// .card-index-info-bottom {
-//   color: black;
-//   padding: 4px 16px 16px 16px;
-//   display: flex;
-//   align-items: flex-end;
-//   justify-content: space-between;
-//   position: relative;
-// }
-
+.dropdown-styling {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 
 
