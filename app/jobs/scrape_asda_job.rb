@@ -1,5 +1,9 @@
-class ScrapeItemsJob < ApplicationJob
+class ScrapeAsdaJob < ApplicationJob
   queue_as :default
+  require 'open-uri'
+  require 'nokogiri'
+  require 'csv'
+
   require 'open-uri'
   require 'nokogiri'
   require 'csv'
@@ -12,7 +16,7 @@ class ScrapeItemsJob < ApplicationJob
       data << row.to_hash
     end
     data.each do |item|
-      url = "https://groceries.morrisons.com/search?entry=#{item[:name.to_s]}"
+      url = "https://www.ocado.com/search?entry=#{item[:name.to_s]}"
       # https://groceries.morrisons.com/search?entry=chcken%20breast
       html_file = open(url).read
       html_doc = Nokogiri::HTML(html_file)
