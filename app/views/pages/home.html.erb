@@ -3,7 +3,7 @@
   <div id="green-div" style="background-image: url(<%= image_path('greenbg.png') %>);">
     <div class="green-div-content">
       <p id="catch-sentence">Lowering emissions, one purchase at a time.</p>
-      <%= form_tag generic_items_path, method: :get ,class: "search-bar" do %>
+      <%= form_tag items_path, method: :get ,class: "search-bar" do %>
         <%= text_field_tag :query,
           params[:query],
           id: "home-search-field",
@@ -19,4 +19,3 @@
 
   </div>
 </div>
-
