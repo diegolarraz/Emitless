@@ -1,30 +1,23 @@
 .icon-baskt {
-  position: absolute;
-  left: 206px;
-  top: 72px;
   color: white;
   font-size: 40px;
 }
 
 .basket {
+  background-color: $primary;
   position: sticky;
-  top: 0;
+  top: 4px;
   height: 90vh;
-  width: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 8px;
 }
 
 .yr-baskt {
-  position: absolute;
-  left: 145px;
-  top: 150px;
   color: white;
-  margin: 0;
-}
-
-.button-basket {
-  position: absolute;
-  left: 145px;
-  top: 150px;
+  padding-top: 8px;
 }
 
 .wish-item {
@@ -32,16 +25,20 @@
   margin-bottom: 16px;
 }
 
-.wish-items {
-  position: absolute;
-  bottom: 550px;
-  left: 60px;
-}
 
 .compare-button {
-  position: absolute;
   background-color: rgba(255, 255, 255, .50);
   width: 220px;
-  right: 120px;
-  top: 820px;
+}
+
+.basket {
+  img {
+    width: 300px;
+  }
+}
+.top-bskt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

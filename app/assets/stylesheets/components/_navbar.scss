@@ -18,12 +18,13 @@
   transition: 0.3s;
   &:hover {
     color: #005244 !important;
+    transform: scale(1.1);
     text-decoration: none;
   }
 }
 
 .white-text {
-  color: white;
+  color: #005244;
 }
 
 .nav-item {
