@@ -8,10 +8,10 @@ class ItemsController < ApplicationController
 
   def index
     if params[:query].present?
-      @items = Item.where(name: params[:query])
+      @items = Item.where(name: params[:query], retailer: "Tesco")
       @items = category_sorter(@items) if params[:category].present?
     else
-      @items = Item.all
+      @items = Item.where(retailer: "Tesco")
       @items = category_sorter(@items) if params[:category].present?
     end
 
