@@ -1,4 +1,24 @@
 // Specific CSS for your home-page
+#emitless-home {
+  position: absolute;
+  top: 16px;
+  left: 60px;
+  color: white;
+}
+
+#login-btn-home {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  font-size: 20px;
+  color: $main-green;
+  transition: 0.3s;
+  &:hover {
+    color: #005244 !important;
+    text-decoration: none;
+  }
+}
+
 .home-container {
   display: flex;
   justify-content: center;
@@ -13,9 +33,9 @@
   // background: linear-gradient(113deg, rgba(0,180,149,1) 0%, rgba(27,197,179,1) 70%);
   color: white;
   text-align: left;
-  padding-left: 80px;
+  padding-left: 60px;
   width: 100%;
-  height: 65vh;
+  height: 60vh;
   display: table;
   background-size: cover;
   background-position: bottom right;
@@ -26,9 +46,10 @@
   vertical-align: middle;
 }
 
+
 #catch-sentence {
   font-family: $headers-font;
-  font-size: 16px;
+  font-size: 20px;
   margin: 0 auto;
   padding: 12px 0;
 }
@@ -52,12 +73,12 @@
   background: rgba(0, 180, 149, 0.8);
   border: 1.1px solid white;
   border-radius: 6px;  color: white;
-  padding: 2px 6px;
+  padding: 3px 6px;
   text-align: center;
   &::placeholder {
     color: white;
     font-family: $headers-font;
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 
@@ -66,7 +87,7 @@
   border-radius: 5px;
   background-color: white;
   opacity: 95%;
-  padding: 2px 6px;
+  padding: 3px 6px;
   color: $main-green;
   font-family: $headers-font;
   font-weight: bold;
@@ -77,15 +98,30 @@
   justify-content: space-around;
   align-items: center;
   height: 40vh;
+  position: relative;
 }
 
 .how-to-cards {
-  width: 100%;
+  width: 110%;
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  // position: absolute;
-  // bottom: 30px;
-  // right: 70px;
+  align-items: flex-end;
+  position: absolute;
+  left: 65px;
   // background-color: #f8f8f9;
+}
+
+.how-to-card {
+  text-align: center;
+  width: 28%;
+  height: 80%;
+}
+
+.svg-home {
+  width: 70%;
+  padding-bottom: 23px;
+}
+
+.green-text {
+  color: $main-green;
 }
