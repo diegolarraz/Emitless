@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  has_many :wish_list_items
+  has_many :wish_list_items, dependent: :destroy
 
   RETAILERS = %w[Tesco Ocado Morrisons]
 

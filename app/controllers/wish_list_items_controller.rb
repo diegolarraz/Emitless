@@ -12,25 +12,27 @@ class WishListItemsController < ApplicationController
 
   def index
     @wish_list_items = WishListItem.all
-    all_item_instances = []
+    all_item_instances = {}
 
     @wish_list_items.each do |wish_item|
-      all_item_instances << Item.where(generic_name: wish_item.item.generic_name)
+      all_item_instances[wish_item] = Item.where(generic_name: wish_item.item.generic_name)
     end
 
-    @tesco_items = []
-    @morrisons_items = []
-    @ocado_items = []
+    @items = {
+      tesco_items: [],
+      morrisons_items: [],
+      ocado_items: []
+    }
 
     all_item_instances.each do |item_arrays|
       item_arrays.each do |item_instance|
         case item_instance.retailer
         when "Tesco"
-          @tesco_items << item_instance
+          @items[tesco_items] << item_instance
         when "Morrisons"
-          @morrisons_items << item_instance
+          @items[morrisons_items] << item_instance
         when "Ocado"
-          @ocado_items << item_instance
+          @items[ocado_items] << item_instance
         end
       end
     end

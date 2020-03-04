@@ -7,7 +7,6 @@ class ItemsController < ApplicationController
   end
 
   def index
-
     if params[:query].present?
       @items = Item.where("generic_name ILIKE ?", "%#{params[:query]}%").uniq(&:generic_name)
       @items = category_sorter(@items) if params[:category].present?
@@ -15,7 +14,6 @@ class ItemsController < ApplicationController
       @items = Item.all.uniq(&:generic_name)
       @items = category_sorter(@items) if params[:category].present?
     end
-
   end
 
   def show
