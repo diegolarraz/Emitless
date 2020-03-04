@@ -11,35 +11,41 @@
   <% end %>
 </div>
 <div class="container">
-  <%= link_to "All", items_path(category: ""), method: :get, class: "category btn-primary" %>
-  <%= link_to "Meat", items_path(category: "meat"), method: :get, class: "category btn-primary" %>
-  <%= link_to "Seafood", items_path(category: "seafood"), method: :get, class: "category btn-primary" %>
-  <%= link_to "Fruits", items_path(category: "fruit"), method: :get, class: "category btn-primary" %>
-  <%= link_to "Vegetables", items_path(category: "vegetable"), method: :get, class: "category btn-primary" %>
-  <%= link_to "Dried Goods", items_path(category: "dried goods"), method: :get, class: "category btn-primary" %>
-
-</div>
-
-<div class="container">
   <div class="row">
-    <% @items.each do |item| %>
-      <%= render 'shared/components/cards', item: item %>
-    <% end %>
-
+    <%= link_to "All", items_path(category: ""), method: :get, class: "category btn-primary" %>
+    <%= link_to "Meat", items_path(category: "meat"), method: :get, class: "category btn-primary" %>
+    <%= link_to "Seafood", items_path(category: "seafood"), method: :get, class: "category btn-primary" %>
+    <%= link_to "Fruits", items_path(category: "fruit"), method: :get, class: "category btn-primary" %>
+    <%= link_to "Vegetables", items_path(category: "vegetable"), method: :get, class: "category btn-primary" %>
+    <%= link_to "Dried Goods", items_path(category: "dried goods"), method: :get, class: "category btn-primary" %>
   </div>
 </div>
 
-
-<ul>
-  <% @items.each do |item| %>
-    <li>
-      <%= item.name %>
-      <%= simple_form_for [item] do |f| %>
-        <%= f.input :quantity, collection: [item.quantity, item.quantity * 2, item.quantity * 3] %>
-        <%= f.submit "Add To Basket", class: "btn btn-primary", render: '/index' %>
+<div class="container d-flex">
+  <div class="row col-9">
+      <% @items.each do |item| %>
+        <%= render 'shared/components/cards', item: item %>
       <% end %>
-    </li>
-  <% end %>
-</ul>
+  </div>
+  <div class="col-3">
+    <div class="basket p-3">
+      <svg width="425" height="889" viewBox="0 0 425 889" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M189.717 95.0028L51.1824 95.1154C51.1824 95.1154 101.81 91.2912 130.268 51.8109C158.727 12.3307 189.803 23.4788 189.803 23.4788L189.717 95.0028Z" fill="#00B495"/>
+      <rect y="90" width="425" height="799" rx="8" fill="#00B495"/>
+      <rect x="184" width="56" height="183" rx="28" fill="#00B495"/>
+      <path d="M234.265 95.0028L372.8 95.1154C372.8 95.1154 322.173 91.2912 293.714 51.8109C265.256 12.3307 234.179 23.4788 234.179 23.4788L234.265 95.0028Z" fill="#00B495"/>
+      </svg>
+      <i class="fas fa-shopping-basket icon-baskt"></i>
+      <h2 class="yr-baskt">Your Basket</h2>
+      <div class="wish-items">
+        <!-- here goes the iteration for the wish list items -->
+        <% current_user.wish_list_items.each do |wish_item| %>
+          <p class="wish-item"><%= wish_item.item.generic_name.capitalize %> <%= wish_item.item.generic_quantity * wish_item.amount %> <%= wish_item.item.generic_unit %></p>
+        <% end %>
+      </div>
+        <%= link_to "Compare Results", wish_list_items_path, class: "btn btn-primary compare-button" %>
+      </div>
+    </div>
+</div>
 
 

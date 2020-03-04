@@ -3,14 +3,20 @@
   <div class="card">
     <img src="<%= item.image %>" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title"><%= item.name %></h5>
-        <form action="/order_item">
+      <h5 class="card-title"><%= item.generic_name.capitalize %></h5>
+        <form action="/wish_list_items" method="POST">
+          <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
           <input type="submit" class="add-to-order btn-primary btn-sm" value="Add to order">
-          <select name="" id="" class="dropdown-styling">
-            <option value="200g">200g</option>
-            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <input type="hidden" name="wish_list_item[item]" value="<%= item.id %>">
+          <select name="wish_list_item[amount]" class="dropdown-styling">
+            <option value=1><%= item.generic_quantity %> <%= item.generic_unit %></option>
+            <option value=2><%= item.generic_quantity * 2 %> <%= item.generic_unit %></option>
+            <option value=3><%= item.generic_quantity * 3 %> <%= item.generic_unit %></option>
+            <option value=4><%= item.generic_quantity * 4 %> <%= item.generic_unit %></option>
+            <option value=5><%= item.generic_quantity * 5 %> <%= item.generic_unit %></option>
+<!--             <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Action
-            </button>
+            </button> -->
           </select>
         </form>
     </div>
