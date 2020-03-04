@@ -6,15 +6,15 @@ namespace :item do
     puts "Items deleted"
     sleep(1)
     puts "Seeding new items from Tesco."
-    ApiItemsJob.perform_later
+    ApiItemsJob.perform_now
     puts "150 items created for Tesco."
     sleep(1)
     puts "Seeding new items from Morrisons"
-    ScrapeItemsJob.perform_later
+    ScrapeItemsJob.perform_now
     puts "150 items created for Morrisons."
     sleep(1)
     puts "Seeding new items from Ocado"
-    ScrapeAsdaJob.perform_later
+    ScrapeAsdaJob.perform_now
     puts "150 items created for Ocado."
     sleep(1)
     puts "450 items added to database"
