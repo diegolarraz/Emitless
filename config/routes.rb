@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :items, only: [:index, :show]
+  resources :wish_list_items, only: [:index, :show, :create]
 end

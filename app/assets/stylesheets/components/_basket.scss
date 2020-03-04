@@ -1,0 +1,47 @@
+.icon-baskt {
+  position: absolute;
+  left: 206px;
+  top: 72px;
+  color: white;
+  font-size: 40px;
+}
+
+.basket {
+  position: sticky;
+  top: 0;
+  height: 90vh;
+  width: 90%;
+}
+
+.yr-baskt {
+  position: absolute;
+  left: 145px;
+  top: 150px;
+  color: white;
+  margin: 0;
+}
+
+.button-basket {
+  position: absolute;
+  left: 145px;
+  top: 150px;
+}
+
+.wish-item {
+  color: white;
+  margin-bottom: 16px;
+}
+
+.wish-items {
+  position: absolute;
+  bottom: 550px;
+  left: 60px;
+}
+
+.compare-button {
+  position: absolute;
+  background-color: rgba(255, 255, 255, .50);
+  width: 220px;
+  right: 120px;
+  top: 820px;
+}
