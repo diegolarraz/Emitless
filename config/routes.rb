@@ -5,4 +5,9 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :show]
   resources :wish_list_items, only: [:index, :show, :create]
+
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end
