@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   has_many :wish_list_items
 
-  RETAILERS = %w[Tesco Asda Ocado]
+  RETAILERS = %w[Tesco Ocado Morrisons]
 
   validates :name, uniqueness: true
   validates :generic_name, presence: true
