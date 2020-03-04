@@ -4,7 +4,7 @@ class ScrapeItemsJob < ApplicationJob
   require 'nokogiri'
   require 'csv'
 
-  def perform(retailer)
+  def perform
     csv_text = File.read(Rails.root.join('db', 'generic_items.csv'))
     csv = CSV.parse(csv_text, :headers => true)
     data = []
@@ -12,8 +12,7 @@ class ScrapeItemsJob < ApplicationJob
       data << row.to_hash
     end
     data.each do |item|
-      if retailer.downcase == "morrisons"
-        url = "https://groceries.morrisons.com/search?entry=#{item[:name.to_s]}"
+      url = "https://groceries.morrisons.com/search?entry=#{item[:name.to_s]}"
       # https://groceries.morrisons.com/search?entry=chcken%20breast
       html_file = open(url).read
       html_doc = Nokogiri::HTML(html_file)
