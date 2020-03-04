@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :items, only: [:index, :show]
-  resources :wish_list_items, only: [:index, :show, :create]
+  resources :wish_list_items, only: [:show, :create]
+  get 'compare', to: 'wish_list_items#index', as: 'compare'
 end

@@ -8,7 +8,10 @@ class WishListItemsController < ApplicationController
       flash[:notice] = "Oh no something went wrong"
     end
     redirect_to items_path
+  end
 
+  def index
+    @wish_list_items = WishListItem.all
   end
 
   private
