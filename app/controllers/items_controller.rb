@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def index
+
     if params[:query].present?
       @items = Item.where(name: params[:query], retailer: "Tesco")
       @items = category_sorter(@items) if params[:category].present?
