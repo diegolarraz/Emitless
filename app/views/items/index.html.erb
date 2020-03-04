@@ -1,11 +1,14 @@
-<%= form_tag items_path, method: :get, class:"full-search-bar" do %>
+
 
 <div class="container">
   <div class="search-bar d-flex">
-    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an item" %>
+    <%= form_tag items_path, method: :get, class:"full-search-bar" do %>
+      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an item" %>
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
   </div>
+
+
   <div class="row">
     <%= link_to "All", items_path(category: ""), method: :get, class: "category btn-primary" %>
     <%= link_to "Meat", items_path(category: "meat"), method: :get, class: "category btn-primary" %>
