@@ -4,6 +4,12 @@ class ApiItemsJob < ApplicationJob
   queue_as :default
 
   # def csv_to_hash
+  #   csv_text = File.read(Rails.root.join('db', 'generic_items.csv'))
+  #   csv = CSV.parse(csv_text, :headers => true)
+  #   data = []
+  #   csv.each do |row|
+  #     data << row.to_hash
+  #   end
   # end
 
   def perform
