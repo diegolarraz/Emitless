@@ -40,9 +40,12 @@ class ScrapeAsdaJob < ApplicationJob
         name: name,
         price: price,
         quantity: quantity[0],
-        retailer: 'Morrisons',
+        retailer: 'Ocado',
         emission: emissions
         )
+        if new_item.quantity.nil? || new_item.quantity == "0"
+          new_item.quantity = "1"
+        end
         if new_item.save
           counter += 1
         end
