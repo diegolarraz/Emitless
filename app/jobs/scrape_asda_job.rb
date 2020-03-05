@@ -39,8 +39,8 @@ class ScrapeAsdaJob < ApplicationJob
         seasonal: item[:seasonal.to_s],
         name: name,
         price: price,
-        quantity: quantity[0],
-        retailer: 'Morrisons',
+        quantity: quantity[0].to_i,
+        retailer: 'Ocado',
         emission: emissions
         )
         if new_item.save
