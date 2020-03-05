@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  respond_to :html, :js
 
   def category_sorter(array)
     array.select do |item|
@@ -16,7 +17,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  respond_to do |format|
+    format.html
+    format.js
+  end
+
   def show
     @item = Item.find(params[:id])
   end
 end
+
+
