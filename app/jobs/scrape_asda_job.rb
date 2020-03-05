@@ -4,10 +4,6 @@ class ScrapeAsdaJob < ApplicationJob
   require 'nokogiri'
   require 'csv'
 
-  require 'open-uri'
-  require 'nokogiri'
-  require 'csv'
-
   def perform
     csv_text = File.read(Rails.root.join('db', 'generic_items.csv'))
     csv = CSV.parse(csv_text, :headers => true)
