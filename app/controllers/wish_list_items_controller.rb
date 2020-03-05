@@ -78,7 +78,7 @@ class WishListItemsController < ApplicationController
     end
     redirect_to items_path
   end
-    
+
   def show
     @retailer = params[:retailer]
     @items = params[:basket][:items]

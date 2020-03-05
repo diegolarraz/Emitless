@@ -1,6 +1,4 @@
 .category {
-  display: flex;
-  justify-content: space-around;
   text-align: center;
   display: inline-block;
   padding: 7px;
@@ -8,13 +6,15 @@
   text-decoration: none;
   transition: 0.4s;
   line-height: 20px;
-  margin: 12px;
-  width: 140px;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  width: 15%;
   text-decoration: none;
 }
-
+.cat-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0px;
+}
 .category:hover {
   text-decoration: none;
   color: #005244 !important;
