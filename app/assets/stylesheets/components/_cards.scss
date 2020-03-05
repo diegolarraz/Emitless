@@ -79,10 +79,13 @@ button {
   background-repeat:no-repeat !important;
   border: none !important;
   overflow: hidden;
-    position: absolute;
-    right: 14px;
-    bottom: 15px;
-
+  position: absolute;
+  right: 14px;
+  bottom: 15px;
+  &:hover {
+  transform: scale(1.1);
+  text-decoration: none;
+  }
 }
 
 .dropdown-styling {
@@ -91,4 +94,12 @@ button {
   width: 50%;
 }
 
+.card-body {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+body {
+  background-color: #E2FCF6;
+}
 
