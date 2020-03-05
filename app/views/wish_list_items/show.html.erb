@@ -1,8 +1,18 @@
-<h1>Your <%= @retailer.capitalize %> basket</h1>
 <div class="container">
+  <div class="row align-items-end justify-content-between">
+    <h1>Your <%= @retailer.capitalize %> basket</h1>
+    <h5><%= @emissions %> emits</h5>
+  </div>
   <div class="row">
     <div class="col-8">
-
+      <% @items.each do |item, infos| %>
+        <%= item %> <br>
+        <%= infos %>
+      <% end %>
+    render
     </div>
+  </div>
+  <div class="row align-items-end justify-content-end">
+    <p>Total: £<%= @price.round(2) %></p>
   </div>
 </div>

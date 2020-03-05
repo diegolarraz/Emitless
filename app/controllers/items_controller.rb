@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-
   def category_sorter(array)
     array.select do |item|
       item.category.downcase == params[:category].downcase

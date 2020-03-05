@@ -1,4 +1,6 @@
 class WishListItemsController < ApplicationController
+  before_action :set_wish_list_item, only: %i[destroy plus_amount minus_amount]
+
   def create
     @item = Item.find(params[:wish_list_item][:item].to_i)
     @wish_list_item = WishListItem.create(wish_list_item_params)
@@ -28,7 +30,7 @@ class WishListItemsController < ApplicationController
       @basket[retailer.downcase.to_sym][:items] = {}
 
       @wish_list_items.each do |wish_list_item|
-        @basket[retailer.downcase.to_sym][:items][wish_list_item.item.generic_name] = {}
+        @basket[retailer.downcase.to_sym][:items] = {}
         # Finding the best item with the lowest emissions
         best_item = Item.order(emission: :asc).where("generic_name = ? AND retailer = ?", wish_list_item.item.generic_name.to_s, retailer.to_s).first
         # Quantity of item
@@ -47,25 +49,21 @@ class WishListItemsController < ApplicationController
     end
 
     @basket = @basket.sort_by { |retailer, infos| infos[:emissions] }
-
-    return @basket
+    raise
   end
 
   def destroy
-    @wish_list_item = WishListItem.find(params[:id])
     @wish_list_item.destroy
     redirect_to items_path
   end
 
   def plus_amount
-    @wish_list_item = WishListItem.find(params[:id])
     @wish_list_item.amount += 1
     @wish_list_item.save
     redirect_to items_path
   end
 
   def minus_amount
-    @wish_list_item = WishListItem.find(params[:id])
     @wish_list_item.amount -= 1
     @wish_list_item.save
     if @wish_list_item.amount < 1
@@ -73,7 +71,7 @@ class WishListItemsController < ApplicationController
     end
     redirect_to items_path
   end
-    
+
   def show
     @retailer = params[:retailer]
     @items = params[:basket][:items]
@@ -82,6 +80,10 @@ class WishListItemsController < ApplicationController
   end
 
   private
+
+  def set_wish_list_item
+    @wish_list_item = WishListItem.find(params[:id])
+  end
 
   def wish_list_item_params
     params.require(:wish_list_item).permit(:amount)
