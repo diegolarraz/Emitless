@@ -7,10 +7,12 @@
 
 .comparison-card {
   padding: 15px;
-  background-color: #f8f8f9;
+  background-color: #F9F9F9;
   text-align:  center;
   margin: auto;
   border-radius: 25px;
+  border: 3px solid #70C6FF;
+  box-shadow: 4px 4px 4px 0.6px rgba(0,0,1,0.04);
 }
 
 .button-styling {
@@ -81,4 +83,9 @@
   margin-left: auto;
   margin-right: auto;
   width: 40%;
+}
+
+.view-bskt-btn:hover {
+  transition: 0.3s;
+  transform: scale(1.05);
 }
