@@ -33,22 +33,6 @@ class WishListItemsController < ApplicationController
     end
 
     return @basket
-
-
-    # all_item_instances = {}
-
-    # @wish_list_items.each do |wish_list_item|
-    #   all_item_instances[wish_list_item.item.generic_name] = Item.where(generic_name: wish_list_item.item.generic_name)
-    # end
-
-    # set_retailers(all_item_instances)
-
-    # @tesco_basket = set_retailers[0]
-    # @morrisons_basket = set_retailers[1]
-    # @ocado_basket = set_retailers [2]
-
-
-
   end
 
   def destroy
@@ -61,52 +45,5 @@ class WishListItemsController < ApplicationController
 
   def wish_list_item_params
     params.require(:wish_list_item).permit(:amount)
-  end
-
-  def set_retailers(all_item_instances)
-    @tesco_items = {}
-    @morrisons_items = {}
-    @ocado_items = {}
-
-    all_item_instances.each do |generic_item, item_instances|
-      @tesco_items[generic_item] = []
-      @morrisons_items[generic_item] = []
-      @ocado_items[generic_item] = []
-
-      item_instances.each do |item_instance|
-        case item_instance.retailer
-        when "Tesco"
-          @tesco_items[generic_item] << item_instance
-        when "Morrisons"
-          @morrisons_items[generic_item] << item_instance
-        when "Ocado"
-          @ocado_items[generic_item] << item_instance
-        end
-      end
-
-      # @tesco_items[generic_item] = @tesco_items[generic_item].where
-
-    query = "
-            SELECT *
-            FROM items
-            WHERE generic_name = 'Macaroni'
-            AND retailer = 'Tesco'
-            ORDER BY emission DESC
-            LIMIT 1
-            "
-    query2 = "SELECT *
-          FROM items
-          WHERE generic_name = 'macaroni'
-          "
-
-    resultat = Item.all.where(generic_name: "macaroni").where(retailer: "Tesco").order(emission: :asc).first
-
-    raise
-
-
-
-
-    return [@tesco_items, @morrisons_items, @ocado_items]
-    end
   end
 end
