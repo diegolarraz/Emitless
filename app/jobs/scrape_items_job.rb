@@ -39,7 +39,7 @@ class ScrapeItemsJob < ApplicationJob
         seasonal: item[:seasonal.to_s],
         name: name,
         price: price,
-        quantity: quantity[0],
+        quantity: quantity[0].to_i,
         retailer: 'Morrisons',
         emission: emissions
         )

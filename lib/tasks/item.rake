@@ -18,6 +18,16 @@ namespace :item do
     puts "150 items created for Ocado."
     sleep(1)
     puts "450 items added to database"
+
   end
 
+  task update: :environment do
+    puts "seed beginning"
+    Item.destroy_all
+    ApiItemsJob.perform_later
+    ScrapeItemsJob.perform_later
+    ScrapeAsdaJob.perform_later
+    puts "seed complete"
+    puts "#{Item.count} items created"
+  end
 end

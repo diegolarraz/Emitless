@@ -8,10 +8,16 @@
   text-decoration: none;
   transition: 0.4s;
   line-height: 20px;
-  margin: 16px;
+  margin: 12px;
   width: 140px;
   margin-top: 40px;
   margin-bottom: 40px;
   text-decoration: none;
 }
 
+.category:hover {
+  text-decoration: none;
+  color: #005244 !important;
+  transform: scale(1.1);
+  text-decoration: none;
+}

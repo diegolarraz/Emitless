@@ -1,6 +1,6 @@
 .icon-baskt {
   color: white;
-  font-size: 40px;
+  font-size: 27px;
 }
 
 .basket {
@@ -21,14 +21,25 @@
 }
 
 .wish-item {
-  color: white;
-  margin-bottom: 16px;
+  color: #005244;
+  margin-bottom: 4px;
+  line-height: 1;
 }
 
+.wish-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  background-color: rgba(226, 252, 246, 0.5);
+}
 
 .compare-button {
-  background-color: rgba(255, 255, 255, .50);
-  width: 220px;
+  background-color: rgba(255, 255, 255, .3);
+  width: 80%;
+  border-radius: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .basket {
@@ -41,4 +52,33 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.con-btn {
+  width: 100%;
+  text-align: center;
+}
+
+.names-icon {
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+
+}
+
+.names-icon:hover {
+
+    #bin {
+      transition: 0.4s;
+      color: #005244;
+    }
+  }
+
+.cont-back {
+  background-color: #FFEAE4;
+}
+
+#bin {
+  color: rgba(255, 255, 255, 0);
 }
