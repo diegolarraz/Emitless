@@ -1,0 +1,11 @@
+document.querySelector('#wish-items-js').insertAdjacentHTML(
+                                                              'beforeend',
+                                                              `<div class='d-flex justify-content-between'>
+                                                                <p class='wish-item'><%= @wish_list_item.item.generic_name.capitalize %> <%= @wish_list_item.item.generic_quantity * @wish_list_item.amount %> <%= @wish_list_item.item.generic_unit %> </p>
+                                                                <%= link_to wish_list_item_path(@wish_list_item), method: :delete do %>
+                                                                  <p class="wish-item"><i class='fas fa-minus'></i></p>
+                                                                <% end %>
+                                                              </div>`
+                                                            )
+
+

@@ -4,24 +4,14 @@
     <img src="<%= item.image %>" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title"><%= item.generic_name.capitalize %></h5>
-        <form action="/wish_list_items" method="POST" class="d-flex">
-          <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-
-          <input type="hidden" name="wish_list_item[item]" value="<%= item.id %>">
-          <select name="wish_list_item[amount]" class="dropdown-styling">
-            <option value=1><%= item.generic_quantity %> <%= item.generic_unit %></option>
-            <option value=2><%= item.generic_quantity * 2 %> <%= item.generic_unit %></option>
-            <option value=3><%= item.generic_quantity * 3 %> <%= item.generic_unit %></option>
-            <option value=4><%= item.generic_quantity * 4 %> <%= item.generic_unit %></option>
-            <option value=5><%= item.generic_quantity * 5 %> <%= item.generic_unit %></option>
-<!--             <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Action
-            </button> -->
-          </select>
+        <%= form_with model: WishListItem.new, url: wish_list_items_path, remote: true, class: "d-flex" do |form| %>
+          <%= form.hidden_field :item_id, value: item.id %>
+          <%= form.select :amount, (1..5).map { |i| ["#{item.generic_quantity * i} #{item.generic_unit}", i]}, {}, class: "dropdown-styling" %>
           <button type="submit" class="btn btn-primary add-btn">
             <i class="fas fa-plus-circle"></i>
           </button>
         </form>
+        <% end %>
     </div>
   </div>
 </div>

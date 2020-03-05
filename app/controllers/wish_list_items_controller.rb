@@ -1,13 +1,18 @@
 class WishListItemsController < ApplicationController
+  respond_to :html, :js
+
+  respond_to do |format|
+    format.html
+    format.js
+  end
+
   def create
-    @item = Item.find(params[:wish_list_item][:item].to_i)
-    @wish_list_item = WishListItem.create(wish_list_item_params)
-    @wish_list_item.item = @item
+    @wish_list_item = WishListItem.new(wish_list_item_params)
     @wish_list_item.user = current_user
-    if !@wish_list_item.save
+    if @wish_list_item.save
+    else
       flash[:notice] = "Oh no, something went wrong!"
     end
-    redirect_to items_path
   end
 
   def index
@@ -44,6 +49,6 @@ class WishListItemsController < ApplicationController
   private
 
   def wish_list_item_params
-    params.require(:wish_list_item).permit(:amount)
+    params.require(:wish_list_item).permit(:amount, :item_id)
   end
 end
