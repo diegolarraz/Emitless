@@ -1,12 +1,12 @@
 
-<div class="col-3 mb-4">
+<div class="col-4 mb-4">
   <div class="card">
     <img src="<%= item.image %>" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title"><%= item.generic_name.capitalize %></h5>
-        <form action="/wish_list_items" method="POST">
+        <form action="/wish_list_items" method="POST" class="d-flex">
           <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-          <input type="submit" class="add-to-order btn-primary btn-sm" value="Add to order">
+
           <input type="hidden" name="wish_list_item[item]" value="<%= item.id %>">
           <select name="wish_list_item[amount]" class="dropdown-styling">
             <option value=1><%= item.generic_quantity %> <%= item.generic_unit %></option>
@@ -18,6 +18,9 @@
               Action
             </button> -->
           </select>
+          <button type="submit" class="btn btn-primary add-btn">
+            <i class="fas fa-plus-circle"></i>
+          </button>
         </form>
     </div>
   </div>

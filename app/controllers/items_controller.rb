@@ -7,14 +7,14 @@ class ItemsController < ApplicationController
   end
 
   def index
+
     if params[:query].present?
-      @items = Item.where(name: params[:query], retailer: "Tesco")
+      @items = Item.where("generic_name ILIKE ?", "%#{params[:query]}%").uniq(&:generic_name)
       @items = category_sorter(@items) if params[:category].present?
     else
-      @items = Item.where(retailer: "Tesco")
+      @items = Item.all.uniq(&:generic_name)
       @items = category_sorter(@items) if params[:category].present?
     end
-
   end
 
   def show
