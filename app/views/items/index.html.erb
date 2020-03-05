@@ -2,7 +2,7 @@
   <div class="search-bar d-flex">
     <%= form_tag items_path, method: :get, class:"full-search-bar" do %>
       <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an item" %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= submit_tag "Search", class: "btn btn-primary search-btn" %>
     <% end %>
   </div>
 
@@ -24,7 +24,7 @@
       <% end %>
   </div>
   <div class="col-3">
-    <div class="basket p-3">
+    <div class="basket">
 
       <%#= image_tag "basket", alt: "basketimage" %>
       <div class="top-bskt">
@@ -34,7 +34,7 @@
       <div class="wish-items">
         <!-- here goes the iteration for the wish list items -->
         <% current_user.wish_list_items.each do |wish_item| %>
-          <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between names-icon">
             <p class="wish-item"><%= wish_item.item.generic_name.capitalize %> <%= wish_item.item.generic_quantity * wish_item.amount %> <%= wish_item.item.generic_unit %> </p>
             <%= link_to wish_list_item_path(wish_item), method: :delete do %>
               <p class="wish-item"><i class="fas fa-minus"></i></p>
@@ -42,7 +42,9 @@
           </div>
         <% end %>
       </div>
+      <div class="con-btn">
         <%= link_to "Compare Results", compare_path, class: "btn btn-primary compare-button" %>
+      </div>
       </div>
     </div>
 </div>
