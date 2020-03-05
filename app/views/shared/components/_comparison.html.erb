@@ -10,7 +10,7 @@
     <img class="<%= @basket[0][0].to_s %>" src="https://logos-download.com/wp-content/uploads/2016/05/Morrisons_logo_logotype.png" alt="<%= @basket[0][0].to_s %>">
 
     <!-- This has to link to the "basket" page: -->
-    <button type="button" class="btn btn-primary button-styling">View Basket</button>
+    <%= link_to "View your basket", basket_path(retailer: @basket[0][0], basket: @basket[0][1]), class: "btn btn-primary button-styling" %>
     <h4>£<%= @basket[0][1][:price] %></h4>
     <img class= "big-tree" src="https://www.pngitem.com/pimgs/m/217-2170494_animated-trees-and-fences-animated-tree-with-branches.png" alt="big-tree">
   </div>
