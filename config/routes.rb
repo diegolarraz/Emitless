@@ -9,10 +9,15 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
-
-  resources :wish_list_items, only: [:create, :destroy]
+  resources :wish_list_items, only: [:create, :destroy] do
+    member do
+      get :plus_amount
+      get :minus_amount
+    end
+  end
 
   resources :items, only: [:index, :show]
   get 'compare', to: 'wish_list_items#index', as: 'compare'
   get 'basket', to: 'wish_list_items#show', as: 'basket'
+
 end
