@@ -41,6 +41,23 @@ class WishListItemsController < ApplicationController
     redirect_to items_path
   end
 
+  def plus_amount
+    @wish_list_item = WishListItem.find(params[:id])
+    @wish_list_item.amount += 1
+    @wish_list_item.save
+    redirect_to items_path
+  end
+
+  def minus_amount
+    @wish_list_item = WishListItem.find(params[:id])
+    @wish_list_item.amount -= 1
+    @wish_list_item.save
+    if @wish_list_item.amount < 1
+      @wish_list_item.destroy
+    end
+    redirect_to items_path
+  end
+
   private
 
   def wish_list_item_params
