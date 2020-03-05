@@ -1,20 +1,34 @@
 <div class="comparison-container">
   <div class="comparison-card small-card small-card-left">
-    <h3><strong>58 Emits</strong></h3>
-    <img class="tesco" src="https://cdn.freebiesupply.com/logos/large/2x/tesco-1-logo-png-transparent.png" alt="tesco">
+    <h3><strong><%= @basket[1][1][:emissions].round(2) %> Emits</strong></h3>
+    <img class="<%= @basket[1][0].to_s %>" src="https://cdn.freebiesupply.com/logos/large/2x/tesco-1-logo-png-transparent.png" alt="<%= @basket[1][0].to_s %>">
     <img class ="seed" src="https://www.nicepng.com/png/detail/81-813417_seed-clipart-apple-tree-seed-clipart.png" alt="small-tree">
   </div>
-  <div class="comparison-card big-card">
-    <h3><strong>35 Emits</strong></h3>
-    <img class="morrisons" src="https://logos-download.com/wp-content/uploads/2016/05/Morrisons_logo_logotype.png" alt="morrisons">
-    <button type="button" class="btn btn-primary button-styling">View Basket</button>
-    <h4>£110.95</h4>
 
+  <div class="comparison-card big-card">
+    <h3><strong><%= @basket[0][1][:emissions].round(2) %> Emits</strong></h3>
+    <img class="<%= @basket[0][0].to_s %>" src="https://logos-download.com/wp-content/uploads/2016/05/Morrisons_logo_logotype.png" alt="<%= @basket[0][0].to_s %>">
+
+    <!-- This has to link to the "basket" page: -->
+    <button type="button" class="btn btn-primary button-styling">View Basket</button>
+    <h4>£<%= @basket[0][1][:price] %></h4>
     <img class= "big-tree" src="https://www.pngitem.com/pimgs/m/217-2170494_animated-trees-and-fences-animated-tree-with-branches.png" alt="big-tree">
   </div>
+
   <div class="comparison-card small-card small-card-right">
-    <h3><strong>41 Emits</strong></h3>
-    <img class ="ocado" src="https://www.machinevisionconference.co.uk/wp-content/uploads/2017/02/Ocado-logo.png" alt="ocado">
+    <h3><strong><%= @basket[2][1][:emissions].round(2) %> Emits</strong></h3>
+    <img class ="<%= @basket[2][0].to_s %>" src="https://www.machinevisionconference.co.uk/wp-content/uploads/2017/02/Ocado-logo.png" alt="<%= @basket[2][0].to_s %>">
     <img class="medium-tree" src="https://www.kindpng.com/picc/m/55-554453_growing-plants-animation-png-transparent-png.png" alt="">
   </div>
 </div>
+
+
+
+<!--
+@basket[0] = best retailer
+@basket[1] and [2] are the next ones
+
+@basket[i][0].to_s to get the name of the retailer
+
+@basket[i][1][:price] or [:emissions] to access total price and total emissions
+ -->
