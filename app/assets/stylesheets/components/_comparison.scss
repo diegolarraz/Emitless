@@ -1,0 +1,84 @@
+.comparison-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: #00B495;
+}
+
+.comparison-card {
+  padding: 15px;
+  background-color: #f8f8f9;
+  text-align:  center;
+  margin: auto;
+  border-radius: 25px;
+}
+
+.button-styling {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.big-card {
+  width: 25%;
+  height:590px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.small-card {
+  width: 20%;
+  height:400px;
+  // margin-left: ;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.small-card-left {
+  margin-left: 230px;
+}
+
+.small-card-right {
+  margin-right: 230px;
+}
+
+.seed {
+  height: 80px;
+  width: 90px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.big-tree {
+  height: 150px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.medium-tree {
+  height: 80px;
+  width: 90px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tesco {
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.morrisons{
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.ocado {
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
