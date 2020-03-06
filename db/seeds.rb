@@ -14,7 +14,6 @@ csv = CSV.parse(csv_text, :headers => true)
 data = []
 csv.each do |row|
   data << row.to_hash
-  binding.pry
 end
   # split_name = row['name'].split
   # new_names = split_name.map { |word| word.capitalize }
