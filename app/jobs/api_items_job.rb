@@ -22,12 +22,12 @@ class ApiItemsJob < ApplicationJob
       items_hash = JSON.parse(response.body)
       items_hash['uk']['ghs']['products']['results'].each do |result|
       emissions = (rand() * 100).round
-      name = result['name'].gsub(/\s\d+.+(g|kg)/i, ""),
+      # name = result['name'].gsub(/\s\d+.+(g|kg)\z/i, ""),
         # binding.pry
         # if result['ContentsQuantity'] == nil
         #   binding.pry
         # end
-        binding.pry
+        # binding.pry
         new_item = Item.new(
           generic_name: item[:name.to_s],
           generic_unit: item[:unit.to_s],
@@ -36,7 +36,7 @@ class ApiItemsJob < ApplicationJob
           sub_category: item[:sub_category.to_s],
           image: item[:image.to_s],
           seasonal: item[:seasonal.to_s],
-          name: name[0],
+          name: result['name'].gsub(/\s\d+.+(g|kg)\z/i, ""),
           price: result['price'],
           quantity: result['ContentsQuantity'].to_i,
           retailer: 'Tesco',
