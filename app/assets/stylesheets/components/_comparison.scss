@@ -2,7 +2,7 @@
   width: 100vw;
   height: 100vh;
   display: flex;
-  background-color: #00B495;
+  background: linear-gradient(164deg, rgba(1,159,132,1) 0%, rgba(1,180,149,1) 23%, rgba(111,226,206,1) 100%);
 }
 
 .comparison-card {
@@ -33,7 +33,6 @@
 .small-card {
   width: 20%;
   height:400px;
-  // margin-left: ;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -88,4 +87,9 @@
 .view-bskt-btn:hover {
   transition: 0.3s;
   transform: scale(1.05);
+}
+
+.emits {
+  color: #005244;
+
 }
