@@ -41,4 +41,8 @@
 
 
 <h1 class="navbar-header" id="emitless-home"><%= link_to "emitless", items_path, class: "navbar-header white-text", id: "emtlss" %></h1>
+<% if user_signed_in? %>
+<%= link_to "Log out", destroy_user_session_path, method: :delete, id: "login-btn-home" %>
+<% else %>
 <%= link_to "Login", new_user_session_path, id: "login-btn-home" %>
+<% end %>
