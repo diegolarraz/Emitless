@@ -11,7 +11,7 @@
       <h5 class="price-tag">Total: £<%= @basket[0][1][:price] %>0</h5>
       <img class= "big-tree" src="https://www.pngitem.com/pimgs/m/217-2170494_animated-trees-and-fences-animated-tree-with-branches.png" alt="big-tree">
       <%= link_to basket_path(retailer: @basket[0][0], basket: @basket[0][1]) do %>
-        <%= image_tag "view", alt: "view your basket", class: "view-bskt-btn" %>
+        <%= image_tag "view.png", alt: "view your basket", class: "view-bskt-btn" %>
       <% end %>
     </div>
     <div class="comparison-card small-card small-card-right">
