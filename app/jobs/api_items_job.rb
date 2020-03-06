@@ -23,6 +23,9 @@ class ApiItemsJob < ApplicationJob
       items_hash['uk']['ghs']['products']['results'].each do |result|
       emissions = (rand() * 10).round(2)
         # binding.pry
+        # if result['ContentsQuantity'] == nil
+        #   binding.pry
+        # end
         new_item = Item.new(
           generic_name: item[:name.to_s],
           generic_unit: item[:unit.to_s],
