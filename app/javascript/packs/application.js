@@ -3,3 +3,6 @@ require("@rails/activestorage").start()
 require("channels")
 
 import "bootstrap";
+
+import {submit_spinner} from "../components/submit_spinner"
+submit_spinner();
