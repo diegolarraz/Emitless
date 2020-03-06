@@ -7,8 +7,8 @@
     </div>
     <div class="comparison-card big-card">
       <%= image_tag "#{@basket[0][0].to_s}.png", alt: @basket[0][0].to_s, class: @basket[0][0].to_s, id: "big-img" %>
-      <h3 class="emits"><%= @basket[0][1][:emissions].round() * 10 %> Emits</h3>
-      <h5 class="price-tag">Total: £<%= @basket[0][1][:price] %>0</h5>
+      <h3 class="emits"><%= @basket[0][1][:emissions].round %> Emits</h3>
+      <h5 class="price-tag">Total: £<%= @basket[0][1][:price] %></h5>
       <img class= "big-tree" src="https://www.pngitem.com/pimgs/m/217-2170494_animated-trees-and-fences-animated-tree-with-branches.png" alt="big-tree">
       <%= link_to basket_path(retailer: @basket[0][0], basket: @basket[0][1]) do %>
         <%= image_tag "view.png", alt: "view your basket", class: "view-bskt-btn" %>
@@ -16,7 +16,7 @@
     </div>
     <div class="comparison-card small-card small-card-right">
       <%= image_tag "#{@basket[2][0].to_s}.png", alt: @basket[2][0].to_s, class: @basket[2][0].to_s %>
-      <h3 class="emits-small" id="test"><%= @basket[2][1][:emissions].round() * 10 %> Emits</h3>
+      <h3 class="emits-small" id="test"><%= @basket[2][1][:emissions].round%> Emits</h3>
       <img class="medium-tree" src="https://www.kindpng.com/picc/m/55-554453_growing-plants-animation-png-transparent-png.png" alt="">
     </div>
   </div>
