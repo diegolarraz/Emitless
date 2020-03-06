@@ -33,7 +33,11 @@ class ScrapeItemsJob < ApplicationJob
           end
           quantity = weight.scan(/[\d|.]+/)
           unit = weight.gsub(/[\d|.]+/, "")
-          emissions = (rand() * 10).round(2)
+          if unit.include? "kg" || "KG"
+            binding.pry
+            unit = "kg"
+          end
+          emissions = (rand() * 100).round
           new_item = Item.new(
           generic_name: item[:name.to_s],
           generic_unit: item[:unit.to_s],
