@@ -28,7 +28,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  transition: 0.2s;
+  &:hover {
+    transform: scale(1.02);
+    transition: 0.2s;
+  }
   #big-img {
     width: 220px;
   }
