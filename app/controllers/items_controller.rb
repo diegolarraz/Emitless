@@ -1,12 +1,6 @@
 class ItemsController < ApplicationController
   respond_to :html, :js
 
-  def category_sorter(array)
-    array.select do |item|
-      item.category.downcase == params[:category].downcase
-    end
-  end
-
   def index
     if params[:query].present?
       @items = Item.where("generic_name ILIKE ?", "%#{params[:query]}%").uniq(&:generic_name)
@@ -24,6 +18,14 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+  end
+
+  private
+
+  def category_sorter(array)
+    array.select do |item|
+      item.category.downcase == params[:category].downcase
+    end
   end
 end
 

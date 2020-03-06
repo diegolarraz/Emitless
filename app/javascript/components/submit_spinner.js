@@ -12,8 +12,9 @@ export const submit_spinner = () => {
     btn.addEventListener('click', (event) => {
       event.preventDefault();
       console.log("Prevented!");
-      document.querySelector(".master-container").insertAdjacentHTML("beforebegin", `<div class="background-holder"><div class="central-box"><div class="spin"><h3 class="sentence">Finding clean products</h3><div class="loader"></div></div></div></div>`);
-
+      let body = document.querySelector("body")
+      body.insertAdjacentHTML("beforebegin", `<div class="background-holder"><div class="central-box"><div class="spin"><h3 class="sentence">Finding clean products</h3><div class="loader"></div></div></div></div>`);
+      // document.querySelector('.background-holder').style.marginTop = window.pageYOffset;
       setInterval(newSentence, 1000);
       setTimeout(function(){ window.location.href = "/compare"; }, 3400);
     });
