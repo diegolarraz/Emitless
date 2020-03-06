@@ -82,8 +82,8 @@ class WishListItemsController < ApplicationController
 
     @retailer = params[:retailer]
     @items = params[:basket][:items]
-    @emissions = params[:basket][:emissions].to_i
-    @price = params[:basket][:price].to_i
+    @emissions = params[:basket][:emissions]
+    @price = params[:basket][:price]
 
   end
 
