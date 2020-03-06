@@ -1,13 +1,5 @@
 <div class="container">
-  <div class="search-bar d-flex">
-    <%= form_tag items_path, method: :get, class:"full-search-bar" do %>
-      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an item" %>
-      <%= submit_tag "Search", class: "btn btn-primary search-btn" %>
-    <% end %>
-  </div>
-
-
-  <div class="row">
+  <div class="cat-row">
     <%= link_to "All", items_path(category: ""),remote: true, method: :get, class: "category btn-primary" %>
     <%= link_to "Meat", items_path(category: "meat"),remote: true, method: :get, class: "category btn-primary" %>
     <%= link_to "Seafood", items_path(category: "seafood"), remote: true, method: :get, class: "category btn-primary" %>
@@ -21,7 +13,7 @@
   <div id="index-items">
     <%= render 'products', items: @items %>
   </div>
-  <div class="col-3">
+  <div class="col-3" style="padding-right: 0;">
     <div class="basket">
 
       <%#= image_tag "basket", alt: "basketimage" %>
