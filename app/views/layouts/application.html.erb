@@ -29,7 +29,7 @@
 
   </head>
   <body>
-    <% unless controller_name == "pages" || controller_name == "wish_list_items" || params[:controller] == "devise/sessions" %>
+    <% unless controller_name == "pages" || controller_name == "wish_list_items" || params[:controller] == "devise/sessions" || params[:controller] == "devise/registrations" %>
       <%= render 'shared/navbar' %>
     <% end %>
 
