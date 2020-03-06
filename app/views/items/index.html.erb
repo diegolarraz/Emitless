@@ -23,20 +23,20 @@
       </div>
       <div class="wish-items" id="wish-items-js">
         <!-- here goes the iteration for the wish list items -->
-        <% current_user.wish_list_items.each do |wish_item| %>
+        <% current_user.wish_list_items.each do |wish_list_item| %>
           <div class="d-flex justify-content-between names-icon">
             <div class="name-quantity">
-              <p class="wish-item"><%= wish_item.item.generic_name.capitalize %></p>
-              <p class="wish-item"><%= wish_item.item.generic_quantity * wish_item.amount %> <%= wish_item.item.generic_unit %></p>
+              <p class="wish-item"><%= wish_list_item.item.generic_name.capitalize %></p>
+              <p class="wish-item"><%= wish_list_item.item.generic_quantity * wish_list_item.amount %> <%= wish_list_item.item.generic_unit %></p>
             </div>
-            <%= link_to plus_amount_wish_list_item_path(wish_item) do %>
+            <%= link_to plus_amount_wish_list_item_path(wish_list_item) do %>
               <p class="wish-item"><i class="fas fa-plus"></i></p>
             <% end %>
-            <p class="wish-item"><%= wish_item.amount %></p>
-            <%= link_to minus_amount_wish_list_item_path(wish_item) do %>
+            <p class="wish-item"><%= wish_list_item.amount %></p>
+            <%= link_to minus_amount_wish_list_item_path(wish_list_item) do %>
               <p class="wish-item"><i class="fas fa-minus"></i></p>
             <% end %>
-            <%= link_to wish_list_item_path(wish_item), method: :delete do %>
+            <%= link_to wish_list_item_path(wish_list_item), method: :delete do %>
               <p class="wish-item"><i class="fas fa-trash" id="bin"></i></p>
             <% end %>
           </div>
