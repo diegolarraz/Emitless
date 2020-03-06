@@ -25,8 +25,8 @@
         </div>
       </div>
       <div class="basket-info">
-        <p class="white p">Total emits: <%= @emissions %></p>
-        <p class="white p">Total price: £<%= '%.2f' % @price %> </p>
+        <p class="white p">Total emits: <%= @emissions.to_i %></p>
+        <p class="white p">Total price: £<%= @price %> </p>
       </div>
     </div>
   </div>
