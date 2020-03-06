@@ -20,8 +20,6 @@ export const submit_spinner = () => {
   }
 };
 
-
-
 let texts = ["Planting trees", "Turning plastic into quinoa", "Saving the planet"]
 let index = 0;
 
