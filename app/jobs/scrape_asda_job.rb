@@ -52,7 +52,6 @@ class ScrapeAsdaJob < ApplicationJob
           quantity = weight.scan(/[\d|.]+/)
           unit = weight.gsub(/[\d|.]+/, "")
           if unit.include? "kg" || "KG"
-            binding.pry
             unit = "kg"
           end
           emissions = (rand() * 100).round

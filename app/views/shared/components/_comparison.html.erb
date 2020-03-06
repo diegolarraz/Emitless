@@ -2,7 +2,7 @@
   <div class="comparison-container">
     <div class="comparison-card small-card small-card-left">
       <%= image_tag "#{@basket[1][0].to_s}.png", alt: @basket[1][0].to_s, class: @basket[1][0].to_s %>
-      <h3 class="emits-small"><%= @basket[1][1][:emissions].round() * 10 %> Emits</h3>
+      <h3 class="emits-small"><%= @basket[1][1][:emissions].round %> Emits</h3>
       <img class ="seed" src="https://www.nicepng.com/png/detail/81-813417_seed-clipart-apple-tree-seed-clipart.png" alt="small-tree">
     </div>
     <div class="comparison-card big-card">
