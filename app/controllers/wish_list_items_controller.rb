@@ -51,6 +51,7 @@ class WishListItemsController < ApplicationController
     end
 
     @basket = @basket.sort_by { |retailer, infos| infos[:emissions] }
+    # raise
   end
 
   def destroy
@@ -77,10 +78,13 @@ class WishListItemsController < ApplicationController
   end
 
   def show
+    # raise
+
     @retailer = params[:retailer]
     @items = params[:basket][:items]
-    @emissions = params[:basket][:emissions].to_i
-    @price = params[:basket][:price].to_i
+    @emissions = params[:basket][:emissions]
+    @price = params[:basket][:price]
+
   end
 
   private
