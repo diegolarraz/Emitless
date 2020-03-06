@@ -2,6 +2,9 @@
 <div class="container">
   <div class="row">
     <div class="col-8">
+
+      <%= render 'shared/components/product_details' %>
+
       <% @items.each do |item| %>
         <div class="product-card">
           <% item_object = Item.find(item[1][1]) %>
@@ -12,6 +15,7 @@
           £<%= '%.2f' % item_object.price %>
         </div>
       <% end %>
+
     </div>
   </div>
 </div>
