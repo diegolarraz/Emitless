@@ -2,10 +2,9 @@
 
   <h1 class="navbar-header" id="emitless-home"><%= link_to "emitless", items_path, class: "navbar-header white-text", id: "emtlss" %></h1>
   <div class="basket-container">
-
     <div class="container">
-      <h1>Your <%= @retailer.capitalize %> basket</h1>
-      <div class="row">
+      <h1 class="white">Your <%= @retailer.capitalize %> basket</h1>
+      <div class="row light-bg">
         <div class="col-8">
           <% @items.each do |item| %>
             <% item_object = Item.find(item[1][1]) %>
@@ -26,8 +25,8 @@
         </div>
       </div>
       <div class="basket-info">
-        <p>Total emits: <%= @emissions %></p>
-        <p>Total price: £<%= '%.2f' % @price %> </p>
+        <p class="white p">Total emits: <%= @emissions %></p>
+        <p class="white p">Total price: £<%= '%.2f' % @price %> </p>
       </div>
     </div>
   </div>
