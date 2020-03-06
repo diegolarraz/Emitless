@@ -16,7 +16,7 @@
                   <p class="product-quantity"><%= item[1][0] %> x <%= item_object.quantity %> <%= item_object.unit %></p>
                 </div>
                 <div class="product-infos-right">
-                  <h5 class="product-emits"><%= item_object.emission %> emits</h5>
+                  <h5 class="product-emits"><%= item_object.emission.to_i %> emits</h5>
                   <p class="product-price">£<%= '%.2f' % item_object.price %></p>
                 </div>
               </div>

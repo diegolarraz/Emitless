@@ -35,6 +35,8 @@ class ScrapeItemsJob < ApplicationJob
           unit = weight.gsub(/[\d|.]+/, "")
           if unit.include? "kg" || "KG"
             unit = "kg"
+          elsif unit.include? "g" || "G"
+            unit = "g"
           end
           emissions = (rand() * 100).round
           new_item = Item.new(
