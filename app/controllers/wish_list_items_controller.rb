@@ -32,21 +32,23 @@ class WishListItemsController < ApplicationController
       @basket[retailer.downcase.to_sym][:price] = 0.0
       @basket[retailer.downcase.to_sym][:items] = {}
 
+
       @wish_list_items.each do |wish_list_item|
         # Finding the best item with the lowest emissions
         best_item = Item.order(emission: :asc).where("generic_name = ? AND retailer = ?", wish_list_item.item.generic_name.to_s, retailer.to_s).first
-        # Quantity of item
-        # @basket[retailer.downcase.to_sym][:items][best_item] = best_item
-        @basket[retailer.downcase.to_sym][:items][wish_list_item.item.generic_name] = [1, best_item]
+        if best_item
+          # Quantity of item
+          # @basket[retailer.downcase.to_sym][:items][best_item] = best_item
+          @basket[retailer.downcase.to_sym][:items][wish_list_item.item.generic_name] = [1, best_item]
 
+          while @basket[retailer.downcase.to_sym][:items][wish_list_item.item.generic_name][0] * best_item.quantity.to_i < wish_list_item.amount * best_item.generic_quantity
+            @basket[retailer.downcase.to_sym][:items][wish_list_item.item.generic_name][0] += 1
+          end
 
-        while @basket[retailer.downcase.to_sym][:items][wish_list_item.item.generic_name][0] * best_item.quantity.to_i < wish_list_item.amount * best_item.generic_quantity
-          @basket[retailer.downcase.to_sym][:items][wish_list_item.item.generic_name][0] += 1
+          # Total price and emissions
+          @basket[retailer.downcase.to_sym][:price] += (best_item.price * @basket[retailer.downcase.to_sym][:items][wish_list_item.item.generic_name][0]) unless best_item.nil?
+          @basket[retailer.downcase.to_sym][:emissions] += (best_item.emission * @basket[retailer.downcase.to_sym][:items][wish_list_item.item.generic_name][0]) unless best_item.nil?
         end
-
-        # Total price and emissions
-        @basket[retailer.downcase.to_sym][:price] += (best_item.price * @basket[retailer.downcase.to_sym][:items][wish_list_item.item.generic_name][0]) unless best_item.nil?
-        @basket[retailer.downcase.to_sym][:emissions] += (best_item.emission * @basket[retailer.downcase.to_sym][:items][wish_list_item.item.generic_name][0]) unless best_item.nil?
       end
     end
 
