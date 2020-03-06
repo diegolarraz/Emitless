@@ -21,7 +21,7 @@
 }
 
 .wish-item {
-  color: white;
+  color: #005244;
   margin-bottom: 4px;
   line-height: 1;
 }
@@ -31,6 +31,7 @@
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
+  overflow: scroll;
   background-color: rgba(226, 252, 246, 0.5);
 }
 
@@ -64,8 +65,21 @@
 .names-icon {
   padding: 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+
 }
+
+.names-icon:hover {
+
+    #bin {
+      transition: 0.4s;
+      color: #005244;
+    }
+  }
 
 .cont-back {
   background-color: #FFEAE4;
+}
+
+#bin {
+  color: rgba(255, 255, 255, 0);
 }

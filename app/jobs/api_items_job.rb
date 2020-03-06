@@ -36,7 +36,7 @@ class ApiItemsJob < ApplicationJob
           seasonal: item[:seasonal.to_s],
           name: result['name'],
           price: result['price'],
-          quantity: result['ContentsQuantity'],
+          quantity: result['ContentsQuantity'].to_i,
           retailer: 'Tesco',
           emission: emissions
           )
