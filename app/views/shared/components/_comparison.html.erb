@@ -1,12 +1,12 @@
 <div class="comparison-container">
   <div class="comparison-card small-card small-card-left">
-    <h3><%= @basket[1][1][:emissions].round(2) * 10 %> Emits</h3>
+    <h3 class="emits"><%= @basket[1][1][:emissions].round() * 10 %> Emits</h3>
     <img class="<%= @basket[1][0].to_s %>" src="https://cdn.freebiesupply.com/logos/large/2x/tesco-1-logo-png-transparent.png" alt="<%= @basket[1][0].to_s %>">
     <img class ="seed" src="https://www.nicepng.com/png/detail/81-813417_seed-clipart-apple-tree-seed-clipart.png" alt="small-tree">
   </div>
 
   <div class="comparison-card big-card">
-    <h3><%= @basket[0][1][:emissions].round(2) * 10 %> Emits</h3>
+    <h3><%= @basket[0][1][:emissions].round() * 10 %> Emits</h3>
     <img class="<%= @basket[0][0].to_s %>" src="https://logos-download.com/wp-content/uploads/2016/05/Morrisons_logo_logotype.png" alt="<%= @basket[0][0].to_s %>">
     <!-- This has to link to the "basket" page: -->
     <%#= link_to "View your bask", basket_path(retailer: @basket[0][0], basket: @basket[0][1]), class: "btn btn-primary button-styling" %>
@@ -18,7 +18,7 @@
   </div>
 
   <div class="comparison-card small-card small-card-right">
-    <h3><%= @basket[2][1][:emissions].round(2) * 10 %> Emits</h3>
+    <h3><%= @basket[2][1][:emissions].round() * 10 %> Emits</h3>
     <img class ="<%= @basket[2][0].to_s %>" src="https://www.machinevisionconference.co.uk/wp-content/uploads/2017/02/Ocado-logo.png" alt="<%= @basket[2][0].to_s %>">
     <img class="medium-tree" src="https://www.kindpng.com/picc/m/55-554453_growing-plants-animation-png-transparent-png.png" alt="">
   </div>
