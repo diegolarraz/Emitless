@@ -1,13 +1,21 @@
 .category {
-  text-align: center;
-  display: inline-block;
-  padding: 7px;
+  display: flex;
+  align-items: center;
+  padding: 6px 23px 6px 12px;
   border-radius: 25px;
   text-decoration: none;
   transition: 0.4s;
-  line-height: 20px;
-  width: 15%;
   text-decoration: none;
+  color: black;
+  font-size: 12px;
+  line-height: 16px;
+
+  img.icon {
+    margin-right: 12px;
+    height: 23px;
+    width: 23px;
+
+  }
 }
 .cat-row {
   width: 100%;
@@ -15,9 +23,9 @@
   justify-content: space-between;
   padding: 20px 0px;
 }
+
 .category:hover {
   text-decoration: none;
-  color: #005244 !important;
   transform: scale(1.1);
   text-decoration: none;
 }

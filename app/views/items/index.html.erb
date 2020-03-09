@@ -1,53 +1,73 @@
-<div class="master-container">
-  <div class="container">
-    <div class="cat-row">
-      <%= link_to "All", items_path(category: ""),remote: true, method: :get, class: "category btn-primary" %>
-      <%= link_to "Meat", items_path(category: "meat"),remote: true, method: :get, class: "category btn-primary" %>
-      <%= link_to "Seafood", items_path(category: "seafood"), remote: true, method: :get, class: "category btn-primary" %>
-      <%= link_to "Fruits", items_path(category: "fruit"),remote: true, method: :get, class: "category btn-primary" %>
-      <%= link_to "Vegetables", items_path(category: "vegetable"),remote: true, method: :get, class: "category btn-primary" %>
-      <%= link_to "Dried Goods", items_path(category: "dried goods"),remote: true, method: :get, class: "category btn-primary" %>
+<div class="container grid-container">
+  <div class="items">
+    <div class="search-bar d-flex">
+      <%= form_tag items_path, method: :get, class:"full-search-bar" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search products" %>
+        <%= submit_tag "Find a product", class: "btn btn-primary search-btn" %>
+      <% end %>
     </div>
-  </div>
 
-  <div class="container d-flex">
+    <div class="cat-row">
+      <%= link_to items_path(category: ""), remote: true, method: :get, class: "category btn btn-outline-secondary" do %>
+        <%= image_tag "filters/all.png", alt: "all", class: 'icon' %>
+        All
+      <% end %>
+      <%= link_to items_path(category: "meat"),remote: true, method: :get, class: "category btn btn-outline-secondary" do %>
+        <%= image_tag "filters/meat.png", alt: "meat", class: 'icon' %>
+        Meat
+      <% end %>
+      <%= link_to items_path(category: "seafood"), remote: true, method: :get, class: "category btn btn-outline-secondary" do %>
+        <%= image_tag "filters/seafood.png", alt: "seafood", class: 'icon' %>
+        Seafood
+      <% end %>
+      <%= link_to items_path(category: "fruit"), remote: true, method: :get, class: "category btn btn-outline-secondary" do %>
+        <%= image_tag "filters/fruits.png", alt: "fruits", class: 'icon' %>
+        Fruits
+      <% end %>
+      <%= link_to items_path(category: "vegetable"), remote: true, method: :get, class: "category btn btn-outline-secondary" do %>
+        <%= image_tag "filters/vegetables.png", alt: "vegetables", class: 'icon' %>
+        Vegetables
+      <% end %>
+      <%= link_to items_path(category: "dried goods"), remote: true, method: :get, class: "category btn btn-outline-secondary" do %>
+        <%= image_tag "filters/dried-food.png", alt: "Dried goods", class: 'icon' %>
+        Dried Goods
+      <% end %>
+    </div>
+
     <div id="index-items">
       <%= render 'products', items: @items %>
     </div>
-    <div class="col-3" style="padding-right: 0;">
-      <div class="basket">
+  </div>
 
-        <%#= image_tag "basket", alt: "basketimage" %>
-        <div class="top-bskt">
-          <i class="fas fa-shopping-basket icon-baskt"></i>
-          <h2 class="yr-baskt">Your Basket</h2>
-        </div>
-        <div class="wish-items" id="wish-items-js">
-          <!-- here goes the iteration for the wish list items -->
-          <% current_user.wish_list_items.each do |wish_list_item| %>
-            <div class="d-flex justify-content-between names-icon">
-              <div class="name-quantity">
-                <p class="wish-item"><%= wish_list_item.item.generic_name.capitalize %></p>
-                <p class="wish-item"><%= wish_list_item.item.generic_quantity * wish_list_item.amount %> <%= wish_list_item.item.generic_unit %></p>
-              </div>
-              <%= link_to plus_amount_wish_list_item_path(wish_list_item) do %>
-                <p class="wish-item"><i class="fas fa-plus"></i></p>
-              <% end %>
-              <p class="wish-item"><%= wish_list_item.amount %></p>
-              <%= link_to minus_amount_wish_list_item_path(wish_list_item) do %>
-                <p class="wish-item"><i class="fas fa-minus"></i></p>
-              <% end %>
-              <%= link_to wish_list_item_path(wish_list_item), method: :delete do %>
-                <p class="wish-item"><i class="fas fa-trash" id="bin"></i></p>
-              <% end %>
-            </div>
+  <div class="basket">
+    <div class="top-bskt">
+      <%= image_tag "filters/basket.png", alt: "basketimage", class: 'icon' %>
+      <h2 class="yr-baskt">My basket</h2>
+    </div>
+    <div class="wish-items" id="wish-items-js">
+      <!-- here goes the iteration for the wish list items -->
+      <% current_user.wish_list_items.each do |wish_list_item| %>
+        <div class="d-flex justify-content-between names-icon">
+          <div class="name-quantity">
+            <p class="wish-item"><%= wish_list_item.item.generic_name.capitalize %></p>
+            <p class="wish-item"><%= wish_list_item.item.generic_quantity * wish_list_item.amount %> <%= wish_list_item.item.generic_unit %></p>
+          </div>
+          <%= link_to plus_amount_wish_list_item_path(wish_list_item) do %>
+            <p class="wish-item"><i class="fas fa-plus"></i></p>
+          <% end %>
+          <p class="wish-item"><%= wish_list_item.amount %></p>
+          <%= link_to minus_amount_wish_list_item_path(wish_list_item) do %>
+            <p class="wish-item"><i class="fas fa-minus"></i></p>
+          <% end %>
+          <%= link_to wish_list_item_path(wish_list_item), method: :delete do %>
+            <p class="wish-item"><i class="fas fa-trash" id="bin"></i></p>
           <% end %>
         </div>
-        <div class="con-btn">
-          <%= link_to "Compare Results", compare_path, class: "btn btn-primary compare-button", id:'compare-btn' %>
-        </div>
-        </div>
-      </div>
+      <% end %>
+    </div>
+    <div class="con-btn">
+      <%= link_to "Compare Results", compare_path, class: "btn btn-primary compare-button", id:'compare-btn' %>
+    </div>
     </div>
   </div>
 </div>
