@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_154248) do
+ActiveRecord::Schema.define(version: 2020_03_09_143148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "basket_items", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "basket_id", null: false
+    t.integer "amount", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["basket_id"], name: "index_basket_items_on_basket_id"
+    t.index ["item_id"], name: "index_basket_items_on_item_id"
+  end
+
+  create_table "baskets", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.float "price", default: 0.0
+    t.float "emissions", default: 0.0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "retailer"
+    t.index ["user_id"], name: "index_baskets_on_user_id"
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -59,6 +79,9 @@ ActiveRecord::Schema.define(version: 2020_03_05_154248) do
     t.index ["user_id"], name: "index_wish_list_items_on_user_id"
   end
 
+  add_foreign_key "basket_items", "baskets"
+  add_foreign_key "basket_items", "items"
+  add_foreign_key "baskets", "users"
   add_foreign_key "wish_list_items", "items"
   add_foreign_key "wish_list_items", "users"
 end

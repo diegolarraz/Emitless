@@ -10,7 +10,7 @@
       <h3 class="emits"><%= @basket[0][1][:emissions].round %> Emits</h3>
       <h5 class="price-tag">Total: £<%= @basket[0][1][:price] %></h5>
       <img class= "big-tree" src="https://www.pngitem.com/pimgs/m/217-2170494_animated-trees-and-fences-animated-tree-with-branches.png" alt="big-tree">
-      <%= link_to basket_path(retailer: @basket[0][0], basket: @basket[0][1]) do %>
+      <%= link_to basket_path(retailer: @top_basket[0], basket: @top_basket[1]) do %>
         <%= image_tag "view.png", alt: "view your basket", class: "view-bskt-btn" %>
       <% end %>
     </div>

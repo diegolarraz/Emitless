@@ -1,0 +1,31 @@
+<div class="comparison-container">
+  <h1 class="navbar-header" id="emitless-home"><%= link_to "emitless", items_path, class: "navbar-header white-text", id: "emtlss" %></h1>
+  <div class="basket-container">
+    <div class="container">
+      <h1 class="white">Your <%= @final_basket.retailer.capitalize %> basket</h1>
+      <div class="row light-bg">
+        <div class="col-8">
+          <% @final_basket.items.each do |item| %>
+            <div class="product-card">
+              <%= image_tag "#{item.image}", class: 'product-image', alt: "alttext" %>
+              <div class="product-infos">
+                <div class="product-infos-left">
+                  <h5 class="product-name"><%= item.name %></h5>
+                  <p class="product-quantity"><%= BasketItem.where(item: item).last.amount %> x <%= item.quantity %> <%= item.unit %></p>
+                </div>
+                <div class="product-infos-right">
+                  <h5 class="product-emits"><%= item.emission.to_i %> emits</h5>
+                  <p class="product-price">£<%= '%.2f' % item.price %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="basket-info">
+        <p class="white p">Total emits: <%= @final_basket.emissions.to_i %></p>
+        <p class="white p">Total price: £<%= @final_basket.price %> </p>
+      </div>
+    </div>
+  </div>
+</div>
