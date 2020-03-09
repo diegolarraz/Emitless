@@ -1,0 +1,30 @@
+#emitless-logo {
+  width: 183.79px;
+  height: 54.96px;
+  position: absolute;
+  left: 146px;
+  top: 30px;
+}
+
+.navbar-container {
+  margin: 0 170px;
+  padding: 20px 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navbar-btn {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  color: #1D191A;
+  padding: 22px 0 0 20px;
+  text-align: center;
+  &:hover {
+    border-top: 2px solid #D2E861;
+    text-decoration: none;
+    color: #1D191A;
+  }
+}
