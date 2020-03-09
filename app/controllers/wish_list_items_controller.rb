@@ -81,7 +81,6 @@ class WishListItemsController < ApplicationController
 
   def show
     # raise
-
     @retailer = params[:retailer]
     @items = params[:basket][:items]
     @emissions = params[:basket][:emissions]
