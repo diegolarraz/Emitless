@@ -21,6 +21,14 @@
                 </div>
               </div>
             </div>
+            <% if item_object.find_swap %>
+              <div>
+                <%= item_object.find_swap.name %>
+                <%= item_object.find_swap.emission.to_i %>
+              </div>
+            <% else %>
+              <div>Suitable item not found</div>
+            <% end %>
           <% end %>
         </div>
       </div>

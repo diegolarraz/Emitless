@@ -9,4 +9,8 @@ class Item < ApplicationRecord
   validates :generic_name, presence: true
   validates :retailer, inclusion: { in: RETAILERS }
   validates :price, presence: true
+
+  def find_swap
+    Item.order(emission: :asc).where.not("id = ?", self.id).where("retailer = ? AND sub_category = ? AND emission < ?", self.retailer, self.sub_category, self.emission).first
+  end
 end
