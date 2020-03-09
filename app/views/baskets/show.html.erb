@@ -19,10 +19,11 @@
                 </div>
               </div>
             </div>
-            <% if item_object.find_swap %>
+            <% if item.find_swap %>
               <div>
-                <%= item_object.find_swap.name %>
-                <%= item_object.find_swap.emission.to_i %>
+                <%= item.find_swap.name %>
+                <%= item.find_swap.emission.to_i %>
+                <%= link_to "swap", update_path(@final_basket, swap_out: item, swap_in: item.find_swap), method: :patch %>
               </div>
             <% else %>
               <div>Suitable item not found</div>
@@ -32,7 +33,7 @@
       </div>
       <div class="basket-info">
         <p class="white p">Total emits: <%= @final_basket.emissions.to_i %></p>
-        <p class="white p">Total price: £<%= @final_basket.price %> </p>
+        <p class="white p">Total price: £<%= '%.2f' % @final_basket.price %> </p>
       </div>
     </div>
   </div>
