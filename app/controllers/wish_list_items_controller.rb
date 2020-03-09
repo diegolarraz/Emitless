@@ -86,7 +86,6 @@ class WishListItemsController < ApplicationController
     @items = params[:basket][:items]
     @emissions = params[:basket][:emissions]
     @price = params[:basket][:price]
-
   end
 
   private
