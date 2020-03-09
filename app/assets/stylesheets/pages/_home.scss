@@ -22,6 +22,7 @@
   height: 100%;
   min-height: 100%;
   padding-top: 75px;
+
   > * {
     margin: 0;
     padding: 0;
@@ -67,8 +68,9 @@
   border: 2px solid #F9F1F1;
   box-sizing: border-box;
   border-radius: 8px;
-  padding: 8px 6px;
+  padding: 8px 5px;
   flex-grow: 2;
+  margin-right: 2px;
   &::placeholder {
     font-style: normal;
     font-weight: 300;
@@ -88,6 +90,10 @@
   font-family: $headers-font;
   color: white;
   flex-grow: 2;
+  transition: 0.3s;
+  &:hover {
+    font-weight: 600;
+  }
 }
 
 #yellow-testimonial {
@@ -102,10 +108,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   p {
     margin: 0;
     padding-left: 20px;
     text-align: justify;
+    z-index: 10;
   }
 }
 
@@ -115,4 +123,10 @@
     height: 70px;
     border-radius: 20px;
   }
+}
+
+#quote {
+  position: absolute;
+  left: 120px;
+  bottom: 90px;
 }

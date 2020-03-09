@@ -1,5 +1,16 @@
 <div class="home-wrap">
-<%= render 'shared/new_navbar' %>
+  <div class="navbar navbar-expand-sm navbar-light">
+    <div class="navbar-container">
+      <%= image_tag "emitless-logo.png", alt: "emitless logo", class: "navbar-header", id: "emitless-logo" %>
+      <%= link_to "About", "#", class: "navbar-btn" %>
+      <% if user_signed_in? %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-btn" %>
+      <% else %>
+        <%= link_to "Log in", new_user_session_path, class: "navbar-btn" %>
+      <% end %>
+    </div>
+  </div>
+
   <div class="home-container">
     <div class="left-home-div">
       <h1>Lowering emissions, <br>one purchase at a time.</h1>
@@ -14,8 +25,9 @@
       <% end %>
       <div id="yellow-testimonial">
         <div id="img-testimonial">
-          <%= image_tag "testimonial", alt: "alttext" %>
+          <%= image_tag "testimonial", alt: "rory's picture" %>
         </div>
+        <%= image_tag "quote.png", id: "quote", alt: "quote image" %>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nihil aspernatur quia sit repudiandae illo atque, veritatis officia mollitia. Vero perspiciatis molestiae amet ad cupiditate saepe aliquid, excepturi harum ipsam.</p>
       </div>
     </div>
