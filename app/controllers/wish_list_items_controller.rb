@@ -91,6 +91,9 @@ class WishListItemsController < ApplicationController
   end
 
   private
+  def basket_params
+    params.require(:wish_list_item).permit(:basket, :retailer)
+  end
 
   def wish_list_item_params
     params.require(:wish_list_item).permit(:amount, :item_id)

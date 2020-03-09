@@ -19,21 +19,16 @@
                 </div>
               </div>
             </div>
-            <% if item_object.find_swap %>
-              <div>
-                <%= item_object.find_swap.name %>
-                <%= item_object.find_swap.emission.to_i %>
-              </div>
-            <% else %>
-              <div>Suitable item not found</div>
-            <% end %>
+
           <% end %>
         </div>
       </div>
       <div class="basket-info">
         <p class="white p">Total emits: <%= @final_basket.emissions.to_i %></p>
         <p class="white p">Total price: £<%= @final_basket.price %> </p>
+        <%= link_to 'DOWNLOAD PDF', basket_path(@final_basket, format: :pdf, retailer: @final_basket.retailer, basket: @final_basket) %>
       </div>
     </div>
   </div>
 </div>
+

@@ -1,0 +1,28 @@
+<div class="container">
+<h1>Your <%= @retailer.capitalize %> basket</h1>
+  <div class="row">
+    <div class="col-8">
+      <% @items.each do |item| %>
+        <% item_object = Item.find(item[1][1]) %>
+          <div class="product-card">
+            <%= image_tag "#{item_object.image}", class: 'product-image', alt: "alttext" %>
+            <div class="product-infos">
+              <div class="product-infos-left">
+                <h5 class="product-name"><%= item_object.name %></h5>
+                <p class="product-quantity"><%= item[1][0] %> x <%= item_object.quantity %> <%= item_object.unit %></p>
+              </div>
+              <div class="product-infos-right">
+                <h5 class="product-emits"><%= item_object.emission %> emits</h5>
+                <p class="product-price">£<%= '%.2f' % item_object.price %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  </div>
+  <div class="basket-info">
+    <p>Total emits: <%= @emissions %></p>
+    <p>Total price: £<%= '%.2f' % @price %> </p>
+  </div>
+</div>
+
