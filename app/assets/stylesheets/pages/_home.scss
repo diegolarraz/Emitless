@@ -1,45 +1,74 @@
 // Specific CSS for your home-page
+.home-wrap {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .home-container {
-  margin: 30px 170px 0 170px;
+  margin: 0 170px 0 170px;
+  padding-top: 30px;
   height: 90vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  align-items: stretch;
 }
 
 .left-home-div {
   display: flex;
   flex-direction: column;
-  align-items: space-between;
+  align-items: stretch;
+  justify-content: space-between;
   height: 100%;
+  min-height: 100%;
+  padding-top: 75px;
+  > * {
+    margin: 0;
+    padding: 0;
+  }
+
   h1 {
     font-size: 44px;
-    font-weight: bold;
+    font-weight: 900;
     margin: 0;
-    padding-bottom: 30px;
+    line-height: 66px;
   }
   p {
     font-weight: light;
+    text-align: justify;
+    padding-right: 15px;
+    margin: 0;
   }
 }
 
 .right-home-div {
   background-size: cover;
   background-position: bottom right;
-  height: 80%;
-  border-top-left-radius: 80px;
+  height: 100%;
+  border-top-left-radius: 130px;
+}
+
+.full-width {
+  margin-right: -50vw;
+  max-width: 50vw;
+  position: relative;
+  left: 8%;
+  width: 50vw;
 }
 
 .search-bar {
-  padding: 30px 0;
+  padding: 0 15px 0 0;
+  display: flex;
 }
 
 #home-search-field {
-  width: 75%;
+  width: 70%;
   background: rgba(228, 228, 228, 0.3);
   border: 2px solid #F9F1F1;
   box-sizing: border-box;
   border-radius: 8px;
   padding: 8px 6px;
+  flex-grow: 2;
   &::placeholder {
     font-style: normal;
     font-weight: 300;
@@ -58,6 +87,7 @@
   padding: 8px 6px;
   font-family: $headers-font;
   color: white;
+  flex-grow: 2;
 }
 
 #yellow-testimonial {
@@ -67,9 +97,22 @@
   color: white;
   background: $yellow;
   border-radius: 30px 30px 0px 0px;
-  padding: 15px 30px;
+  padding: 40px 30px;
   margin-right: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
+  p {
+    margin: 0;
+    padding-left: 20px;
+    text-align: justify;
+  }
+}
+
+#img-testimonial {
+  img {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+  }
 }

@@ -1,24 +1,25 @@
+<div class="home-wrap">
 <%= render 'shared/new_navbar' %>
-
-<div class="home-container">
-  <div class="left-home-div">
-    <h1>Lowering emissions, <br>one purchase at a time.</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa error magni, harum blanditiis quasi nobis non sed, ipsum obcaecati saepe quod tempore at repellat ducimus, debitis officia unde aut.</p>
-    <%= form_tag items_path, method: :get, class: "search-bar" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        id: "home-search-field",
-        placeholder: "Search products"
-      %>
-      <%= submit_tag "Find my first item", id: "home-begin-btn" %>
-    <% end %>
-    <div id="yellow-testimonial">
-      <div id="img-testimonial">
-        <%= image_tag "testimonial", alt: "alttext" %>
+  <div class="home-container">
+    <div class="left-home-div">
+      <h1>Lowering emissions, <br>one purchase at a time.</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa error magni, harum blanditiis quasi nobis non sed, ipsum obcaecati saepe quod tempore at repellat ducimus, debitis officia unde aut.</p>
+      <%= form_tag items_path, method: :get, class: "search-bar" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          id: "home-search-field",
+          placeholder: "Search products"
+        %>
+        <%= submit_tag "Find my first item", id: "home-begin-btn" %>
+      <% end %>
+      <div id="yellow-testimonial">
+        <div id="img-testimonial">
+          <%= image_tag "testimonial", alt: "alttext" %>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nihil aspernatur quia sit repudiandae illo atque, veritatis officia mollitia. Vero perspiciatis molestiae amet ad cupiditate saepe aliquid, excepturi harum ipsam.</p>
       </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nihil aspernatur quia sit repudiandae illo atque, veritatis officia mollitia. Vero perspiciatis molestiae amet ad cupiditate saepe aliquid, excepturi harum ipsam.</p>
     </div>
-  </div>
 
-  <div class="right-home-div" style="background-image: url(<%= image_path('home-vegetables.jpg') %>);"></div>
+    <div class="right-home-div full-width" style="background-image: url(<%= image_path('home-vegetables.jpg') %>);"></div>
+  </div>
 </div>
