@@ -21,11 +21,22 @@ class WishListItemsController < ApplicationController
       redirect_to items_path
     end
     @wish_list_items = WishListItem.includes(:item).where(user: current_user)
+
+    # Item::RETAILERS.each do |retailer|
+    #   retailer = Basket.new(retailer: retailer)
+
+    #   @wish_list_items.each do |wish_list_item|
+    #     # Finding the best item with the lowest emissions
+
+    #   end
+
+    # end
+
     @basket = {
-              tesco: {},
-              ocado: {},
-              morrisons: {}
-              }
+            tesco: {},
+            ocado: {},
+            morrisons: {}
+            }
 
     Item::RETAILERS.each do |retailer|
       @basket[retailer.downcase.to_sym][:emissions] = 0.0
@@ -53,7 +64,7 @@ class WishListItemsController < ApplicationController
     end
 
     @basket = @basket.sort_by { |retailer, infos| infos[:emissions] }
-    # raise
+    @top_basket = @basket[0]
   end
 
   def destroy
@@ -77,14 +88,6 @@ class WishListItemsController < ApplicationController
       @wish_list_item.destroy
     end
     redirect_to items_path
-  end
-
-  def show
-    # raise
-    @retailer = params[:retailer]
-    @items = params[:basket][:items]
-    @emissions = params[:basket][:emissions]
-    @price = params[:basket][:price]
   end
 
   private
