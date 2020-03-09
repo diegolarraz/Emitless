@@ -25,3 +25,5 @@
     <p>Total price: £<%= '%.2f' % @price %> </p>
   </div>
 </div>
+
+<%= link_to 'DOWNLOAD PDF', basket_path(retailer: @retailer, basket: params[:basket], format: :pdf) %>

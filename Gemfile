@@ -18,6 +18,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'turbolinks_render'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

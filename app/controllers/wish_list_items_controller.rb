@@ -81,15 +81,29 @@ class WishListItemsController < ApplicationController
 
   def show
     # raise
-
     @retailer = params[:retailer]
     @items = params[:basket][:items]
     @emissions = params[:basket][:emissions]
     @price = params[:basket][:price]
-
+    respond_to do |format|
+      format.html
+      format.pdf do
+          render pdf: "Invoice No. #{@retailer.id}",
+          page_size: 'A4',
+          template: "wish_list_items/show.html.erb",
+          layout: "pdf.html",
+          orientation: "Landscape",
+          lowquality: true,
+          zoom: 1,
+          dpi: 75
+      end
+    end
   end
 
   private
+  def basket_params
+    params.require(:wish_list_item).permit(:basket, :retailer)
+  end
 
   def wish_list_item_params
     params.require(:wish_list_item).permit(:amount, :item_id)
