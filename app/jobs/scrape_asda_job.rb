@@ -81,8 +81,8 @@ class ScrapeAsdaJob < ApplicationJob
           unless new_item.name.include? item[:name.to_s].split(" ")[0].capitalize
             new_item.name = nil
           end
-          if new_item.unit.nil?
-            new_item.unit = generic_unit
+          if new_item.unit.nil? || new_item.unit.include?(" per pack") || new_item.unit == ""
+            new_item.unit = new_item.generic_unit
           end
           if new_item.save
             counter += 1

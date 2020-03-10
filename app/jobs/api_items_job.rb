@@ -39,9 +39,15 @@ class ApiItemsJob < ApplicationJob
           name: result['name'].gsub(/\s\d+.+(g|kg)\z/i, ""),
           price: result['price'],
           quantity: result['ContentsQuantity'].to_i,
+          unit: result['ContentsMeasureType'].downcase,
           retailer: 'Tesco',
           emission: emissions
           )
+        if new_item.unit == "sngl"
+          new_item.unit = "each"
+          # binding.pry
+        end
+        # binding.pry
         new_item.save
       end
     end

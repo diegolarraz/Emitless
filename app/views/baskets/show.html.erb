@@ -6,6 +6,7 @@
       <div class="row light-bg">
         <div class="col-8">
           <% @final_basket.items.each do |item| %>
+          <% raise %>
             <div class="product-card">
               <%= image_tag "#{item.image}", class: 'product-image', alt: "alttext" %>
               <div class="product-infos">
@@ -32,6 +33,7 @@
         </div>
       </div>
       <div class="basket-info">
+
         <p class="white p">Total emits: <%= @final_basket.emissions.to_i %></p>
         <p class="white p">Total price: £<%= '%.2f' % @final_basket.price %> </p>
       </div>
