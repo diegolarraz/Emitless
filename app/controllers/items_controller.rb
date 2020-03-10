@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
       @items = Item.all.uniq(&:generic_name)
       @items = category_sorter(@items) if params[:category].present?
     end
+    @wishes = current_user.wish_list_items
   end
 
   respond_to do |format|

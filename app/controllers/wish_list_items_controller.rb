@@ -10,6 +10,7 @@ class WishListItemsController < ApplicationController
     @wish_list_item = WishListItem.new(wish_list_item_params)
     @wish_list_item.user = current_user
     if @wish_list_item.save
+      redirect_to items_path
     else
       flash[:notice] = "Oh no, something went wrong!"
     end
@@ -92,10 +93,11 @@ class WishListItemsController < ApplicationController
 
   private
   def basket_params
+    raise
     params.require(:wish_list_item).permit(:basket, :retailer)
   end
 
   def wish_list_item_params
-    params.require(:wish_list_item).permit(:amount, :item_id)
+    params.require(:wish_list_item).permit(:item_id, :amount)
   end
 end
