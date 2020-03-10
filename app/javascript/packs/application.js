@@ -9,3 +9,6 @@ submit_spinner();
 
 import { activeClassOnNavbar } from "../components/navbar"
 activeClassOnNavbar();
+
+const Turbolinks = require("turbolinks")
+Turbolinks.start()

@@ -17,10 +17,10 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'turbolinks', '~> 5.2.0'
 gem 'turbolinks_render'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-gem 'turbolinks_render'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
