@@ -54,23 +54,29 @@
         <div class="d-flex justify-content-between names-icon">
           <div class="name-quantity">
             <p class="wish-item"><%= wish_list_item.item.generic_name.capitalize %></p>
-            <p class="wish-item"><%= wish_list_item.item.generic_quantity * wish_list_item.amount %> <%= wish_list_item.item.generic_unit %></p>
           </div>
-          <%= link_to plus_amount_wish_list_item_path(wish_list_item) do %>
-            <p class="wish-item"><i class="fas fa-plus"></i></p>
-          <% end %>
-          <p class="wish-item"><%= wish_list_item.amount %></p>
-          <%= link_to minus_amount_wish_list_item_path(wish_list_item) do %>
-            <p class="wish-item"><i class="fas fa-minus"></i></p>
-          <% end %>
-          <%= link_to wish_list_item_path(wish_list_item), method: :delete do %>
-            <p class="wish-item"><i class="fas fa-trash" id="bin"></i></p>
-          <% end %>
+          <div class="wish-item-actions">
+            <%= link_to plus_amount_wish_list_item_path(wish_list_item) do %>
+              <p class="wish-item"><%= image_tag "plus-icon.png", alt: "alttext" %></p>
+            <% end %>
+
+            <div class="wish-item-qty">
+              <p class="wish-item"><%= wish_list_item.item.generic_quantity * wish_list_item.amount %></p>
+              <p class="wish-item-amount"><%= wish_list_item.item.generic_unit %></p>
+            </div>
+
+            <%= link_to minus_amount_wish_list_item_path(wish_list_item) do %>
+              <p class="wish-item"><%= image_tag "minus-icon.png", alt: "alttext" %></p>
+            <% end %>
+            <%= link_to wish_list_item_path(wish_list_item), method: :delete do %>
+              <p class="wish-item"><i class="fas fa-trash" id="bin"></i></p>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>
     <div class="con-btn">
-      <%= link_to "Compare Results", compare_path, class: "btn btn-primary compare-button", id:'compare-btn' %>
+      <%= link_to "Compare products", compare_path, class: "btn btn-primary compare-button", id:'compare-btn' %>
     </div>
     </div>
   </div>
