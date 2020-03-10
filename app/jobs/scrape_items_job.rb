@@ -38,7 +38,7 @@ class ScrapeItemsJob < ApplicationJob
           elsif unit.include? "g" || "G"
             unit = "g"
           end
-          emissions = (rand() * 100).round
+          # emissions = (rand() * 100).round
           new_item = Item.new(
           generic_name: item[:name.to_s],
           generic_unit: item[:unit.to_s],
@@ -52,7 +52,7 @@ class ScrapeItemsJob < ApplicationJob
           quantity: quantity[0],
           unit: unit,
           retailer: 'Morrisons',
-          emission: emissions
+          # emission: emissions
           )
           if new_item.quantity.nil? || new_item.quantity == "0"
             new_item.quantity = "1"
@@ -62,6 +62,21 @@ class ScrapeItemsJob < ApplicationJob
           end
           if new_item.unit.nil? || new_item.unit.include?(" per pack") || new_item.unit == ""
             new_item.unit = new_item.generic_unit
+          end
+          if new_item.category == ("meat" || "seafood") && new_item.unit == "g"
+            new_item.emission = (rand(0.06..0.1) * new_item.quantity.to_i).round(1)
+          elsif new_item.category == ("meat" || "seafood") && new_item.unit == "kg"
+            new_item.emission = (rand(0.06..0.1) * new_item.quantity.to_f * 1000).round(1)
+          elsif new_item.category == ("meat" || "seafood") && new_item.unit == "each"
+            new_item.emission = (rand(0.06..0.1) * new_item.quantity.to_i * 150).round(1)
+          elsif new_item.category == "fruit" && new_item.unit == "each"
+            new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 100).round(1)
+          elsif new_item.category == "vegetable" && new_item.unit == "each"
+            new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 250).round(1)
+          elsif new_item.unit == "g"
+            new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_i).round(1)
+          elsif new_item.unit == "kg"
+            new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 1000).round(1)
           end
           if new_item.save
             counter += 1

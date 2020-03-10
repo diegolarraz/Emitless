@@ -21,7 +21,7 @@ class ApiItemsJob < ApplicationJob
       end
       items_hash = JSON.parse(response.body)
       items_hash['uk']['ghs']['products']['results'].each do |result|
-      emissions = (rand() * 100).round
+      # emissions = (rand() * 100).round
       # name = result['name'].gsub(/\s\d+.+(g|kg)\z/i, ""),
         # binding.pry
         # if result['ContentsQuantity'] == nil
@@ -41,13 +41,27 @@ class ApiItemsJob < ApplicationJob
           quantity: result['ContentsQuantity'].to_i,
           unit: result['ContentsMeasureType'].downcase,
           retailer: 'Tesco',
-          emission: emissions
+          # emission: emissions
           )
         if new_item.unit == "sngl"
           new_item.unit = "each"
           # binding.pry
         end
-        # binding.pry
+        if new_item.category == ("meat" || "seafood") && new_item.unit == "g"
+          new_item.emission = (rand(0.06..0.1) * new_item.quantity.to_i).round(1)
+        elsif new_item.category == ("meat" || "seafood") && new_item.unit == "kg"
+          new_item.emission = (rand(0.06..0.1) * new_item.quantity.to_f * 1000).round(1)
+        elsif new_item.category == ("meat" || "seafood") && new_item.unit == "each"
+          new_item.emission = (rand(0.06..0.1) * new_item.quantity.to_i * 150).round(1)
+        elsif new_item.category == "fruit" && new_item.unit == "each"
+          new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 100).round(1)
+        elsif new_item.category == "vegetable" && new_item.unit == "each"
+          new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 250).round(1)
+        elsif new_item.unit == "g"
+          new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_i).round(1)
+        elsif new_item.unit == "kg"
+          new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 1000).round(1)
+        end
         new_item.save
       end
     end
