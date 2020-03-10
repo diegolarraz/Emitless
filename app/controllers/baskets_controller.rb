@@ -25,7 +25,7 @@ class BasketsController < ApplicationController
           page_size: 'A4',
           template: "baskets/show.html.erb",
           layout: "pdf.html",
-          orientation: "portrait",
+          orientation: "landscape",
           encoding:"UTF-8"
       end
     end
