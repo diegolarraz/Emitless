@@ -27,8 +27,8 @@
 }
 
 .spin {
-  h3 {
-    color: $main-green;
+  > h3 {
+    color: $orange;
     font-size: 24px;
     font-weight: semi-bold;
     padding-bottom: 30px;
@@ -39,7 +39,7 @@
 .loader {
   margin: 0 auto;
   border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid $main-green; /* Blue */
+  border-top: 16px solid $yellow; /* Blue */
   border-radius: 50%;
   width: 120px;
   height: 120px;

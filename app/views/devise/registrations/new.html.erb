@@ -1,7 +1,9 @@
 <div class="home-wrap">
   <div class="navbar navbar-expand-sm navbar-light">
     <div class="navbar-container-home">
-      <%= image_tag "emitless-logo.png", alt: "emitless logo", class: "navbar-header", id: "emitless-logo" %>
+      <%= link_to root_path do %>
+        <%= image_tag "emitless-logo.png", alt: "emitless logo", class: "navbar-header", id: "emitless-logo" %>
+      <% end %>
     </div>
   </div>
 
