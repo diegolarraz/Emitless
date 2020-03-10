@@ -34,7 +34,6 @@
 
 
 .comparison-card {
-  padding: 15px;
   background-color: #F9F9F9;
   text-align:  center;
   border-radius: 25px;
@@ -108,18 +107,31 @@
 
 .emits {
   font-weight: bolder;
-  color: #005244;
+  color: black;
+  font-size: 40px;
+  font-family: sans-serif;
+  margin-bottom: 0px;
 
 }
+  h6 {
+      color: $orange;
+      font-weight: bold;
+      font-size: 26px;
+      padding-bottom: 0px;
+      margin-bottom: 0px;
+
+    }
 
 .emits-small {
   font-weight: bolder;
-  color: #005244;
+  color: #1D191A;
   font-size: 24px;
 }
 
 .price-tag {
-  color: #005244;
+  font-size: 14px;
+  color: #1D191A;
+  margin-top: -5px;
 }
 
 .info-bottom {
@@ -162,20 +174,53 @@
   align-items: center;
 
   .emits-small {
-    font-size: 44px;
+    font-size: 40px;
+    font-family: sans-serif;
+    color: #1D191A;
   }
 
   .comparison-details {
-    padding-left: 16px;
+    padding-left: 10px;
     text-align: left;
+    padding-bottom: 10px;
+
 
     h6 {
       color: $orange;
       font-weight: bold;
       font-size: 26px;
+      padding-bottom: 0px;
+
     }
   }
 }
 
+.big-card-emits {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 60px;
+  padding-right: 60px;
+}
 
+.card-bottom {
+  height: 30%;
+  width: 100%;
+  background-color: $green;
+  border-radius: 0  0 25px 25px;
+      display: flex;
+    justify-content: center;
+    flex-direction: column;
+  a {
+    font-weight: bold;
+    color: white;
+    font-size: 21px;
+  }
+}
 
+.card-top {
+  height: 70%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 15px;
+}
