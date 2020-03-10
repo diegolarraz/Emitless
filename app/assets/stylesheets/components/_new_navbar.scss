@@ -3,11 +3,21 @@
   height: 54.96px;
   position: absolute;
   left: 149px;
-  top: 31px;
+  top: 23px;
 }
 
 .navbar-container {
-  margin: 0 170px;
+  margin: 0 155px;
+  padding: 10px 0;
+  height: 15vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navbar-container-home {
+  margin: 0 155px;
   padding: 10px 0;
   height: 10vh;
   width: 100vw;
@@ -30,4 +40,52 @@
     color: #1D191A;
     font-weight: bold;
   }
+}
+
+.progression-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: auto;
+}
+
+ol {
+  list-style-type: none;
+  margin-left: 0;
+  text-align: center;
+}
+
+ol > li {
+  counter-increment: customlistcounter;
+  margin-bottom: 1em;
+  display: inline-block;
+}
+
+ol > li:before {
+  content: counter(customlistcounter) "";
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: $orange;
+  margin-right: .4em;
+  padding: .3em .7em .3em;
+  border-radius: 15em;
+}
+
+.progression-bar-text {
+  font-size: 15px;
+  font-weight: 300;
+  opacity : 0.4;
+}
+
+.progression-bar-separator {
+  padding: 0 15px;
+  border-top: 2.4px solid $green;
+  position: relative;
+  top: 12px;
+  margin: 0 7px;
+}
+
+.active {
+  opacity: 1;
 }

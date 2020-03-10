@@ -1,6 +1,6 @@
 <div class="home-wrap">
   <div class="navbar navbar-expand-sm navbar-light">
-    <div class="navbar-container">
+    <div class="navbar-container-home">
       <%= image_tag "emitless-logo.png", alt: "emitless logo", class: "navbar-header", id: "emitless-logo" %>
       <%= link_to "About", "#", class: "navbar-btn" %>
       <% if user_signed_in? %>
@@ -19,9 +19,10 @@
         <%= text_field_tag :query,
           params[:query],
           id: "home-search-field",
+          class: "form-control",
           placeholder: "Search products"
         %>
-        <%= submit_tag "Find my first item", id: "home-begin-btn" %>
+        <%= submit_tag "Find my first item", id: "home-begin-btn", class: 'btn btn-primary search-btn' %>
       <% end %>
       <div id="yellow-testimonial">
         <div id="img-testimonial">
