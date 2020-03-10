@@ -20,15 +20,21 @@ class BasketsController < ApplicationController
 
   def update
     @basket = Basket.find(params[:id])
-    basket_item_out = @basket.basket_items.where("item_id = ?", params[:swap_out])
+    basket_item_out = @basket.basket_items.where("item_id = ?", params[:swap_out])[0]
+    # raise
     basket_item_in = Item.find(params[:swap_in])
     # raise
-
-    @basket_item = BasketItem.new(item_id: params[:swap_in].to_i, amount: basket_item_out[0].amount)
+    desired_quantity = basket_item_out.item.quantity.to_i * basket_item_out.amount.to_i
+    required_amount = desired_quantity / basket_item_in.quantity.to_i
+    @basket_item = BasketItem.new(item_id: params[:swap_in].to_i, amount: required_amount)
     @basket_item.basket = @basket
     @basket_item.save
     # raise
-    BasketItem.destroy(basket_item_out[0].id)
+    @basket.price -= basket_item_out.amount * basket_item_out.item.price
+    @basket.price += @basket_item.item.price * @basket_item.amount
+    @basket.emissions -= basket_item_out.amount * basket_item_out.item.emission
+    @basket.emissions += @basket_item.item.emission * @basket_item.amount
+    BasketItem.destroy(basket_item_out.id)
     # raise
     # SWAP THOSE ITEMS B
     if @basket.save
