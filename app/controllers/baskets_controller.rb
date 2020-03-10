@@ -1,19 +1,21 @@
 class BasketsController < ApplicationController
   def show
-    raise
-    # if Basket.find()
-    @final_basket = Basket.new(retailer: params[:retailer], user: current_user)
-    @final_basket.emissions = params[:basket][:emissions].to_f
-    @final_basket.price = params[:basket][:price].to_f
+    if params[:format]
+      @final_basket = Basket.find(params[:format])
+    else
+      @final_basket = Basket.new(retailer: params[:retailer], user: current_user)
+      @final_basket.emissions = params[:basket][:emissions].to_f
+      @final_basket.price = params[:basket][:price].to_f
 
-    @final_basket.save
+      @final_basket.save
 
-    items = params[:basket][:items]
+      items = params[:basket][:items]
 
-    items.each do |generic_name, infos|
-      item = BasketItem.create(item: Item.find(infos[1].to_i), basket: @final_basket, amount: infos[0].to_i)
+      items.each do |generic_name, infos|
+        item = BasketItem.create(item: Item.find(infos[1].to_i), basket: @final_basket, amount: infos[0].to_i)
+      end
+
     end
-
   end
 
   def update
