@@ -1,11 +1,19 @@
 <div class="navbar navbar-expand-sm navbar-light">
   <div class="navbar-container">
     <%= image_tag "emitless-logo.png", alt: "emitless logo", class: "navbar-header", id: "emitless-logo" %>
-    <%= link_to "About", "#", class: "navbar-btn" %>
-    <% if user_signed_in? %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-btn" %>
-    <% else %>
-      <%= link_to "Log in", new_user_session_path, class: "navbar-btn" %>
-    <% end %>
+    <div class="progression-bar">
+      <ol class="nav">
+        <li class="progression-bar-text nav-item">Create your grocery list</li>
+          <h5 class="progression-bar-separator"></h5>
+        <li class="progression-bar-text nav-item">Compare supermarkets</li>
+          <h5 class="progression-bar-separator"></h5>
+        <li class="progression-bar-text nav-item">Finalize your basket</li>
+      </ol>
+    </div>
   </div>
 </div>
+
+
+<%# if params[:controller] == "items/index" %>
+<%# if params[:controller] == "wish_list_items/index" %>
+<%# if params[:controller] == "baskets/show" %>
