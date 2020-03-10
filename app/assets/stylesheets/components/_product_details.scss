@@ -160,11 +160,22 @@
 
 .swap-box {
   border-top: 1px solid #CFCFCF;
-  height: 80px;
+  height: 100px;
   padding: 10px;
   width: 20vw;
 }
 
 .comparison-container {
   text-align: center;
+}
+
+.basket-title {
+  margin: 0;
+  font-size: 14px;
+}
+
+.text-headings {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
