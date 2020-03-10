@@ -14,18 +14,27 @@
                   <p class="product-quantity"><%= BasketItem.where(item: item).last.amount %> x <%= item.quantity %> <%= item.unit %></p>
                 </div>
                 <div class="product-infos-right">
-                  <h5 class="product-emits"><%= item.emission.to_i %> emits</h5>
-                  <p class="product-price">£<%= '%.2f' % item.price %></p>
+                  <h5 class="product-emits"><%= item.emission.to_i * BasketItem.find_by(item_id: item.id).amount %> emits</h5>
+                  <p class="product-price">£<%= '%.2f' % (item.price * BasketItem.find_by(item_id: item.id).amount)%></p>
                 </div>
               </div>
             </div>
-
+            <% if item.find_swap %>
+              <div>
+                <%= item.find_swap.name %>
+                <%= item.find_swap.emission.to_i %>
+                <%= link_to "swap", update_path(@final_basket, swap_out: item, swap_in: item.find_swap), method: :patch %>
+              </div>
+            <% else %>
+              <div>Suitable item not found</div>
+            <% end %>
           <% end %>
         </div>
       </div>
       <div class="basket-info">
+
         <p class="white p">Total emits: <%= @final_basket.emissions.to_i %></p>
-        <p class="white p">Total price: £<%= @final_basket.price %> </p>
+        <p class="white p">Total price: £<%= '%.2f' % @final_basket.price %> </p>
         <%= link_to 'DOWNLOAD PDF', basket_path(@final_basket, format: :pdf, retailer: @final_basket.retailer, basket: @final_basket) %>
       </div>
     </div>

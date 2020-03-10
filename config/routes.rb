@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   get 'compare', to: 'wish_list_items#index', as: 'compare'
   get 'basket', to: 'baskets#show', as: 'basket'
 
-  resources :baskets, only: %i[update]
+  patch "baskets/:id", to: "baskets#update", as: 'update'
   resources :basket_items, only: :create
 end
