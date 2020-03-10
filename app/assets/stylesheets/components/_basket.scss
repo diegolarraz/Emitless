@@ -20,7 +20,7 @@
 }
 
 .wish-item {
-  color: #005244;
+  color: #FFFFFF;
   margin-bottom: 4px;
   line-height: 1;
 }
@@ -31,7 +31,7 @@
   justify-content: flex-start;
   margin-bottom: 21px;
   height: 100%;
-  background-color: $orange;
+  background-color: $yellow;
   border-radius: 0 0 16px 16px;
   overflow: scroll;
 }
@@ -56,7 +56,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #F0A026;
+  background-color: $orange;
   border-radius: 16px 16px 0px 0px;
   margin-top: 8px;
   display: inline-block;
@@ -87,7 +87,7 @@
 
     #bin {
       transition: 0.4s;
-      color: #005244;
+      color: #FFFFFF;
     }
   }
 

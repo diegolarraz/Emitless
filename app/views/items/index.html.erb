@@ -46,7 +46,11 @@
     </div>
     <div class="wish-items" id="wish-items-js">
       <!-- here goes the iteration for the wish list items -->
-      <% current_user.wish_list_items.each do |wish_list_item| %>
+
+   <!--    <p id="test">
+        <%= @wishes.count %>
+      </p> -->
+      <% @wishes.each do |wish_list_item| %>
         <div class="d-flex justify-content-between names-icon">
           <div class="name-quantity">
             <p class="wish-item"><%= wish_list_item.item.generic_name.capitalize %></p>
