@@ -35,7 +35,9 @@
 
         <p class="white p">Total emits: <%= @final_basket.emissions.to_i %></p>
         <p class="white p">Total price: £<%= '%.2f' % @final_basket.price %> </p>
+        <%= link_to 'DOWNLOAD PDF', basket_path(@final_basket, format: :pdf, retailer: @final_basket.retailer, basket: @final_basket) %>
       </div>
     </div>
   </div>
 </div>
+

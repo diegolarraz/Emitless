@@ -2,13 +2,14 @@
   width: 183.79px;
   height: 54.96px;
   position: absolute;
-  left: 146px;
-  top: 30px;
+  left: 149px;
+  top: 31px;
 }
 
 .navbar-container {
   margin: 0 170px;
-  padding: 20px 0;
+  padding: 10px 0;
+  height: 10vh;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -16,15 +17,17 @@
 }
 
 .navbar-btn {
-  font-weight: bold;
+  font-weight: light;
   font-size: 18px;
   line-height: 25px;
   color: #1D191A;
-  padding: 22px 0 0 20px;
+  margin: 3px 0 0 30px;
+  padding: 22px 0 0 0;
   text-align: center;
   &:hover {
-    border-top: 2px solid #D2E861;
+    border-top: 3px solid #D2E861;
     text-decoration: none;
     color: #1D191A;
+    font-weight: bold;
   }
 }
