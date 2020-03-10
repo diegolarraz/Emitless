@@ -1,7 +1,7 @@
 class BasketsController < ApplicationController
   def show
-    if params[:format]
-      @final_basket = Basket.find(params[:format])
+    if params[:id]
+      @final_basket = Basket.find(params[:id])
     else
       @final_basket = Basket.new(retailer: params[:retailer], user: current_user)
       @final_basket.emissions = params[:basket][:emissions].to_f
@@ -40,7 +40,7 @@ class BasketsController < ApplicationController
     if @basket.save
       # raise
       # raise
-      redirect_to basket_path(@basket)
+      redirect_to basket_path(id: @basket)
     end
 
     # remember to update emissions and prices of the final_basket when doing a swap
