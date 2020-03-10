@@ -1,6 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light">
   <div class="navbar-container">
-    <%= image_tag "emitless-logo.png", alt: "emitless logo", class: "navbar-header", id: "emitless-logo" %>
+    <%= link_to root_path do %>
+      <%= image_tag "emitless-logo.png", alt: "emitless logo", class: "navbar-header", id: "emitless-logo" %>
+    <% end %>
     <div class="progression-bar">
       <ol class="nav">
         <li class="progression-bar-text nav-item">Create your grocery list</li>

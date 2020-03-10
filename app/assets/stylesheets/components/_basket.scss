@@ -16,20 +16,27 @@
 
 .yr-baskt {
   color: white;
-  padding-top: 8px;
+  padding: 12px 0;
+  font-size: 24px;
+  font-weight: 600;
 }
 
 .wish-item {
   color: #FFFFFF;
   margin-bottom: 4px;
   line-height: 1;
+  > img {
+    width: 30px;
+    height: 30px;
+    margin: 0 8px;
+  }
 }
 
 .wish-items {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-bottom: 21px;
+  margin-bottom: 16px;
   height: 100%;
   background-color: $yellow;
   border-radius: 0 0 16px 16px;
@@ -48,10 +55,11 @@
 }
 
 .basket {
-  img {
+  > .icon {
     width: 300px;
   }
 }
+
 .top-bskt {
   display: flex;
   flex-direction: column;
@@ -60,7 +68,6 @@
   border-radius: 16px 16px 0px 0px;
   margin-top: 8px;
   display: inline-block;
-
 
     img.icon {
     height: 29px;
@@ -78,16 +85,16 @@
 }
 
 .names-icon {
-  padding: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
-
+  padding: 8px 8px 8px 16px;
+  border-bottom: 1px solid rgba(230,126,34,0.4);
+  display: flex;
+  align-items: center;
 }
 
 .names-icon:hover {
-
     #bin {
       transition: 0.4s;
-      color: #FFFFFF;
+      color: rgba(255, 255, 255, 0.8);
     }
   }
 
@@ -98,3 +105,22 @@
 #bin {
   color: rgba(255, 255, 255, 0);
 }
+
+.wish-item-actions {
+  display: flex;
+  align-items: center;
+}
+
+.wish-item-qty {
+  text-align: center;
+  position: relative;
+  top: 9px;
+  > .wish-item {
+    font-size: 16px;
+  }
+  > .wish-item-amount {
+    font-size: 10px;
+    color: white;
+  }
+}
+
