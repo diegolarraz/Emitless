@@ -10,7 +10,7 @@
   p, h5 {
     margin: 0;
   }
-  margin-top: 16px;
+  margin: 16px;
 }
 
 .product-image {
@@ -34,7 +34,6 @@
   p {
     font-size: 13px;
   }
-
 }
 
 .product-infos-right {
@@ -45,4 +44,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.basket-container {
+  padding: 100px 250px;
+}
+
+.white {
+  color: white;
+}
+
+.p {
+    font-size: 24px;
+    padding-top: 30px;
+}
+
+.light-bg {
+  background-color: #89d8c6;
+  border-radius: 5px;
 }

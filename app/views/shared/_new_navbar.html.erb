@@ -1,0 +1,11 @@
+<div class="navbar navbar-expand-sm navbar-light">
+  <div class="navbar-container">
+    <%= image_tag "emitless-logo.png", alt: "emitless logo", class: "navbar-header", id: "emitless-logo" %>
+    <%= link_to "About", "#", class: "navbar-btn" %>
+    <% if user_signed_in? %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-btn" %>
+    <% else %>
+      <%= link_to "Log in", new_user_session_path, class: "navbar-btn" %>
+    <% end %>
+  </div>
+</div>

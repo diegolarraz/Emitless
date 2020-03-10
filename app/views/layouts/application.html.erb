@@ -29,13 +29,13 @@
 
   </head>
   <body>
-    <% unless controller_name == "pages" || controller_name == "wish_list_items" || params[:controller] == "devise/sessions" %>
-      <%= render 'shared/navbar' %>
+    <% unless controller_name == "pages" || params[:controller] == "devise/sessions" || params[:controller] == "devise/registrations" %>
+      <%= render 'shared/new_navbar' %>
     <% end %>
 
     <%= render 'shared/flashes' %>
     <%= yield %>
-
     <%= javascript_pack_tag 'application' %>
+
   </body>
 </html>

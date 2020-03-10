@@ -1,130 +1,132 @@
 // Specific CSS for your home-page
-#emitless-home {
-  position: absolute;
-  top: 16px;
-  left: 60px;
-  color: white;
-}
-
-#login-btn-home {
-  position: absolute;
-  top: 20px;
-  right: 50px;
-  font-size: 20px;
-  color: $main-green;
-  transition: 0.3s;
-  &:hover {
-    color: #005244 !important;
-    text-decoration: none;
-  }
+.home-wrap {
+  height: 100vh;
+  overflow: hidden;
 }
 
 .home-container {
+  margin: 0 170px 0 170px;
+  padding-top: 30px;
+  height: 90vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  align-items: stretch;
+}
+
+.left-home-div {
   display: flex;
-  justify-content: center;
-  background-color: #f8f8f9;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 100%;
+  padding-top: 75px;
+
+  > * {
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 44px;
+    font-weight: 900;
+    margin: 0;
+    line-height: 66px;
+  }
+  p {
+    font-weight: light;
+    text-align: justify;
+    padding-right: 15px;
+    margin: 0;
+  }
 }
 
-.left-half {
-  width: 50vw;
-}
-
-#green-div {
-  // background: linear-gradient(113deg, rgba(0,180,149,1) 0%, rgba(27,197,179,1) 70%);
-  color: white;
-  text-align: left;
-  padding-left: 60px;
-  width: 100%;
-  height: 60vh;
-  display: table;
+.right-home-div {
   background-size: cover;
   background-position: bottom right;
+  height: 100%;
+  border-top-left-radius: 130px;
 }
 
-.green-div-content {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-
-#catch-sentence {
-  font-family: $headers-font;
-  font-size: 20px;
-  margin: 0 auto;
-  padding: 12px 0;
-}
-
-.image-div {
-  background-size: cover;
-  background-color: #f6f6f8;
-  background-repeat: no-repeat;
-  background-position: top 10px right;
-  height: 100vh;
+.full-width {
+  margin-right: -50vw;
+  max-width: 50vw;
+  position: relative;
+  left: 8%;
   width: 50vw;
 }
 
 .search-bar {
-  margin: 0 auto;
-  padding: 18px 0;
+  padding: 0 15px 0 0;
+  display: flex;
 }
 
 #home-search-field {
-  background: rgba(0, 180, 149, 0.8);
-  border: 1.1px solid white;
-  border-radius: 6px;  color: white;
-  padding: 3px 6px;
-  text-align: center;
+  width: 70%;
+  background: rgba(228, 228, 228, 0.3);
+  border: 2px solid #F9F1F1;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 8px 5px;
+  flex-grow: 2;
+  margin-right: 2px;
   &::placeholder {
-    color: white;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 19px;
     font-family: $headers-font;
-    font-size: 16px;
+    color: #CDCDCD;
   }
 }
 
 #home-begin-btn {
-  background: none;
-  border-radius: 5px;
-  background-color: white;
-  opacity: 95%;
-  padding: 3px 6px;
-  color: $main-green;
+  width: 23%;
+  background: $green;
+  border: 2px solid #C6DA62;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 8px 6px;
   font-family: $headers-font;
-  font-weight: bold;
-}
-
-.how-to-wrap {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 40vh;
-  position: relative;
-}
-
-.how-to-cards {
-  width: 110%;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  position: absolute;
-  left: 65px;
-  // background-color: #f8f8f9;
-}
-
-.how-to-card {
-  text-align: center;
-  width: 28%;
-  height: 80%;
-}
-
-.svg-home {
-  width: 70%;
-  padding-bottom: 23px;
-}
-
-.green-text {
-  color: $main-green;
-}
-
-#emtlss {
   color: white;
+  flex-grow: 2;
+  transition: 0.3s;
+  &:hover {
+    font-weight: 600;
+  }
+}
+
+#yellow-testimonial {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: white;
+  background: $yellow;
+  border-radius: 30px 30px 0px 0px;
+  padding: 40px 30px;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  p {
+    margin: 0;
+    padding-left: 20px;
+    text-align: justify;
+    z-index: 10;
+  }
+}
+
+#img-testimonial {
+  img {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+  }
+}
+
+#quote {
+  position: absolute;
+  left: 120px;
+  bottom: 90px;
 }

@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :show]
   get 'compare', to: 'wish_list_items#index', as: 'compare'
-  get 'basket', to: 'wish_list_items#show', as: 'basket'
+  get 'basket', to: 'baskets#show', as: 'basket'
 
+  resources :baskets, only: %i[update]
+  resources :basket_items, only: :create
 end
