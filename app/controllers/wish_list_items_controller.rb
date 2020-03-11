@@ -10,7 +10,7 @@ class WishListItemsController < ApplicationController
     @wish_list_item = WishListItem.new(wish_list_item_params)
     @wish_list_item.user = current_user
     if @wish_list_item.save
-      redirect_to items_path
+      render :create
     else
       flash[:notice] = "Oh no, something went wrong!"
     end

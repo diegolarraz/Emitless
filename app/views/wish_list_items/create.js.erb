@@ -1,21 +1,7 @@
 document.querySelector('#wish-items-js').insertAdjacentHTML(
   'beforeend',
-    `   <div class="d-flex justify-content-between names-icon">
-    <div class="name-quantity">
-      <p class="wish-item"><%= @wish_list_item.item.generic_name.capitalize %></p>
-      <p class="wish-item"><%= @wish_list_item.item.generic_quantity * @wish_list_item.amount %> <%= @wish_list_item.item.generic_unit %></p>
-    </div>
-    <%= link_to plus_amount_wish_list_item_path(@wish_list_item) do %>
-      <p class="wish-item"><i class="fas fa-plus"></i></p>
-    <% end %>
-    <p class="wish-item"><%= @wish_list_item.amount %></p>
-    <%= link_to minus_amount_wish_list_item_path(@wish_list_item) do %>
-      <p class="wish-item"><i class="fas fa-minus"></i></p>
-    <% end %>
-    <%= link_to wish_list_item_path(@wish_list_item), method: :delete do %>
-      <p class="wish-item"><i class="fas fa-trash" id="bin"></i></p>
-    <% end %>
-  </div>`
+    `<%= render 'shared/components/wish_item', wish_list_item: @wish_list_item %>`
 )
+
 
 
