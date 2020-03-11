@@ -2,18 +2,18 @@
   width: 183.79px;
   height: 54.96px;
   position: absolute;
-  left: 149px;
-  top: 23px;
+  left: -27px;
+  top: 39px;
 }
 
 .navbar-container {
-  margin: 0 155px;
+  margin: 0;
   padding: 10px 0;
   height: 15vh;
   width: 100vw;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .navbar-container-home {
@@ -89,3 +89,9 @@ ol > li:before {
 .active {
   opacity: 1;
 }
+
+.navbar {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
