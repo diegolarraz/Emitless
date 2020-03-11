@@ -13,6 +13,16 @@ class Item < ApplicationRecord
   validates :price, presence: true
 
   def find_swap
-    Item.order(emission: :asc).where.not("id = ?", self.id).where("retailer = ? AND sub_category = ? AND emission < ?", self.retailer, self.sub_category, self.emission).first
+    best_swap = Item.order(emission: :asc).where.not("id = ?", self.id).where("retailer = ? AND sub_category = ? AND emission < ?", self.retailer, self.sub_category, self.emission).first
+    # raise
+    self.baskets.last.basket_item_ids.each do |id|
+      if best_swap
+        if Item.find(BasketItem.find(id).item_id).id == best_swap.id
+          best_swap = nil
+        end
+      end
+    end
+    return best_swap
   end
+
 end

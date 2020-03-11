@@ -34,14 +34,22 @@
               <%= image_tag "#{item.image}", class: 'product-image', alt: "alttext" %>
               <div class="product-infos">
                 <div class="product-infos-left">
+                  <% if item.name == item.retailer %>
+                  <% item.name = "#{item.retailer} #{item.generic_name}" %>
+                  <% else %>
+                  <% item_name = item_name %>
+                  <% end %>
                   <h5 class="product-name"><%= item.name %></h5>
+                  <% if BasketItem.where(item: item).last.amount == 0 %>
+                    <% raise %>
+                  <% end %>
                   <p class="product-quantity"><%= BasketItem.where(item: item).last.amount %> x <%= item.quantity %> <%= item.unit %></p>
                 </div>
                 <div class="number-text">
-                  <h2 class="final-emission"><%= item.emission.to_i * BasketItem.find_by(item_id: item.id).amount %></h2>
+                  <h2 class="final-emission"><%= item.emission.to_i * BasketItem.where(item_id: item.id).last.amount %></h2>
                   <div class="emit-price">
                     <h6 class="orange-emits">emits</h6>
-                    <p class="final-price item"> £<%= '%.2f' % (item.price * BasketItem.find_by(item_id: item.id).amount) %> </p>
+                    <p class="final-price item"> £<%= '%.2f' % (item.price * BasketItem.where(item_id: item.id).last.amount) %> </p>
                   </div>
                 </div>
               </div>

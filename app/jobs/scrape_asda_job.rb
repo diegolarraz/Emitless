@@ -4,24 +4,6 @@ class ScrapeAsdaJob < ApplicationJob
   require 'nokogiri'
   require 'csv'
 
-  # def check_exceptions
-  #   if new_item.price == 0.0
-  #     new_item.name = nil
-  #   end
-  #   if new_item.quantity.nil? || new_item.quantity == "0"
-  #     new_item.quantity = "1"
-  #   end
-  #   unless new_item.name.include? item[:name.to_s].split(" ")[0].capitalize
-  #     new_item.name = nil
-  #   end
-  #   if new_item.unit.nil?
-  #     new_item.unit = generic_unit
-  #   end
-  #   if new_item.save
-  #     counter += 1
-  #   end
-  # end
-
   def perform
     csv_text = File.read(Rails.root.join('db', 'generic_items.csv'))
     csv = CSV.parse(csv_text, :headers => true)
@@ -39,7 +21,7 @@ class ScrapeAsdaJob < ApplicationJob
       counter = 0
       index = 0
       begin
-        until counter == 3 do
+        until counter == 1 do
           card = cards[index]
           name = card.search('h4.fop-title').children.first.text.strip
           weight = card.search('.fop-catch-weight').text.strip
@@ -56,7 +38,7 @@ class ScrapeAsdaJob < ApplicationJob
           elsif unit.include? "g" || "G"
             unit = "g"
           end
-          emissions = (rand() * 100).round
+          # emissions = (rand() * 100).round
           new_item = Item.new(
           generic_name: item[:name.to_s],
           generic_unit: item[:unit.to_s],
@@ -69,8 +51,8 @@ class ScrapeAsdaJob < ApplicationJob
           price: price,
           quantity: quantity[0],
           unit: unit,
-          retailer: 'Ocado',
-          emission: emissions
+          retailer: 'Ocado'
+          # emission: emissions
           )
           if new_item.price == 0.0
             new_item.name = nil
@@ -84,12 +66,31 @@ class ScrapeAsdaJob < ApplicationJob
           if new_item.unit.nil? || new_item.unit.include?(" per pack") || new_item.unit == ""
             new_item.unit = new_item.generic_unit
           end
+          if new_item.category == ("meat" || "seafood") && new_item.unit == "g"
+            new_item.emission = (rand(0.06..0.1) * new_item.quantity.to_i).round(1)
+          elsif new_item.category == ("meat" || "seafood") && new_item.unit == "kg"
+            new_item.emission = (rand(0.06..0.1) * new_item.quantity.to_f * 1000).round(1)
+          elsif new_item.category == ("meat" || "seafood") && new_item.unit == "each"
+            new_item.emission = (rand(0.06..0.1) * new_item.quantity.to_i * 150).round(1)
+          elsif new_item.category == "fruit" && new_item.unit == "each"
+            new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 100).round(1)
+          elsif new_item.category == "vegetable" && new_item.unit == "each"
+            new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 200).round(1)
+          elsif new_item.unit == "g"
+            new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_i).round(1)
+          elsif new_item.unit == "kg"
+            new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 1000).round(1)
+          end
+          if new_item.emission.nil?
+            new_item.name = nil
+          end
           if new_item.save
             counter += 1
           end
           index += 1
         end
       rescue
+        # binding.pry
         next
       end
     end
