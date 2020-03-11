@@ -64,7 +64,7 @@ class Item < ApplicationRecord
     if required_amount < 1
       required_amount = 1
     end
-  return required_amount.round()
+  return required_amount.round
   end
 
 end

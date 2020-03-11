@@ -24,8 +24,8 @@
     <div class="row justify-content-center">
       <div class="basket-product-cards">
         <% @final_basket.items.each do |item| %>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="product-card move-out">
+          <div class="full-product-card-row">
+            <div class="product-card" id="out">
               <%= image_tag "#{item.image}", class: 'product-image', alt: "alttext" %>
               <div class="product-infos">
                 <div class="product-infos-left">
@@ -47,9 +47,9 @@
               </div>
             <% if item.find_swap %>
                 <%= link_to update_path(@final_basket, swap_out: item, swap_in: item.find_swap), method: :patch do %>
-                  <%= image_tag "swap.png", alt: "swap item", class: "swapbutton" %>
+                  <%= image_tag "swap-hd.png", alt: "swap item", class: "swap-button" %>
                 <% end %>
-                <div class="product-card move-in">
+                <div class="product-card" id="in">
                   <%= image_tag "#{item.find_swap.image}", class: 'product-image', alt: "alttext" %>
                   <div class="product-infos">
                     <div class="product-infos-left">
