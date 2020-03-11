@@ -1,9 +1,7 @@
 export const activeClassOnNavbar = () => {
   const progressionNavbar = document.querySelectorAll('.nav-item');
-  console.log(progressionNavbar);
 
   let currentPath = window.location.pathname;
-  console.log(currentPath);
 
   progressionNavbar.forEach((listElement) => {
     listElement.classList.remove('active')

@@ -1,10 +1,33 @@
 <div class="comparison-container">
   <div class="basket-container">
-    <div class="container">
-      <h1 class="white">Your <%= @final_basket.retailer.capitalize %> basket</h1>
-      <div class="row light-bg">
-        <div class="col-8">
-          <% @final_basket.items.each do |item| %>
+    <div class="top-page">
+      <div class="header-top-basket">
+        <div class="logo-emits">
+          <%= image_tag "#{@final_basket.retailer}.png", alt: "#{@final_basket}", class: "image-logo-basket" %>
+          <div class="number-text">
+            <h2 class="final-emission"><%= @final_basket.emissions.to_i %></h2>
+            <div class="emit-price">
+              <p class="emits-basket">emits</p>
+              <p class="basket-final-price"> £<%= '%.2f' % @final_basket.price %> </p>
+            </div>
+          </div>
+        </div>
+        <%= link_to 'Download my list', basket_path(@final_basket, format: :pdf, retailer: @final_basket.retailer, basket: @final_basket), class: "download-btn" %>
+      </div>
+      <div class="farmer-text">
+        <%= image_tag "farmer.png", alt: "farmer" %>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis lorem viverra tellus auctor pulvinar. In hac habitasse platea dictumst.</p>
+      </div>
+    </div>
+
+    <div class="row light-bg">
+      <div class="col-8">
+        <div class="text-headings">
+          <p class="basket-title">My Basket</p>
+          <p class="basket-title">Suggestoins</p>
+        </div>
+        <% @final_basket.items.each do |item| %>
+          <div class="item-with-swap">
             <div class="product-card">
               <%= image_tag "#{item.image}", class: 'product-image', alt: "alttext" %>
               <div class="product-infos">
@@ -26,23 +49,23 @@
                 </div>
               </div>
             </div>
-            <% if item.find_swap %>
-              <div>
-                <%= item.find_swap.name %>
-                <%= item.find_swap.emission.to_i %>
-                <%= link_to "swap", update_path(@final_basket, swap_out: item, swap_in: item.find_swap), method: :patch %>
-              </div>
-            <% else %>
-              <div>Suitable item not found</div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-      <div class="basket-info">
-
-        <p class="white p">Total emits: <%= @final_basket.emissions.to_i %></p>
-        <p class="white p">Total price: £<%= '%.2f' % @final_basket.price %> </p>
-        <%= link_to 'DOWNLOAD PDF', basket_path(@final_basket, format: :pdf, retailer: @final_basket.retailer, basket: @final_basket) %>
+            <div class="swap-btn">
+              <%= link_to update_path(@final_basket, swap_out: item, swap_in: item.find_swap), method: :patch do %>
+                <%= image_tag "swap.png", alt: "swap item", class: "swapbutton" %>
+              <% end %>
+            </div>
+            <div class="swap-box">
+              <% if item.find_swap %>
+                <div>
+                  <%= item.find_swap.name %>
+                  <%= item.find_swap.emission.to_i %>
+                </div>
+              <% else %>
+                <div>Suitable item not found</div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

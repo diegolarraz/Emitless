@@ -1,10 +1,10 @@
 .product-card {
-  width: 60vw;
+  width: 50vw;
   overflow: hidden;
-  height: 80px;
+  height: 100px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 8px;
+  border-top: 1px solid #CFCFCF;
+
   display: flex;
   align-items: center;
   p, h5 {
@@ -14,9 +14,10 @@
 }
 
 .product-image {
-  width: 20%;
-  height: 100%;
+  width: 90px;
+  height: 90px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .product-infos {
@@ -47,7 +48,7 @@
 }
 
 .basket-container {
-  padding: 100px 250px;
+  // padding: 100px 250px;
 }
 
 .white {
@@ -59,7 +60,122 @@
     padding-top: 30px;
 }
 
-.light-bg {
-  background-color: #89d8c6;
-  border-radius: 5px;
+.download-btn {
+  background-color: $green;
+  color: white;
+  padding: 16px;
+  border-radius: 8px;
+  height: 50px;
+  width: 10vw;
+  border: 1px solid #C6DA62;
+
+  &:hover {
+    text-decoration: none;
+    color: #212529;
+  }
+}
+
+.item-with-swap {
+  display: flex;
+  align-items: center;
+}
+
+.image-logo-basket {
+  width: 20%;
+}
+
+.header-top-basket {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.farmer-text {
+  display: flex;
+  text-align: left;
+
+  p {
+    margin-left: 8px;
+    color: #686868;
+    margin-bottom: 0;
+    width: 60%;
+    font-size: 14px;
+  }
+
+  img {
+    height: 45px;
+  }
+}
+
+.emits-basket {
+  font-size: 24px;
+  color: $orange;
+  margin: 0;
+}
+
+
+.final-emission {
+  font-size: 50px;
+  font-weight: bolder;
+  margin: 0;
+  margin-right: 10px;
+}
+
+.basket-final-price {
+  margin: 0;
+  color: #686868;
+  font-size: 14px;
+}
+
+.top-page {
+  border-top: 1px solid $orange;
+}
+
+.number-text {
+  display: flex;
+  align-items: center;
+}
+
+.logo-emits {
+  display: flex;
+  align-items: center;
+
+  img {
+    margin-right: 16px;
+  }
+}
+
+.swapbutton {
+  width: 90px;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
+}
+
+.swap-btn {
+  margin-right: 40px;
+}
+
+.swap-box {
+  border-top: 1px solid #CFCFCF;
+  height: 100px;
+  padding: 10px;
+  width: 20vw;
+}
+
+.comparison-container {
+  text-align: center;
+}
+
+.basket-title {
+  margin: 0;
+  font-size: 14px;
+}
+
+.text-headings {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }

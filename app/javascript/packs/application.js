@@ -1,11 +1,14 @@
 require("@rails/ujs").start()
+require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
 import "bootstrap";
 
 import { submit_spinner } from "../components/submit_spinner"
-submit_spinner();
-
 import { activeClassOnNavbar } from "../components/navbar"
-activeClassOnNavbar();
+
+document.addEventListener('turbolinks:load', () => {
+  submit_spinner();
+  activeClassOnNavbar();
+})
