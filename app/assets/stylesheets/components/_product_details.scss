@@ -65,8 +65,7 @@
 .final-emission {
   font-size: 50px;
   font-weight: bolder;
-  margin: 0;
-  margin-right: 10px;
+  margin: 0 10px 0 0;
 }
 
 .final-price {
@@ -91,21 +90,33 @@
   border-top: 1px solid #CFCFCF;
 }
 
+.full-product-card-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80vw;
+}
+
 .product-card {
-  width: 50%;
-  // height: 100px;
   background: white;
   // border-top: 1px solid #CFCFCF;
-  padding: 60px 16px;
+  padding: 0px 16px;
   margin: 3px 0;
   display: flex;
   align-items: center;
   transition: 0.3s;
 }
 
+#in {
+}
+
+#out {
+
+}
+
 .product-infos-left {
   text-align: left;
-
+  padding-right: 10px;
   > h5, p {
     margin: 0;
     padding: 6px 0;
@@ -121,8 +132,8 @@
 
 .product-infos {
   margin: 0;
-  padding: 10px 24px;
-  width: 100%;
+  padding: 10px 15px;
+  width: 75%;
   display: flex;
   align-items: center;
   > h5 {
@@ -160,10 +171,9 @@
   align-items: center;
 }
 
-.swapbutton {
-  width: 90px;
+.swap-button {
+  width: 80px;
   transition: 0.3s;
-  z-index: 6;
   &:hover {
     transform: scale(1.1);
   }
@@ -175,7 +185,14 @@
 }
 
 .move-out {
-    // animation: spin 2s linear infinite;
-
+    animation: card-out 2s;
 }
 
+@keyframes card-out {
+  0% { right: 100px; }
+  100% { right: 100px; }
+}
+
+.move-in {
+    animation: card-in 2s;
+}
