@@ -52,8 +52,11 @@ class WishListItemsController < ApplicationController
           # Quantity of item
           # @basket[retailer.downcase.to_sym][:items][best_item] = best_item
           @basket[retailer.downcase.to_sym][:items][wish_list_item.item.generic_name] = [1, best_item]
-
+          if best_item.unit == "kg" && best_item.generic_unit == "g"
+            best_item.quantity = best_item.quantity * 1000
+          end
           while @basket[retailer.downcase.to_sym][:items][wish_list_item.item.generic_name][0] * best_item.quantity.to_i < wish_list_item.amount * best_item.generic_quantity
+            # raise
             @basket[retailer.downcase.to_sym][:items][wish_list_item.item.generic_name][0] += 1
           end
 
@@ -65,6 +68,7 @@ class WishListItemsController < ApplicationController
     end
 
     @basket = @basket.sort_by { |retailer, infos| infos[:emissions] }
+    # raise
     @top_basket = @basket[0]
   end
 
@@ -93,7 +97,7 @@ class WishListItemsController < ApplicationController
 
   private
   def basket_params
-    raise
+    # raise
     params.require(:wish_list_item).permit(:basket, :retailer)
   end
 

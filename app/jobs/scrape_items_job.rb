@@ -21,7 +21,7 @@ class ScrapeItemsJob < ApplicationJob
       counter = 0
       index = 0
       begin
-        until counter == 3 do
+        until counter == 1 do
           card = cards[index]
           name = card.search('h4.fop-title').children.first.text.strip
           weight = card.search('.fop-catch-weight').text.strip
@@ -77,6 +77,9 @@ class ScrapeItemsJob < ApplicationJob
             new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_i).round(1)
           elsif new_item.unit == "kg"
             new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 1000).round(1)
+          end
+          if new_item.emission.nil?
+            new_item.name = nil
           end
           if new_item.save
             counter += 1

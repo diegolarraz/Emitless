@@ -12,7 +12,7 @@ class ApiItemsJob < ApplicationJob
       data << row.to_hash
     end
     data.each do |item|
-      uri = URI("https://dev.tescolabs.com/grocery/products/?query=#{item[:name.to_s]}&offset=0&limit=3")
+      uri = URI("https://dev.tescolabs.com/grocery/products/?query=#{item[:name.to_s]}&offset=0&limit=1")
       request = Net::HTTP::Get.new(uri.request_uri)
       request['Ocp-Apim-Subscription-Key'] = 'f28897cdf4944da9882e36b95508f910'
       request.body = ""
@@ -61,6 +61,9 @@ class ApiItemsJob < ApplicationJob
           new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_i).round(1)
         elsif new_item.unit == "kg"
           new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 1000).round(1)
+        end
+        if new_item.emission.nil?
+          new_item.name = nil
         end
         new_item.save
       end

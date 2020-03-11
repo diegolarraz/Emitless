@@ -21,7 +21,7 @@ class ScrapeAsdaJob < ApplicationJob
       counter = 0
       index = 0
       begin
-        until counter == 3 do
+        until counter == 1 do
           card = cards[index]
           name = card.search('h4.fop-title').children.first.text.strip
           weight = card.search('.fop-catch-weight').text.strip
@@ -75,11 +75,14 @@ class ScrapeAsdaJob < ApplicationJob
           elsif new_item.category == "fruit" && new_item.unit == "each"
             new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 100).round(1)
           elsif new_item.category == "vegetable" && new_item.unit == "each"
-            new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 250).round(1)
+            new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 200).round(1)
           elsif new_item.unit == "g"
             new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_i).round(1)
           elsif new_item.unit == "kg"
             new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 1000).round(1)
+          end
+          if new_item.emission.nil?
+            new_item.name = nil
           end
           if new_item.save
             counter += 1
@@ -87,6 +90,7 @@ class ScrapeAsdaJob < ApplicationJob
           index += 1
         end
       rescue
+        # binding.pry
         next
       end
     end
