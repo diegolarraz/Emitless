@@ -1,0 +1,7 @@
+if (<%= @wish_list_item.amount > 0 %>) {
+  document.querySelector('#item-<%= @wish_list_item.id %>').innerHTML = `<%= j render 'shared/components/wish_item', wish_list_item: @wish_list_item %>`;
+
+} else {
+  document.querySelector('#item-<%= @wish_list_item.id %>').innerHTML = ``;
+}
+

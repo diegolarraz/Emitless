@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
+    @wish_list_item = WishListItem.new()
     if params[:query].present?
       @items = Item.where("generic_name ILIKE ?", "%#{params[:query]}%").uniq(&:generic_name)
       @items = category_sorter(@items) if params[:category].present?
