@@ -1,10 +1,8 @@
 .container-top {
-
   width: 100vw;
   display: flex;
   background: white;
   height: 50%;
-
 }
 
 .comparison-all {
@@ -22,6 +20,7 @@
     z-index: -1;
   }
 }
+
 .comparison-container {
   display: flex;
   justify-content: space-between;
@@ -29,9 +28,6 @@
   max-width: 976px;
   margin: 0 auto;
 }
-
-
-
 
 .comparison-card {
   background-color: #F9F9F9;
@@ -80,8 +76,6 @@
   margin-right: 235px;
 }
 
-
-
 .tesco {
   margin-left: auto;
   margin-right: auto;
@@ -113,14 +107,14 @@
   margin-bottom: 0px;
 
 }
-  h6 {
-      color: $orange;
-      font-weight: bold;
-      font-size: 26px;
-      padding-bottom: 0px;
-      margin-bottom: 0px;
 
-    }
+.orange-emits {
+    color: #FD6D24;
+    font-weight: bold;
+    font-size: 26px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
 
 .emits-small {
   font-weight: bolder;
@@ -183,15 +177,6 @@
     padding-left: 10px;
     text-align: left;
     padding-bottom: 10px;
-
-
-    h6 {
-      color: $orange;
-      font-weight: bold;
-      font-size: 26px;
-      padding-bottom: 0px;
-
-    }
   }
 }
 

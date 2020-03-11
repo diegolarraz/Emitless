@@ -1,4 +1,4 @@
-<div class="comparison-container">
+<div class="detailed-basket-container">
   <div class="basket-container">
     <div class="top-page">
       <div class="header-top-basket">
@@ -7,27 +7,75 @@
           <div class="number-text">
             <h2 class="final-emission"><%= @final_basket.emissions.to_i %></h2>
             <div class="emit-price">
-              <p class="emits-basket">emits</p>
-              <p class="basket-final-price"> £<%= '%.2f' % @final_basket.price %> </p>
+              <h6 class="orange-emits">emits</h6>
+              <p class="final-price item"> £<%= '%.2f' % @final_basket.price %> </p>
             </div>
           </div>
         </div>
-        <%= link_to 'Download my list', basket_path(@final_basket, format: :pdf, retailer: @final_basket.retailer, basket: @final_basket), class: "download-btn" %>
+        <%= link_to 'Download my list', basket_path(@final_basket, format: :pdf, retailer: @final_basket.retailer, basket: @final_basket), class: "btn btn-primary search-btn px-4" %>
       </div>
       <div class="farmer-text">
         <%= image_tag "farmer.png", alt: "farmer" %>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis lorem viverra tellus auctor pulvinar. In hac habitasse platea dictumst.</p>
+        <p>Your shopping basket is now ready! We found some more <span class="green">eco-friendly or seasonal products</span>, so get swapping and emit less!</p>
       </div>
     </div>
 
-    <div class="row light-bg">
+    <div class="row justify-content-center">
+      <div class="col-9 d-flex justify-content-between">
+        <h5 class="basket-headers">My basket</h5>
+        <h5 class="basket-headers">Suggestions</h5>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-10">
+        <% @final_basket.items.each do |item| %>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="product-card">
+              <%= image_tag "#{item.image}", class: 'product-image', alt: "alttext" %>
+              <div class="product-infos">
+                <div class="product-infos-left">
+                  <h5 class="product-name"><%= item.name %></h5>
+                  <p class="product-quantity"><%= BasketItem.where(item: item).last.amount %> x <%= item.quantity %> <%= item.unit %></p>
+                </div>
+                <div class="number-text">
+                  <h2 class="final-emission"><%= item.emission.to_i * BasketItem.find_by(item_id: item.id).amount %></h2>
+                  <div class="emit-price">
+                    <h6 class="orange-emits">emits</h6>
+                    <p class="final-price item"> £<%= '%.2f' % (item.price * BasketItem.find_by(item_id: item.id).amount) %> </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%= link_to update_path(@final_basket, swap_out: item, swap_in: item.find_swap), method: :patch do %>
+              <%= image_tag "swap.png", alt: "swap item", class: "swapbutton" %>
+            <% end %>
+            <div class="product-card">
+              <% if item.find_swap %>
+                <div>
+                  <%= item.find_swap.name %>
+                  <%= item.find_swap.emission.to_i %>
+                </div>
+              <% else %>
+                <p>Suitable item not found</p>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+
+
+<br><br>
+    <div class="row justify-content-between">
       <div class="col-8">
         <div class="text-headings">
           <p class="basket-title">My Basket</p>
-          <p class="basket-title">Suggestoins</p>
+          <p class="basket-title">Suggestions</p>
         </div>
         <% @final_basket.items.each do |item| %>
-          <div class="item-with-swap">
+          <div class="d-flex align-item-center">
             <div class="product-card">
               <%= image_tag "#{item.image}", class: 'product-image', alt: "alttext" %>
               <div class="product-infos">
@@ -60,6 +108,7 @@
         <% end %>
       </div>
     </div>
+
   </div>
 </div>
 

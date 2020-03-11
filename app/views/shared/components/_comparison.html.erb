@@ -5,7 +5,7 @@
       <div class="comparison-infos">
         <h3 class="emits-small"><%= @basket[1][1][:emissions].round %></h3>
         <div class="comparison-details">
-          <h6>emits</h6>
+          <h6 class="orange-emits">emits</h6>
           <p>£100</p>
         </div>
       </div>
@@ -18,7 +18,7 @@
         <div class="big-card-emits">
           <h3 class="emits"><%= @basket[0][1][:emissions].round %></h3>
           <div>
-            <h6>emits</h6>
+            <h6 class="orange-emits">emits</h6>
             <p class="price-tag">£<%= @basket[0][1][:price] %></p>
           </div>
         </div>
@@ -32,15 +32,13 @@
           <% end %>
         </div>
 
-
-
     </div>
     <div class="comparison-card small-card">
       <%= image_tag "#{@basket[2][0].to_s}.png", alt: @basket[2][0].to_s, class: @basket[2][0].to_s %>
       <div class="comparison-infos">
         <h3 class="emits-small"><%= @basket[2][1][:emissions].round%></h3>
          <div class="comparison-details">
-          <h6>emits</h6>
+          <h6 class="orange-emits">emits</h6>
           <p>£100</p>
         </div>
     </div>
