@@ -4,8 +4,12 @@
     <div class="card-body">
       <h5 class="card-title"><%= item.generic_name.capitalize %></h5>
 
-      <%= link_to "Add to order", wish_list_items_path(wish_list_item: { item_id: item, amount: 1 }), remote: true, method: :post, class: "btn" %>
-
+      <%#= link_to "Add to order", wish_list_items_path(wish_list_item: { item_id: item, amount: 1 }), remote: true, method: :post, class: "btn" %>
+      <%= simple_form_for @wish_list_item, remote: true, method: :post do |f| %>
+        <%= f.hidden_field :item_id, value: item.id %>
+        <%= f.hidden_field :amount, value: 1 %>
+        <%= f.submit "Add to order", class: "btn" %>
+      <% end %>
     </div>
   </div>
 </div>

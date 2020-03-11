@@ -10,7 +10,7 @@ class WishListItemsController < ApplicationController
     @wish_list_item = WishListItem.new(wish_list_item_params)
     @wish_list_item.user = current_user
     if @wish_list_item.save
-      redirect_to items_path
+      render :create
     else
       flash[:notice] = "Oh no, something went wrong!"
     end
@@ -75,14 +75,14 @@ class WishListItemsController < ApplicationController
   def destroy
     @wish_list_item = WishListItem.find(params[:id])
     @wish_list_item.destroy
-    redirect_to items_path
+    render :destroy
   end
 
   def plus_amount
     @wish_list_item = WishListItem.find(params[:id])
     @wish_list_item.amount += 1
     @wish_list_item.save
-    redirect_to items_path
+    render :plus_amount
   end
 
   def minus_amount
@@ -92,7 +92,7 @@ class WishListItemsController < ApplicationController
     if @wish_list_item.amount < 1
       @wish_list_item.destroy
     end
-    redirect_to items_path
+    render :minus_amount
   end
 
   private
