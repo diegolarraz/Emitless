@@ -14,6 +14,7 @@ class Item < ApplicationRecord
 
   def find_swap
     best_swap = Item.order(emission: :asc).where.not("id = ?", self.id).where("retailer = ? AND sub_category = ? AND emission < ?", self.retailer, self.sub_category, self.emission).first
+    # raise
     self.baskets.last.basket_item_ids.each do |id|
       if best_swap
         if Item.find(BasketItem.find(id).item_id).id == best_swap.id

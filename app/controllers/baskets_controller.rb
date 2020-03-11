@@ -59,14 +59,30 @@ class BasketsController < ApplicationController
         required_amount = desired_quantity / 150
         # raise
       end
-    else
-      raise
+    elsif basket_item_in.unit != "each" && basket_item_out.item.unit == "each"
+      if basket_item_in.category == "fruit"
+        desired_quantity = desired_quantity * 100
+        required_amount = desired_quantity / basket_item_in.quantity.to_i
       # raise
+      elsif basket_item_in.category == "vegetable"
+        desired_quantity = desired_quantity * 250
+        required_amount = desired_quantity / basket_item_in.quantity.to_i
+        # raise
+        # raise
+      elsif basket_item_in.category == ("meat" || "seafood")
+        desired_quantity = desired_quantity * 150
+        required_amount = desired_quantity / basket_item_in.quantity.to_i
+        # raise
+      end
     end
+    if required_amount < 1
+      required_amount = 1
+    end
+    # raise
     # raise
     @basket_item = BasketItem.new(item_id: params[:swap_in].to_i, amount: required_amount)
     if @basket_item.amount == 0
-      raise
+      # raise
     end
     @basket_item.basket = @basket
     @basket_item.save
