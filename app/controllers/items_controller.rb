@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  respond_to :html, :js
 
   def index
     if params[:query].present?
@@ -10,11 +9,6 @@ class ItemsController < ApplicationController
       @items = category_sorter(@items) if params[:category].present?
     end
     @wishes = current_user.wish_list_items
-  end
-
-  respond_to do |format|
-    format.html
-    format.js
   end
 
   def show
