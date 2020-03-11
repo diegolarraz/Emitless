@@ -19,18 +19,13 @@
     </div>
   </div>
 
-  <div class="row justify-content-center">
-    <div class="col-7 d-flex justify-content-between">
-      <h5 class="basket-headers">My basket</h5>
-      <h5 class="basket-headers collapsible" type="button" data-toggle="collapse" data-target="#collapsable-swap" aria-expanded="false" aria-controls="collapseExample"><%= 'Suggestions' unless @final_basket.items.all? { |item| item.find_swap.nil? } %></h5>
-    </div>
-  </div>
+  <h5 class="basket-headers text-left">My basket</h5>
   <div class="cart">
     <div class="row justify-content-center">
       <div class="basket-product-cards">
         <% @final_basket.items.each do |item| %>
           <div class="d-flex justify-content-between align-items-center">
-            <div class="product-card">
+            <div class="product-card move-out">
               <%= image_tag "#{item.image}", class: 'product-image', alt: "alttext" %>
               <div class="product-infos">
                 <div class="product-infos-left">
@@ -40,9 +35,6 @@
                   <% item_name = item_name %>
                   <% end %>
                   <h5 class="product-name"><%= item.name %></h5>
-                  <% if BasketItem.where(item: item).last.amount == 0 %>
-                    <% raise %>
-                  <% end %>
                   <p class="product-quantity"><%= BasketItem.where(item: item).last.amount %> x <%= item.quantity %> <%= item.unit %></p>
                 </div>
                 <div class="number-text">
@@ -54,27 +46,25 @@
                 </div>
               </div>
             <% if item.find_swap %>
-  <!--           <div class="collapse" id="collapsable-swap"> -->
-                  <%= link_to update_path(@final_basket, swap_out: item, swap_in: item.find_swap), method: :patch do %>
-                    <%= image_tag "swap.png", alt: "swap item", class: "swapbutton" %>
-                  <% end %>
-                  <div class="product-card swap">
-                    <%= image_tag "#{item.find_swap.image}", class: 'product-image', alt: "alttext" %>
-                    <div class="product-infos">
-                      <div class="product-infos-left">
-                        <h5 class="product-name"><%= item.find_swap.name %></h5>
-                        <p class="product-quantity"><%= BasketItem.where(item: item.find_swap).last.amount %> x <%= item.find_swap.quantity %> <%= item.find_swap.unit %></p>
-                      </div>
-                      <div class="number-text">
-                        <h2 class="final-emission"><%= item.find_swap.emission.to_i * BasketItem.find_by(item_id: item.find_swap.id).amount %></h2>
-                        <div class="emit-price">
-                          <h6 class="orange-emits">emits</h6>
-                          <p class="final-price item"> £<%= '%.2f' % (item.find_swap.price * BasketItem.find_by(item_id: item.find_swap.id).amount) %> </p>
-                        </div>
+                <%= link_to update_path(@final_basket, swap_out: item, swap_in: item.find_swap), method: :patch do %>
+                  <%= image_tag "swap.png", alt: "swap item", class: "swapbutton" %>
+                <% end %>
+                <div class="product-card move-in">
+                  <%= image_tag "#{item.find_swap.image}", class: 'product-image', alt: "alttext" %>
+                  <div class="product-infos">
+                    <div class="product-infos-left">
+                      <h5 class="product-name"><%= item.find_swap.name %></h5>
+                      <p class="product-quantity"><%= item.find_swap.calculate_swap(BasketItem.where(item: item).last) %> x <%= item.find_swap.quantity %> <%= item.find_swap.unit %></p>
+                    </div>
+                    <div class="number-text">
+                      <h2 class="final-emission"><%= item.find_swap.emission.to_i * item.find_swap.calculate_swap(BasketItem.where(item: item).last) %></h2>
+                      <div class="emit-price">
+                        <h6 class="orange-emits">emits</h6>
+                        <p class="final-price item"> £<%= '%.2f' % (item.find_swap.price * item.find_swap.calculate_swap(BasketItem.where(item: item).last)) %> </p>
                       </div>
                     </div>
                   </div>
-         <!--   </div> -->
+                </div>
             <% end %>
             </div>
           </div>

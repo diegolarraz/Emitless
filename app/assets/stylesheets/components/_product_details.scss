@@ -87,11 +87,15 @@
   margin-bottom: 50px;
 }
 
-.product-card {
-  width: 100%;
-  height: 100px;
-  background: white;
+.cart {
   border-top: 1px solid #CFCFCF;
+}
+
+.product-card {
+  width: 50%;
+  // height: 100px;
+  background: white;
+  // border-top: 1px solid #CFCFCF;
   padding: 60px 16px;
   margin: 3px 0;
   display: flex;
@@ -141,24 +145,6 @@
   transform: scale(0.9);
 }
 
-.collapsible {
-  transition: all 0.4s ease-out;
-  .lbl-toggle::after {
-    content: ' ';
-    display: inline-block;
-
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 5px solid currentColor;
-
-    vertical-align: middle;
-    margin-right: .7rem;
-    transform: translateY(-2px);
-
-    transition: transform .2s ease-out;
-  }
-}
-
 .basket-info {
   display: flex;
   align-items: center;
@@ -187,3 +173,9 @@
   color: $green;
   font-weight: bold;
 }
+
+.move-out {
+    // animation: spin 2s linear infinite;
+
+}
+
