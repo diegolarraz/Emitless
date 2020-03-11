@@ -13,6 +13,7 @@ export const submit_spinner = () => {
       event.preventDefault();
       console.log("Prevented!");
       let body = document.querySelector("body")
+      body.style.overflow = "hidden";
       body.insertAdjacentHTML("beforebegin", `<div class="background-holder"><div class="central-box"><div class="spin"><h3 class="sentence">Finding clean products</h3><div class="loader"></div></div></div></div>`);
       // document.querySelector('.background-holder').style.marginTop = window.pageYOffset;
       setInterval(newSentence, 1000);
