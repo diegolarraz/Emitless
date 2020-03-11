@@ -17,8 +17,16 @@ class Item < ApplicationRecord
     # raise
     self.baskets.last.basket_item_ids.each do |id|
       if best_swap
-        if Item.find(BasketItem.find(id).item_id).id == best_swap.id
-          best_swap = nil
+        if BasketItem.find(id).item_id == self.id
+          basket_item = BasketItem.find(id)
+          # raise
+          if best_swap.emission * best_swap.calculate_swap(basket_item) > basket_item.amount * self.emission || Item.find(BasketItem.find(id).item_id).id == best_swap.id
+            # raise
+          # raise
+            best_swap = nil
+          end
+        # elsif Item.find(BasketItem.find(id).item_id).id == best_swap.id
+        #   best_swap = nil
         end
       end
     end
@@ -56,7 +64,7 @@ class Item < ApplicationRecord
     if required_amount < 1
       required_amount = 1
     end
-  return required_amount
+  return required_amount.round()
   end
 
 end

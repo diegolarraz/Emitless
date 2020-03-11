@@ -11,8 +11,10 @@
   margin-left: 4px;
   color: white;
   padding: 12px;
+  min-width: 220px;
 }
 
 .full-search-bar {
   display:flex;
+  position: sticky;
 }

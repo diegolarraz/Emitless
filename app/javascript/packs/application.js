@@ -7,8 +7,11 @@ import "bootstrap";
 
 import { submit_spinner } from "../components/submit_spinner"
 import { activeClassOnNavbar } from "../components/navbar"
+import { addActiveClassToCategory } from "../components/categoryFilter"
+
 
 document.addEventListener('turbolinks:load', () => {
   submit_spinner();
   activeClassOnNavbar();
+  addActiveClassToCategory();
 })
