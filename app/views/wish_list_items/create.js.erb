@@ -1,6 +1,6 @@
 document.querySelector('#wish-items-js').insertAdjacentHTML(
   'beforeend',
-    `<%= render 'shared/components/wish_item', wish_list_item: @wish_list_item %>`
+    `<div id="item-<%= @wish_list_item.id %>"><%= render 'shared/components/wish_item', wish_list_item: @wish_list_item %></div>`
 )
 
 

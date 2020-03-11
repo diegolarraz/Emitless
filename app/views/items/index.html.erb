@@ -51,7 +51,9 @@
         <%= @wishes.count %>
       </p> -->
       <% @wishes.each do |wish_list_item| %>
+      <div id="item-<%= wish_list_item.id %>">
         <%= render 'shared/components/wish_item', wish_list_item: wish_list_item %>
+      </div>
       <% end %>
     </div>
     <div class="con-btn">

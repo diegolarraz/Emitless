@@ -3,7 +3,7 @@
     <p class="wish-item"><%= wish_list_item.item.generic_name.capitalize %></p>
   </div>
   <div class="wish-item-actions">
-    <%= link_to minus_amount_wish_list_item_path(wish_list_item) do %>
+    <%= link_to minus_amount_wish_list_item_path(wish_list_item), remote: true do %>
       <p class="wish-item"><%= image_tag "minus-icon.png", alt: "alttext" %></p>
     <% end %>
 
@@ -12,10 +12,10 @@
       <p class="wish-item-amount"><%= wish_list_item.item.generic_unit %></p>
     </div>
 
-    <%= link_to plus_amount_wish_list_item_path(wish_list_item) do %>
+    <%= link_to plus_amount_wish_list_item_path(wish_list_item), remote: true do %>
       <p class="wish-item"><%= image_tag "plus-icon.png", alt: "alttext" %></p>
     <% end %>
-    <%= link_to wish_list_item_path(wish_list_item), method: :delete do %>
+    <%= link_to wish_list_item_path(wish_list_item), method: :delete, remote: true do %>
       <p class="wish-item"><i class="fas fa-trash" id="bin"></i></p>
     <% end %>
   </div>
