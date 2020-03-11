@@ -1,7 +1,9 @@
 <div class="home-wrap">
   <div class="navbar navbar-expand-sm navbar-light">
     <div class="navbar-container-home">
-      <%= image_tag "emitless-logo.png", alt: "emitless logo", class: "navbar-header", id: "emitless-logo" %>
+      <%= link_to root_path do %>
+        <%= image_tag "emitless-logo.png", alt: "emitless logo", class: "navbar-header", id: "emitless-logo" %>
+      <% end %>
       <%= link_to "About", "#", class: "navbar-btn" %>
       <% if user_signed_in? %>
         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-btn" %>
