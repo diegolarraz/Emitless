@@ -15,10 +15,10 @@ cod,Fish,seafood,https://cdn.tasteatlas.com/images/dishes/952be31521114ce89c8525
 plaice,Fish,seafood,https://images.unsplash.com/photo-1513271224036-f526ad664968?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80,140,g
 apples,apples & pears,fruit,https://images.pexels.com/photos/206959/pexels-photo-206959.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260,1,each
 pears,apples & pears,fruit,https://images.unsplash.com/photo-1568742288934-acccacd47921?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=670&q=80,1,each
-lemon,citrus,fruit,https://images.unsplash.com/photo-1568569350062-ebfa3cb195df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80,1,each
-lime,citrus,fruit,https://images.unsplash.com/photo-1578855691621-8a08ea00d1fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80,1,each
+lemons,citrus,fruit,https://images.unsplash.com/photo-1568569350062-ebfa3cb195df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80,1,each
+limes,citrus,fruit,https://images.unsplash.com/photo-1578855691621-8a08ea00d1fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80,1,each
 oranges,citrus,fruit,https://images.unsplash.com/photo-1547514701-42782101795e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80,1,each
-peaches,stone,fruit,https://images.unsplash.com/photo-1552265129-14577cfb8a05?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80,4,each
+peach,stone,fruit,https://images.unsplash.com/photo-1552265129-14577cfb8a05?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80,4,each
 nectarines,stone,fruit,https://images.unsplash.com/photo-1524222717473-730000096953?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80,4,each
 strawberries,berries,fruit,https://images.unsplash.com/photo-1543528176-61b239494933?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1653&q=80,200,g
 raspberries,berries,fruit,https://images.unsplash.com/photo-1577069861033-55d04cec4ef5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80,150,g
@@ -28,7 +28,7 @@ rocket,leaves,vegetable,https://images.unsplash.com/photo-1514910103003-aa6b5e42
 cabbage,cruciferous,vegetable,https://images.unsplash.com/photo-1504721838965-dfcb29cc11f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3334&q=80,1,each
 broccoli,cruciferous,vegetable,https://images.unsplash.com/photo-1553175005-a1129d5c188c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1001&q=80,200,g
 cauliflower,cruciferous,vegetable,https://images.unsplash.com/photo-1566842600175-97dca489844f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80,1,each
-potato,root,vegetable,https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80,500,g
+potato,root,vegetable,https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80,1,kg
 sweet potato,root,vegetable,https://images.pexels.com/photos/3233282/pexels-photo-3233282.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260,1,each
 parsnip,root,vegetable,https://images.unsplash.com/photo-1515192665289-06a8c3c54343?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80,250,g
 onion,allium,vegetable,https://images.unsplash.com/photo-1578907814239-d2654ba61616?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80,1,each

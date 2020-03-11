@@ -32,12 +32,23 @@
               <%= image_tag "#{item.image}", class: 'product-image', alt: "alttext" %>
               <div class="product-infos">
                 <div class="product-infos-left">
+                  <% if item.name == item.retailer %>
+                  <% item.name = "#{item.retailer} #{item.generic_name}" %>
+                  <% else %>
+                  <% item_name = item_name %>
+                  <% end %>
                   <h5 class="product-name"><%= item.name %></h5>
+                  <% if BasketItem.where(item: item).last.amount == 0 %>
+                    <% raise %>
+                  <% end %>
                   <p class="product-quantity"><%= BasketItem.where(item: item).last.amount %> x <%= item.quantity %> <%= item.unit %></p>
                 </div>
                 <div class="product-infos-right">
-                  <h5 class="product-emits"><%= item.emission.to_i * BasketItem.find_by(item_id: item.id).amount %> emits</h5>
-                  <p class="product-price">£<%= '%.2f' % (item.price * BasketItem.find_by(item_id: item.id).amount)%></p>
+                  <% if item.emission.to_i == 0 %>
+                    <% raise %>
+                  <% end %>
+                  <h5 class="product-emits"><%= item.emission.to_i * BasketItem.where(item_id: item.id).last.amount %> emits</h5>
+                  <p class="product-price">£<%= '%.2f' % (item.price * BasketItem.where(item_id: item.id).last.amount)%></p>
                 </div>
               </div>
             </div>
