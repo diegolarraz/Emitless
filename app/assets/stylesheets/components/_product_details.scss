@@ -86,8 +86,14 @@
   margin-bottom: 50px;
 }
 
-.cart {
+.cart-grid {
   border-top: 1px solid #CFCFCF;
+  margin-bottom: 70px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-gap: 15px 15px;
+  grid-template-rows: auto;
+  // align-items: stretch;
 }
 
 .full-product-card-row {
@@ -105,9 +111,17 @@
   display: flex;
   align-items: center;
   transition: 0.3s;
+  .out {
+    padding-left: 0;
+  }
+ .in {
+   padding-right: 0;
+ }
 }
 
+// Set width for the cards
 #in {
+
 }
 
 #out {
@@ -185,14 +199,32 @@
 }
 
 .move-out {
-    animation: card-out 2s;
+  animation: card-out 2s linear forwards;
 }
 
+// @keyframes card-out {
+//   0% { }
+//   20% { transform: translate(100px, -50px); }
+//   40% { transform: translate(200px, -50px); }
+//   60% { transform: translate(300px, -50px); }
+//   80% { transform: translate(400px, -50px); }
+//   100% { transform: translate(500px, 0px); }
+// }
+
 @keyframes card-out {
-  0% { right: 100px; }
-  100% { right: 100px; }
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(0, -50px); }
+  75% { transform: translate(665px, -50px)}
+  100% { transform: translate(665px, 0); }
 }
 
 .move-in {
-    animation: card-in 2s;
+  animation: card-in 2s linear forwards;
+}
+
+@keyframes card-in {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(0, 50px); }
+  75% { transform: translate(-665px, 50px)}
+  100% { transform: translate(-665px, 0); }
 }
