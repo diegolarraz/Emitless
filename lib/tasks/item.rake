@@ -13,11 +13,6 @@ namespace :item do
     ScrapeItemsJob.perform_now
     puts "150 items created for Morrisons."
     sleep(1)
-    puts "Seeding new items from Ocado"
-    ScrapeAsdaJob.perform_now
-    puts "150 items created for Ocado."
-    sleep(1)
-    puts "450 items added to database"
 
   end
 
@@ -26,7 +21,6 @@ namespace :item do
     Item.destroy_all
     ApiItemsJob.perform_later
     ScrapeItemsJob.perform_later
-    ScrapeAsdaJob.perform_later
     puts "seed complete"
     puts "#{Item.count} items created"
   end
