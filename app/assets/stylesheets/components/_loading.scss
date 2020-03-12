@@ -27,6 +27,7 @@
 }
 
 .spin {
+  text-align: center;
   > h3 {
     color: $orange;
     font-size: 24px;
@@ -36,17 +37,44 @@
   }
 }
 
+// .loader {
+//   margin: 0 auto;
+//   border: 16px solid #f3f3f3; /* Light grey */
+//   border-top: 16px solid $yellow; /* Blue */
+//   border-radius: 50%;
+//   width: 120px;
+//   height: 120px;
+//   animation: spin 2s linear infinite;
+// }
+
+// @keyframes spin {
+//   0% { transform: rotate(0deg); }
+//   100% { transform: rotate(360deg); }
+// }
 .loader {
-  margin: 0 auto;
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid $yellow; /* Blue */
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+  border: 3px solid #ddd;
+  border-top: 3px solid #42a5f5;
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
+  height: 75px;
+  width: 75px;
+  margin: 0 auto;
+}
+
+@-webkit-keyframes spin {
+  to {
+    border-top-color: #ec407a;
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  to {
+    border-top-color: #ec407a;
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
+
