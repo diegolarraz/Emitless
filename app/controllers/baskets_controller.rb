@@ -45,6 +45,8 @@ class BasketsController < ApplicationController
     @basket.emissions -= basket_item_out.amount * basket_item_out.item.emission
     @basket.emissions += @basket_item.item.emission * @basket_item.amount
     @old_item = basket_item_out
+    @saving = (basket_item_out.amount * basket_item_out.item.emission) - (@basket_item.item.emission * @basket_item.amount)
+    # raise
     BasketItem.destroy(basket_item_out.id)
     if @basket.save
       redirect_to basket_path(id: @basket)
