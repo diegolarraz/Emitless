@@ -15,20 +15,17 @@ class BasketsController < ApplicationController
       end
     end
         # {"basket"=>"24", "retailer"=>"tesco", "format"=>"pdf"
-
-
     respond_to do |format|
       format.html
       format.pdf do
           render pdf: "file.pdf",
           page_size: 'A4',
-          template: "baskets/show.html.erb",
+          template: "baskets/shoppinglist.html.erb",
           layout: "pdf.html",
           orientation: "portrait",
           encoding:"UTF-8"
       end
     end
-    # shoppinglist(@final_basket)
   end
 
   def update
@@ -44,15 +41,9 @@ class BasketsController < ApplicationController
     @basket.price += @basket_item.item.price * @basket_item.amount
     @basket.emissions -= basket_item_out.amount * basket_item_out.item.emission
     @basket.emissions += @basket_item.item.emission * @basket_item.amount
-    @old_item = basket_item_out
     BasketItem.destroy(basket_item_out.id)
     if @basket.save
       redirect_to basket_path(id: @basket)
     end
   end
-
-  # def shoppinglist(basket)
-  #   @basket = basket
-  # end
-
 end
