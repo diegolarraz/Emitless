@@ -3,8 +3,13 @@ class BasketsController < ApplicationController
     if params["format"] == "pdf"
       @final_basket = Basket.find(params["basket"])
     elsif params[:id]
+      @total_saving = params[:total_saved].to_i
+      @saving = params[:saving].to_i
       @final_basket = Basket.find(params[:id].to_i)
+      @total_saving += @saving
+      # raise
     else
+      @total_saving = 0
       @final_basket = Basket.new(retailer: params[:retailer], user: current_user)
       @final_basket.emissions = params[:basket][:emissions].to_f
       @final_basket.price = params[:basket][:price].to_f
@@ -32,6 +37,7 @@ class BasketsController < ApplicationController
   end
 
   def update
+    # raise
     @basket = Basket.find(params[:id])
     basket_item_out = @basket.basket_items.where("item_id = ?", params[:swap_out])[0]
     basket_item_in = Item.find(params[:swap_in])
@@ -49,7 +55,7 @@ class BasketsController < ApplicationController
     # raise
     BasketItem.destroy(basket_item_out.id)
     if @basket.save
-      redirect_to basket_path(id: @basket)
+      redirect_to basket_path(id: @basket, saving: @saving, total_saved: params[:total_saved])
     end
   end
 
