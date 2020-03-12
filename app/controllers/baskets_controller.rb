@@ -24,10 +24,11 @@ class BasketsController < ApplicationController
           page_size: 'A4',
           template: "baskets/show.html.erb",
           layout: "pdf.html",
-          orientation: "landscape",
+          orientation: "portrait",
           encoding:"UTF-8"
       end
     end
+    # shoppinglist(@final_basket)
   end
 
   def update
@@ -50,5 +51,8 @@ class BasketsController < ApplicationController
     end
   end
 
+  # def shoppinglist(basket)
+  #   @basket = basket
+  # end
 
 end

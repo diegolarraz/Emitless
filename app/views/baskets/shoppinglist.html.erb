@@ -1,0 +1,28 @@
+
+<%= image_tag "emitless-logo.png", alt: "emitless logo", class: "navbar-header", id: "emitless-logo" %>
+
+<br> <br>
+<br><br>
+<% @final_basket.items.each do |item| %>
+          <div class="full-product-card-row">
+            <div class="product-card" id="out">
+              <%= image_tag "#{item.image}", class: 'product-image', alt: "alttext" %>
+              <div class="product-infos">
+                <div class="product-infos-left">
+                  <% if item.name == item.retailer %>
+                  <% item.name = "#{item.retailer} #{item.generic_name}" %>
+                  <% else %>
+                  <% item_name = item_name %>
+                  <% end %>
+                  <h5 class="product-name"><%= item.name %></h5>
+                  <p class="product-quantity"><%= BasketItem.where(item: item).last.amount %> x <%= item.quantity %> <%= item.unit %></p>
+                </div>
+                <div class="number-text">
+                  <h2 class="final-emission"><%= item.emission.to_i * BasketItem.where(item_id: item.id).last.amount %></h2>
+                  <div class="emit-price">
+                    <h6 class="orange-emits">emits</h6>
+                    <p class="final-price item"> £<%= '%.2f' % (item.price * BasketItem.where(item_id: item.id).last.amount) %> </p>
+                  </div>
+                </div>
+              </div>
+              <% end %>
