@@ -114,6 +114,7 @@
 .wish-item-qty {
   text-align: center;
   position: relative;
+  display: flex;
   top: 9px;
   > .wish-item {
     font-size: 16px;
@@ -121,6 +122,9 @@
   > .wish-item-amount {
     font-size: 10px;
     color: white;
+    margin-left: 4px;
   }
 }
+
+
 

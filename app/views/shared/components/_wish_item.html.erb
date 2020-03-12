@@ -9,7 +9,7 @@
 
     <div class="wish-item-qty">
       <p class="wish-item"><%= wish_list_item.item.generic_quantity * wish_list_item.amount %></p>
-      <p class="wish-item-amount"><%= wish_list_item.item.generic_unit %></p>
+      <p class="wish-item-amount"> <%= wish_list_item.item.generic_unit %></p>
     </div>
 
     <%= link_to plus_amount_wish_list_item_path(wish_list_item), remote: true do %>
@@ -20,3 +20,4 @@
     <% end %>
   </div>
 </div>
+
