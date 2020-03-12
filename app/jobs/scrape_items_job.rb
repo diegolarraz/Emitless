@@ -64,19 +64,19 @@ class ScrapeItemsJob < ApplicationJob
             new_item.unit = new_item.generic_unit
           end
           if new_item.category == ("meat" || "seafood") && new_item.unit == "g"
-            new_item.emission = (rand(0.06..0.1) * new_item.quantity.to_i).round(1)
+            new_item.emission = (rand(0.06..0.1) * new_item.quantity.to_i).round()
           elsif new_item.category == ("meat" || "seafood") && new_item.unit == "kg"
-            new_item.emission = (rand(0.06..0.1) * new_item.quantity.to_f * 1000).round(1)
+            new_item.emission = (rand(0.06..0.1) * new_item.quantity.to_f * 1000).round()
           elsif new_item.category == ("meat" || "seafood") && new_item.unit == "each"
-            new_item.emission = (rand(0.06..0.1) * new_item.quantity.to_i * 150).round(1)
+            new_item.emission = (rand(0.06..0.1) * new_item.quantity.to_i * 150).round()
           elsif new_item.category == "fruit" && new_item.unit == "each"
-            new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 100).round(1)
+            new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 100).round()
           elsif new_item.category == "vegetable" && new_item.unit == "each"
-            new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 250).round(1)
+            new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 250).round()
           elsif new_item.unit == "g"
-            new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_i).round(1)
+            new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_i).round()
           elsif new_item.unit == "kg"
-            new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 1000).round(1)
+            new_item.emission = (rand(0.02..0.06) * new_item.quantity.to_f * 1000).round()
           end
           if new_item.emission.nil?
             new_item.name = nil
