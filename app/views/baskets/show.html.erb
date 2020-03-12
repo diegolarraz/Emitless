@@ -27,7 +27,7 @@
   <div class="cart-grid">
 
     <% @final_basket.items.each do |item| %>
-      <div class="product-card" id="out">
+      <div class="product-card pc-out" id="out">
         <%= image_tag "#{item.image}", class: 'product-image', alt: "alttext" %>
         <div class="product-infos">
           <div class="product-infos-left">
@@ -57,7 +57,7 @@
         <% end %>
       </div>
 
-      <div class="product-card" id="in">
+      <div class="product-card pc-in" id="in">
         <% if item.find_swap %>
           <%= image_tag "#{item.find_swap.image}", class: 'product-image', alt: "alttext" %>
           <div class="product-infos">
@@ -120,4 +120,3 @@
     </div>
   </div>
 </div>
-

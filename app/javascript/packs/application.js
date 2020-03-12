@@ -15,5 +15,4 @@ document.addEventListener('turbolinks:load', () => {
   submit_spinner();
   activeClassOnNavbar();
   addActiveClassToCategory();
-  // swapCards();
-})
+});
