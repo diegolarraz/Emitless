@@ -4,21 +4,18 @@
       <%= image_tag "2leaf.png", alt: "twoleafs", class: "leafy" %>
       <%= image_tag "#{@basket[1][0].to_s}.png", alt: @basket[1][0].to_s, class: @basket[1][0].to_s %>
       <div class="comparison-infos">
-        <h2 class="final-emission"><%= @basket[1][1][:emissions].round %></h2>
-        <div class="comparison-details">
-          <h6 class="orange-emits">emits</h6>
-          <p>£100</p>
-        </div>
+        <h5 class="comparison-emission"><%= @basket[1][1][:emissions].round %></h5>
+        <h6 class="orange-emits">emits</h6>
       </div>
-
     </div>
+
     <div class="comparison-card big-card">
       <%= image_tag "3leaf.png", alt: "threeleafs", class: "leafy" %>
       <div class="card-top">
         <%= image_tag "#{@basket[0][0].to_s}.png", alt: @basket[0][0].to_s, class: @basket[0][0].to_s, id: "big-img" %>
 
         <div class="big-card-emits">
-          <h3 class="emits"><%= @basket[0][1][:emissions].round %></h3>
+          <h3 class="final-emission"><%= @basket[0][1][:emissions].round %></h3>
           <div>
             <h6 class="orange-emits">emits</h6>
             <p class="price-tag">£<%= @basket[0][1][:price] %></p>
@@ -39,16 +36,13 @@
       <%= image_tag "2leaf.png", alt: "twoleafs", class: "leafy" %>
       <%= image_tag "#{@basket[2][0].to_s}.png", alt: @basket[2][0].to_s, class: @basket[2][0].to_s %>
       <div class="comparison-infos">
-        <h3 class="emits-small"><%= @basket[2][1][:emissions].round%></h3>
-        <div class="comparison-details">
-          <h6>emits</h6>
-          <p>£100</p>
-        </div>
+        <h5 class="comparison-emission"><%= @basket[2][1][:emissions].round%></h5>
+        <h6 class="orange-emits">emits</h6>
       </div>
     </div>
 
     <div class="info-bottom">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nihil aspernatur quia sit repudiandae illo atque, veritatis officia mollitia. Vero perspiciatis molestiae amet ad cupiditate saepe aliquid, excepturi harum ipsam.</p>
+      <p>We looked for your items at different retailers and calculated for you the total emissions of your basket. An emit is equivalent to 100g of CO2. As a comparison, flying from London to New York and back generates about 986kg of CO2 per passenger.</p>
     </div>
 </div>
 

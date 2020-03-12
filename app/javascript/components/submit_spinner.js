@@ -14,7 +14,7 @@ export const submit_spinner = () => {
       console.log("Prevented!");
       let body = document.querySelector("body")
       body.style.overflow = "hidden";
-      body.insertAdjacentHTML("beforebegin", `<div class="background-holder"><div class="central-box"><div class="spin"><h3 class="sentence">Finding clean products</h3><div class="loader"></div></div></div></div>`);
+      body.insertAdjacentHTML("beforebegin", `<div class="background-holder"><div class="central-box"><div class="spin"><div class="loader"></div></br><h3 class="sentence">Finding clean products</h3></div></div></div>`);
       // document.querySelector('.background-holder').style.marginTop = window.pageYOffset;
       setInterval(newSentence, 1000);
       setTimeout(function(){ window.location.href = "/compare"; }, 3400);
