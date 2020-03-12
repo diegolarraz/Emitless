@@ -4,8 +4,10 @@
       <%= image_tag "2leaf.png", alt: "twoleafs", class: "leafy" %>
       <%= image_tag "#{@basket[1][0].to_s}.png", alt: @basket[1][0].to_s, class: @basket[1][0].to_s %>
       <div class="comparison-infos">
+
         <h5 class="comparison-emission"><%= @basket[1][1][:emissions].round %></h5>
         <h6 class="orange-emits">emits</h6>
+
       </div>
     </div>
 
@@ -18,7 +20,7 @@
           <h3 class="final-emission"><%= @basket[0][1][:emissions].round %></h3>
           <div>
             <h6 class="orange-emits">emits</h6>
-            <p class="price-tag">£<%= @basket[0][1][:price] %></p>
+            <p class="price-tag">£<%= '%.2f' % @basket[0][1][:price] %></p>
           </div>
         </div>
 
@@ -38,6 +40,7 @@
       <div class="comparison-infos">
         <h5 class="comparison-emission"><%= @basket[2][1][:emissions].round%></h5>
         <h6 class="orange-emits">emits</h6>
+
       </div>
     </div>
 
