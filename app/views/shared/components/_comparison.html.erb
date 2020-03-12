@@ -7,7 +7,6 @@
         <h2 class="final-emission"><%= @basket[1][1][:emissions].round %></h2>
         <div class="comparison-details">
           <h6 class="orange-emits">emits</h6>
-          <p>£100</p>
         </div>
       </div>
 
@@ -21,7 +20,7 @@
           <h3 class="emits"><%= @basket[0][1][:emissions].round %></h3>
           <div>
             <h6 class="orange-emits">emits</h6>
-            <p class="price-tag">£<%= @basket[0][1][:price] %></p>
+            <p class="price-tag">£<%= '%.2f' % @basket[0][1][:price] %></p>
           </div>
         </div>
 
@@ -41,8 +40,7 @@
       <div class="comparison-infos">
         <h3 class="emits-small"><%= @basket[2][1][:emissions].round%></h3>
         <div class="comparison-details">
-          <h6>emits</h6>
-          <p>£100</p>
+          <h6 class="orange-emits">emits</h6>
         </div>
       </div>
     </div>
