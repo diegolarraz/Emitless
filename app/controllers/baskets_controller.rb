@@ -1,22 +1,20 @@
 class BasketsController < ApplicationController
   def show
     if params["format"] == "pdf"
-      @final_basket = Basket.find(params["basket"])
+      @basket = Basket.find(params["basket"])
     elsif params[:id]
-      @total_saving = params[:total_saved].to_i
-      @saving = params[:saving].to_i
-      @final_basket = Basket.find(params[:id].to_i)
-      @total_saving += @saving
+
+      @basket = Basket.find(params[:id].to_i)
       # raise
     else
       @total_saving = 0
-      @final_basket = Basket.new(retailer: params[:retailer], user: current_user)
-      @final_basket.emissions = params[:basket][:emissions].to_f
-      @final_basket.price = params[:basket][:price].to_f
-      @final_basket.save
+      @basket = Basket.new(retailer: params[:retailer], user: current_user)
+      @basket.emissions = params[:basket][:emissions].to_f
+      @basket.price = params[:basket][:price].to_f
+      @basket.save
       items = params[:basket][:items]
       items.each do |generic_name, infos|
-        item = BasketItem.create(item: Item.find(infos[1].to_i), basket: @final_basket, amount: infos[0].to_i)
+        item = BasketItem.create(item: Item.find(infos[1].to_i), basket: @basket, amount: infos[0].to_i)
       end
     end
         # {"basket"=>"24", "retailer"=>"tesco", "format"=>"pdf"
@@ -52,9 +50,15 @@ class BasketsController < ApplicationController
     @saving = (basket_item_out.amount * basket_item_out.item.emission) - (@basket_item.item.emission * @basket_item.amount)
     # raise
 
+
     BasketItem.destroy(basket_item_out.id)
     if @basket.save
-      redirect_to basket_path(id: @basket, saving: @saving, total_saved: params[:total_saved])
+      @total_saving = params[:total_saved].to_i
+
+      @total_saving += @saving.to_i
+
+      # redirect_to basket_path(id: @basket, saving: @saving, total_saved: params[:total_saved])
+      render :update, id: @basket, saving: @saving, total_saved: params[:total_saved]
     end
   end
 end
