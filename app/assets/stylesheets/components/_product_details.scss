@@ -106,11 +106,12 @@
 .product-card {
   background: white;
   // border-top: 1px solid #CFCFCF;
-  padding: 0px 16px;
+  padding: 0px;
   margin: 3px 0;
   display: flex;
   align-items: center;
   transition: 0.3s;
+
   .out {
     padding-left: 0;
   }
@@ -150,6 +151,8 @@
   width: 75%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
   > h5 {
     font-size: 17px;
     font-weight: semi-bold;

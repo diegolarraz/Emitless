@@ -11,7 +11,7 @@
           </div>
         </div>
       </div>
-      <%= link_to 'Download my list', basket_path(@final_basket, format: :pdf, retailer: @final_basket.retailer, basket: @final_basket), class: "btn btn-primary search-btn px-4" %>
+      <%= link_to 'Download my list', basket_path(@final_basket, format: :pdf, retailer: @final_basket.retailer, basket: @final_basket), class: "btn btn-primary search-btn px-4", target: :_blank %>
     </div>
     <div class="farmer-text">
       <%= image_tag "farmer.png", alt: "farmer" %>
