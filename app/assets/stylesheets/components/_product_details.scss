@@ -88,7 +88,8 @@
 
 .cart-grid {
   border-top: 1px solid #CFCFCF;
-  margin-bottom: 70px;
+  margin: 10px 0 85px 0;
+  padding-top: 10px;
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-gap: 15px 15px;
@@ -181,7 +182,9 @@
 
 .swap-button {
   width: 80px;
-  transition: 0.3s;
+  // transition: 0.3s;
+  opacity: 1;
+  transition: opacity 0.3 ease-in-out;
   &:hover {
     transform: scale(1.1);
   }
@@ -190,6 +193,11 @@
 .green {
   color: $green;
   font-weight: bold;
+}
+
+.swap-button.fade {
+  opacity: 0;
+  transition: none;
 }
 
 .move-out {

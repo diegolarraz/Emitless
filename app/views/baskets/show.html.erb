@@ -16,7 +16,7 @@
     <div class="farmer-text">
       <%= image_tag "farmer.png", alt: "farmer" %>
       <% if @total_saving > 0 %>
-        <p><strong>Well done!! You have saved <%= @total_saving %> emits!</strong><br>Enjoy your shopping!</p>
+        <p><strong>Well done! You have saved <%= @total_saving %> emits!</strong><br>Enjoy your shopping!</p>
       <% else %>
         <p>Your shopping basket is now ready! We found some more <span class="green">eco-friendly or seasonal products</span>, so get swapping and emit less!</p>
       <% end %>
@@ -24,7 +24,7 @@
   </div>
 
   <h5 class="basket-headers text-left">My basket</h5>
-  <div class="cart-grid">
+  <div class="cart-grid anim">
 
     <% @final_basket.items.each do |item| %>
       <div class="product-card pc-out" id="out">
