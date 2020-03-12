@@ -4,7 +4,7 @@
       <%= image_tag "2leaf.png", alt: "twoleafs", class: "leafy" %>
       <%= image_tag "#{@basket[1][0].to_s}.png", alt: @basket[1][0].to_s, class: @basket[1][0].to_s %>
       <div class="comparison-infos">
-        <h3 class="emits-small"><%= @basket[1][1][:emissions].round %></h3>
+        <h2 class="final-emission"><%= @basket[1][1][:emissions].round %></h2>
         <div class="comparison-details">
           <h6 class="orange-emits">emits</h6>
           <p>£100</p>
