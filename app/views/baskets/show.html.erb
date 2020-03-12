@@ -15,7 +15,11 @@
     </div>
     <div class="farmer-text">
       <%= image_tag "farmer.png", alt: "farmer" %>
-      <p>Your shopping basket is now ready! We found some more <span class="green">eco-friendly or seasonal products</span>, so get swapping and emit less!</p>
+      <% if @total_saving > 0 %>
+        <p><strong>Well done!! You have saved <%= @total_saving %> emits!</strong><br>Enjoy your shopping!</p>
+      <% else %>
+        <p>Your shopping basket is now ready! We found some more <span class="green">eco-friendly or seasonal products</span>, so get swapping and emit less!</p>
+      <% end %>
     </div>
   </div>
 
@@ -47,7 +51,7 @@
 
       <div class="d-flex align-items-center justify-content-center">
         <% if item.find_swap %>
-          <%= link_to update_path(@final_basket, swap_out: item, swap_in: item.find_swap), method: :patch do %>
+          <%= link_to update_path(@final_basket, swap_out: item, swap_in: item.find_swap, total_saved: @total_saving), method: :patch do %>
             <%= image_tag "swap-hd.png", alt: "swap item", class: "swap-button" %>
           <% end %>
         <% end %>
