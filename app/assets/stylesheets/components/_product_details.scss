@@ -119,15 +119,6 @@
  }
 }
 
-// Set width for the cards
-#in {
-
-}
-
-#out {
-
-}
-
 .product-infos-left {
   text-align: left;
   padding-right: 10px;
@@ -201,15 +192,6 @@
 .move-out {
   animation: card-out 2s linear forwards;
 }
-
-// @keyframes card-out {
-//   0% { }
-//   20% { transform: translate(100px, -50px); }
-//   40% { transform: translate(200px, -50px); }
-//   60% { transform: translate(300px, -50px); }
-//   80% { transform: translate(400px, -50px); }
-//   100% { transform: translate(500px, 0px); }
-// }
 
 @keyframes card-out {
   0% { transform: translate(0, 0); }
