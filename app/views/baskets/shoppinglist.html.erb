@@ -5,7 +5,7 @@
   <h5 class="basket-headers text-left">My basket</h5>
   <div class="cart-grid">
     <br>
-    <% @final_basket.items.each do |item| %>
+    <% @basket.items.each do |item| %>
       <div class="product-card" id="out">
         <%= image_tag "#{item.image}", class: 'product-image', alt: "alttext" %>
         <div class="product-infos pdf-product-infos">
@@ -36,13 +36,13 @@
     <div class="header-top-basket">
       <div class="logo-emits pdf-logo-emits">
         <div class="number-text">
-          <h2 class="final-emission"><%= @final_basket.emissions.to_i %></h2>
+          <h2 class="final-emission"><%= @basket.emissions.to_i %></h2>
           <div class="emit-price">
             <h6 class="orange-emits">emits</h6>
-            <p class="final-price item"> £<%= '%.2f' % @final_basket.price %> </p>
+            <p class="final-price item"> £<%= '%.2f' % @basket.price %> </p>
           </div>
         </div>
-        <%= image_tag image_url("#{@final_basket.retailer}.png"), alt: "#{@final_basket}", id: "retail-logo" %>
+        <%= image_tag image_url("#{@basket.retailer}.png"), alt: "#{@basket}", id: "retail-logo" %>
       </div>
     </div>
   </div>
