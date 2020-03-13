@@ -30,11 +30,12 @@
   display: flex;
   text-align: left;
   padding: 50px 0 60px 0;
+  align-items: center;
 
   > p {
     margin: 0 12px;
     color: #686868;
-    margin-bottom: 0;
+    margin-bottom: 9px;
     width: 60%;
     font-size: 16px;
   }
@@ -56,6 +57,7 @@
 
 .emit-price {
   text-align: left;
+  margin-bottom: 6px;
 }
 
 .basket-headers {
