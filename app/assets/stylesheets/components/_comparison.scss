@@ -7,7 +7,7 @@
 
 .comparison-all {
   position: relative;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 126px);
   overflow: hidden;
 
   &:after {
@@ -180,6 +180,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 32px;
 
   .emits-small {
     font-size: 40px;
@@ -247,4 +248,8 @@
     left: 50%;
     transform: translateX(-50%);
   }
+}
+
+.basket-link {
+  margin: 0px;
 }

@@ -6,7 +6,7 @@
 .basket {
   position: sticky;
   top: 4px;
-  height: 680px;
+  height: 600px;
   width: 109%;
   display: flex;
   flex-direction: column;
@@ -45,13 +45,12 @@
 
 .compare-button {
   padding: 12px 0;
-  background-color: rgba(255, 255, 255, .3);
   width: 100%;
   border-radius: 8px;
   margin-top: 8px;
   margin-bottom: 8px;
   color: white;
-  background-color: #D2E861;
+  background-color: $green;
 }
 
 .basket {
