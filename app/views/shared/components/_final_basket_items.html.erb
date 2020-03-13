@@ -15,7 +15,7 @@
     <div class="farmer-text">
       <%= image_tag "farmer.png", alt: "farmer" %>
       <% if @total_saving > 0 %>
-        <p><strong>Well done!! You have saved <%= @total_saving %> emits!</strong><br>Enjoy your shopping!</p>
+        <p><strong>Well done!! You have saved <span class="saved-emits"><%= @total_saving %></span> emits!</strong><br>Enjoy your shopping!</p>
       <% else %>
         <p>Your shopping basket is now ready! We found some more <span class="green">eco-friendly or seasonal products</span>, so get swapping and emit less!</p>
       <% end %>
