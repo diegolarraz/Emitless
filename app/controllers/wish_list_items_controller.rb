@@ -68,6 +68,7 @@ class WishListItemsController < ApplicationController
     end
 
     @basket[:ocado][:emissions] = @basket[:tesco][:emissions] + 12
+    @basket[:morrisons][:emissions] = @basket[:tesco][:emissions] + 6
     # raise
 
     @basket = @basket.sort_by { |retailer, infos| infos[:emissions] }
